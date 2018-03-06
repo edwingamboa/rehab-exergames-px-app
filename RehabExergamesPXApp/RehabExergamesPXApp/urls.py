@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-import apps.dashboard.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(apps.dashboard.urls, namespace='dashboard')),
+    url(r'^', include('RehabExergamesPXApp.apps.dashboard.urls', namespace='dashboard')),
+    url(r'^rehab-exergames/', include('RehabExergamesPXApp.apps.rehab_exergames.urls', namespace='rehab_exergames')),
 ]

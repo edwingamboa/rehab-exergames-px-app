@@ -4,6 +4,8 @@ class Constants:
     INPUT_DEVICE = 1
     OUTPUT_DEVICE = 2
     IN_OUTPUT_DEVICE = 3
+    SUCCESS_UPDATE_MESSAGE = 'was updated correctly'
+    SUCCESS_CREATE_MESSAGE = 'was created correctly'
     GAME_STATUS = (
         (ACTIVE, 'Active'),
         (INACTIVE, 'Inactive'),
