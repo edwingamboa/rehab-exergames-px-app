@@ -1,6 +1,6 @@
 import os
 from django.db import models
-from RehabExergamesPXApp.utilities.constants import Constants
+from utilities.constants import Constants
 
 
 def get_image_path(instance, filename):
