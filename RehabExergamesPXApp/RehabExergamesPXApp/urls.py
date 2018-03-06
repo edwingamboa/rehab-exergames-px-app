@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('RehabExergamesPXApp.apps.dashboard.urls', namespace='dashboard')),
-    url(r'^rehab-exergames/', include('RehabExergamesPXApp.apps.rehab_exergames.urls', namespace='rehab_exergames')),
+    url(r'^', include('apps.dashboard.urls', namespace='dashboard')),
+    url(r'^rehab-exergames/', include('apps.rehab_exergames.urls', namespace='rehab_exergames')),
 ]
