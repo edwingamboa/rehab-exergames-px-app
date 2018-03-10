@@ -12,6 +12,6 @@ class Constants:
     )
     DEVICE_TYPE = (
         (INPUT_DEVICE, 'Input'),
-        (INPUT_DEVICE, 'Output'),
+        (OUTPUT_DEVICE, 'Output'),
         (IN_OUTPUT_DEVICE, 'Input/Output'),
     )

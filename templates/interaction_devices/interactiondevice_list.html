@@ -1,0 +1,46 @@
+{% extends "base_list.html" %}
+{% load staticfiles %}
+
+{% block page-title %}Interaction Devices{% endblock %}
+{% block page-description %}Manage Interaction Devices{% endblock %}
+
+{% block cabecera_tabla %}
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Device Technology</th>
+        <th>Type</th>
+        <th>Manage</th>
+    </tr>
+    </thead>
+{% endblock cabecera_tabla %}
+{% block cuerpo_tabla %}
+    <tbody>
+    {% for interactiondevice in object_list %}
+        <tr>
+            <td>{{ interactiondevice.name }}</td>
+            <td>{{ interactiondevice.description }}</td>
+            <td>{{ interactiondevice.device_technology.name}}</td>
+            <td>{{ interactiondevice.get_type_display }}</td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Opciones</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Manage Interaction Devices</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url "interaction_device:detail" interactiondevice.id %}">View</a></li>
+                        <li><a href="{% url "interaction_device:update" interactiondevice.id %}">Update</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+{% endblock cuerpo_tabla %}
+
+{% block new_button %}
+    <a href="{% url "interaction_device:new" %}" class="btn btn-success"><i class="fa  fa-plus-circle"></i> New Interaction Device</a>
+{% endblock %}

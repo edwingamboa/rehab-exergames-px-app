@@ -33,7 +33,7 @@ class Game(models.Model):
 
     @property
     def is_active(self):
-        return self.estado == Constants.ACTIVE
+        return self.status == Constants.ACTIVE
 
     @property
     def image_url(self):

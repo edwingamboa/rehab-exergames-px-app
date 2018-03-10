@@ -1,0 +1,42 @@
+{% extends "base_list.html" %}
+{% load staticfiles %}
+
+{% block page-title %}Interaction Devices{% endblock %}
+{% block page-description %}Manage Interaction Device Technologies{% endblock %}
+
+{% block cabecera_tabla %}
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Manage</th>
+    </tr>
+    </thead>
+{% endblock cabecera_tabla %}
+{% block cuerpo_tabla %}
+    <tbody>
+    {% for devicetechnology in object_list %}
+        <tr>
+            <td>{{ devicetechnology.name }}</td>
+            <td>{{ devicetechnology.description }}</td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Opciones</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Manage Interaction Devices</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url "interaction_device:detail_tech" devicetechnology.id %}">View</a></li>
+                        <li><a href="{% url "interaction_device:update_tech" devicetechnology.id %}">Update</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+{% endblock cuerpo_tabla %}
+
+{% block new_button %}
+    <a href="{% url "interaction_device:new_tech" %}" class="btn btn-success"><i class="fa  fa-plus-circle"></i> New Device Technology</a>
+{% endblock %}
