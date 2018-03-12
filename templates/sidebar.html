@@ -1,15 +1,12 @@
 {% load staticfiles %}
-<aside class="main-sidebar">
-
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">
-            <li class="header">Menu</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{% url "dashboard:dashboard" %}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        </ul>
-        <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
-</aside>
+<div class="sidebar-wrapper">
+    <ul class="nav">
+        <li class="active">
+            <a href="{% url 'dashboard:dashboard' %}">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="sidebar-background" style="background-image: url({% static 'material-dashboard-1.2.0/assets/img/sidebar-1.jpg' %}) "></div>

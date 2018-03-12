@@ -1,0 +1,24 @@
+{% extends "card_base.html" %}
+{% load staticfiles %}
+
+{% block card_color %}blue{% endblock %}
+
+{% block additional_card_classes %}table-responsive{% endblock %}
+
+{% block card_content %}
+    <a href="{% block new_url %} {% endblock new_url %}" class="btn btn-success pull-right"><i class="fa  fa-plus-circle"></i> New {% block new_object_name %}{% endblock new_object_name %}</a>
+    <table class="table">
+        <thead class="text-info">
+        {% block table_head %}
+        {% endblock table_head %}
+        </thead>
+        <tbody>
+        {% block table_body %}
+        {% endblock table_body %}
+        </tbody>
+    </table>
+{% endblock card_content %}
+
+{% block card_footer %}
+    {% block content_post_table %} {% endblock content_post_table %}
+{% endblock card_footer %}
