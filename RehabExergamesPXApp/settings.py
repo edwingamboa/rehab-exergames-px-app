@@ -25,7 +25,7 @@ SECRET_KEY = '9$b_^1^il)@1)%*#sj)*&qmk5cd$$dmtf1wzw04huptw3yqtm3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rehab-exergames-px-app-edwingamboa.c9users.io']
 
 
 # Application definition
