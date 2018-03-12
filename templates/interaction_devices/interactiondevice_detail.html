@@ -1,34 +1,26 @@
-{% extends "base.html" %}
+{% extends "detail_base.html" %}
 {% load staticfiles %}
 
-{% block page-title %}Interaction Device Details{% endblock %}
-{% block page-description %}Interaction Device{% endblock %}
+{% block card_description %}Interaction Device Details{% endblock %}
 
-{% block content %}
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ interactiondevice.name }}</h3>
-        </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <div class="box-body">
-            <p>
-                Descripción:
-                <span class="text-muted"> {{ interactiondevice.description }}</span>
-            </p>
-            <p>
-                Device Technology:
-                <span class="text-muted"> {{ interactiondevice.device_technology.name}}</span>
-            </p>
-            <p>
-                Type:
-                <span class="text-muted"> {{ interactiondevice.get_type_display}}</span>
-            </p>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-            <a href="{% url "interaction_device:update" interactiondevice.id %}" class="btn btn-info">Update</a>
-            <a href="{% url "interaction_device:list" %}" class="btn btn-primary pull-right">List</a>
-        </div>
-    </div>
+{% block card_content %}
+<p>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</p>
+<p>
+    Description:
+    <span class="text-muted"> {{ object.description }}</span>
+</p>
+<p>
+    Device Technology:
+    <span class="text-muted"> {{ object.device_technology.name}}</span>
+</p>
+<p>
+    Type:
+    <span class="text-muted"> {{ object.get_type_display}}</span>
+</p>
 {% endblock %}
+
+{% block update_url %} {% url 'interaction_device:update' object.id %} {% endblock %}
+{% block list_url %} {% url 'interaction_device:list' %} {% endblock %}

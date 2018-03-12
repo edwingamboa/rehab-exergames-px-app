@@ -1,30 +1,4 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% load bootstrap3 %}
+{% extends "form_base.html" %}
 
-{% block page-title %}
-    {% if devicetechnology %}
-    Update
-    {% else %}
-    New
-    {% endif %}
-    Interaction Device
-{% endblock %}
-{% block page-description %}Interaction Devices{% endblock %}
-
-{% block content %}
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">Register a new device technology</h3>
-        </div>
-        <form method="post" class="form-horizontal">
-            <div class="box-body">
-                {% csrf_token %}
-                {% bootstrap_form form layout="horizontal" %}
-            </div>
-            <div class="box-footer">
-                <input type="submit" value="Save" class="btn btn-info"/>
-            </div>
-        </form>
-    </div>
-{% endblock %}
+{% block card_title_suffix %}Interaction Devices{% endblock %}
+{% block card_description %}Register a new device technology{% endblock %}

@@ -1,26 +1,18 @@
-{% extends "base.html" %}
+{% extends "detail_base.html" %}
 {% load staticfiles %}
 
-{% block page-title %}Device Technology Details{% endblock %}
-{% block page-description %}Device Technology{% endblock %}
+{% block card_description %}Device Technology Details{% endblock %}
 
-{% block content %}
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ devicetechnology.name }}</h3>
-        </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <div class="box-body">
-            <p>
-                Descripción:
-                <span class="text-muted"> {{ devicetechnology.description }}</span>
-            </p>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-            <a href="{% url "interaction_device:update_tech" devicetechnology.id %}" class="btn btn-info">Update</a>
-            <a href="{% url "interaction_device:list_tech" %}" class="btn btn-primary pull-right">List</a>
-        </div>
-    </div>
+{% block card_content %}
+<p>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</p>
+<p>
+    Description:
+    <span class="text-muted"> {{ object.description }}</span>
+</p>
 {% endblock %}
+
+{% block update_url %} {% url 'interaction_device:update_tech' object.id %} {% endblock %}
+{% block list_url %} {% url 'interaction_device:list_tech' %} {% endblock %}

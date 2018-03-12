@@ -1,42 +1,37 @@
-{% extends "base_list.html" %}
-{% load staticfiles %}
+{% extends "list_base.html" %}
 
-{% block page-title %}Interaction Devices{% endblock %}
-{% block page-description %}Manage Interaction Device Technologies{% endblock %}
+{% block card_title %}Interaction Devices{% endblock card_title %}
+{% block card_description %}Manage Device Technologies{% endblock card_description%}
 
-{% block cabecera_tabla %}
-    <thead>
+{% block table_head %}
     <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Description</th>
         <th>Manage</th>
     </tr>
-    </thead>
-{% endblock cabecera_tabla %}
-{% block cuerpo_tabla %}
-    <tbody>
-    {% for devicetechnology in object_list %}
+{% endblock table_head %}
+{% block table_body %}
+    {% for object in object_list %}
         <tr>
-            <td>{{ devicetechnology.name }}</td>
-            <td>{{ devicetechnology.description }}</td>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.description }}</td>
             <td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Opciones</button>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                        <span class="sr-only">Manage Interaction Devices</span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{% url "interaction_device:detail_tech" devicetechnology.id %}">View</a></li>
-                        <li><a href="{% url "interaction_device:update_tech" devicetechnology.id %}">Update</a></li>
+                <div class="dropdown">
+                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                        Opciones
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'interaction_device:detail_tech' object.id %}">View</a></li>
+                        <li><a href="{% url 'interaction_device:update_tech' object.id %}">Update</a></li>
                     </ul>
                 </div>
             </td>
         </tr>
     {% endfor %}
-    </tbody>
-{% endblock cuerpo_tabla %}
+{% endblock table_body %}
 
-{% block new_button %}
-    <a href="{% url "interaction_device:new_tech" %}" class="btn btn-success"><i class="fa  fa-plus-circle"></i> New Device Technology</a>
-{% endblock %}
+{% block new_url %} {% url 'interaction_device:new_tech' %} {% endblock new_url %}
+{% block new_object_name %}Device Technology{% endblock new_object_name %}
