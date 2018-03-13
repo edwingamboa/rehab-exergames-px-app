@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('apps.dashboard.urls', namespace='dashboard')),
+    url(r'^', include('dashboard.urls', namespace='dashboard')),
     url(r'^interaction_device/', include('interaction_devices.urls', namespace='interaction_device')),
 ]

@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.views.generic import TemplateView
 
-# Create your views here.
 
 # Create your views here.
 class Dashboard(TemplateView):
