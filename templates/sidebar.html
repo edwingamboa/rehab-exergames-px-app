@@ -27,6 +27,16 @@
                 <li><a href="{% url 'interaction_device:list_tech' %}">List</a></li>
             </ul>
         </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="material-icons">directions_run</i>
+                <p>Movements<b class="caret"></b></p>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'movements:new_config_par' %}">New Configuration Parameter</a></li>
+                <li><a href="{% url 'movements:list_config_par' %}">List Configuration Parameters</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
 <div class="sidebar-background" style="background-image: url({% static 'material-dashboard-1.2.0/assets/img/sidebar-1.jpg' %}) "></div>
