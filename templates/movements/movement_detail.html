@@ -1,0 +1,26 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Movement Details{% endblock %}
+
+{% block card_content %}
+<p>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</p>
+<p>
+    Description:
+    <span class="text-muted"> {{ object.description }}</span>
+</p>
+<p>
+    Configuration Parameters:
+    {% for config_par in object.configuration_parameters.all %}
+        <p><span class="text-muted"> {{ config_par }}</span></p>
+    {% empty %}
+        <span class="text-muted">The movement has no associated configuration parameters.</span>
+    {% endfor %}
+</p>
+{% endblock %}
+
+{% block update_url %} {% url 'movements:update' object.id %} {% endblock %}
+{% block list_url %} {% url 'movements:list' %} {% endblock %}

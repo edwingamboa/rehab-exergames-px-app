@@ -33,6 +33,9 @@
                 <p>Movements<b class="caret"></b></p>
             </a>
             <ul class="dropdown-menu">
+                <li><a href="{% url 'movements:new' %}">New Movement</a></li>
+                <li><a href="{% url 'movements:list' %}">List Movements</a></li>
+                <li class="divider"></li>
                 <li><a href="{% url 'movements:new_config_par' %}">New Configuration Parameter</a></li>
                 <li><a href="{% url 'movements:list_config_par' %}">List Configuration Parameters</a></li>
             </ul>
