@@ -13,18 +13,11 @@
                 <p>Interaction Devices<b class="caret"></b></p>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{% url 'interaction_device:new' %}">New</a></li>
-                <li><a href="{% url 'interaction_device:list' %}">List</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="material-icons">devices_other</i>
-                <p>Device Technologies<b class="caret"></b></p>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="{% url 'interaction_device:new_tech' %}">New</a></li>
-                <li><a href="{% url 'interaction_device:list_tech' %}">List</a></li>
+                <li><a href="{% url 'interaction_device:new' %}">New Interaction Device</a></li>
+                <li><a href="{% url 'interaction_device:list' %}">List Interaction Devices</a></li>
+                <li class="divider"></li>
+                <li><a href="{% url 'interaction_device:new_tech' %}">New Device Technology</a></li>
+                <li><a href="{% url 'interaction_device:list_tech' %}">List Device Technologies</a></li>
             </ul>
         </li>
         <li class="dropdown">
