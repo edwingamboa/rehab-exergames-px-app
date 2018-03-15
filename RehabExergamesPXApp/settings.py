@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'bootstrap3',
     'dashboard',
     'rehab_exergames',
-    'interaction_devices'
+    'interaction_devices',
+    'movements',
 ]
 
 MIDDLEWARE = [
