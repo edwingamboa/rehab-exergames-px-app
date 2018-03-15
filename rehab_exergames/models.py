@@ -1,6 +1,8 @@
 import os
 from django.db import models
 from utilities.constants import Constants
+from movements.models import Movement
+from interaction_devices.models import InteractionDevice
 
 
 def get_image_path(instance, filename):
@@ -13,14 +15,6 @@ class ThematicContent(models.Model):
     description = models.TextField()
 
 
-class InteractionDevice(models.Model):
-    name = models.CharField(max_length=140)
-    description = models.TextField()
-    type = models.PositiveIntegerField(
-        choices=Constants.DEVICE_TYPE
-    )
-
-
 class Game(models.Model):
     name = models.CharField(max_length=140)
     description = models.TextField()
@@ -29,7 +23,8 @@ class Game(models.Model):
         default=Constants.ACTIVE,
         choices=Constants.GAME_STATUS
     )
-    interaction_devices = models.ManyToManyField(InteractionDevice)
+    input_interaction_devices = models.ManyToManyField(InteractionDevice, related_name="input_devices")
+    output_interaction_devices = models.ManyToManyField(InteractionDevice, related_name="output_devices")
 
     @property
     def is_active(self):
@@ -44,3 +39,12 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Exergame (Game):
+    thematic_content = models.PositiveIntegerField(
+        choices=Constants.THEMATIC_CONTENT
+    )
+    associated_movements = models.ManyToManyField(Movement)
+    configurable = models.BooleanField()
+    provide_performance_assessment = models.BooleanField()
