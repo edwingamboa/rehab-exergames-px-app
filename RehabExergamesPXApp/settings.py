@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rehab_exergames',
     'interaction_devices',
     'movements',
+    'pathologies'
 ]
 
 MIDDLEWARE = [

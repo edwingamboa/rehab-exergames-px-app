@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^', include('dashboard.urls', namespace='dashboard')),
     url(r'^interaction_device/', include('interaction_devices.urls', namespace='interaction_device')),
     url(r'^movements/', include('movements.urls', namespace='movements')),
+    url(r'^pathologies/', include('pathologies.urls', namespace='pathologies')),
 ]

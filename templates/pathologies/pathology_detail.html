@@ -1,0 +1,18 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Pathology Details{% endblock %}
+
+{% block card_content %}
+<p>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</p>
+<p>
+    Code:
+    <span class="text-muted"> {{ object.code }}</span>
+</p>
+{% endblock %}
+
+{% block update_url %} {% url 'pathologies:update' object.id %} {% endblock %}
+{% block list_url %} {% url 'pathologies:list' %} {% endblock %}
