@@ -41,7 +41,7 @@ class Constants:
     )
     REHABILITATION_TYPE = (
         (WIDE_PHYSICAL, 'Physical - Wide Focus'),
-        (TIGHT_PHYSICAL, 'Wide Focus - Tight Focus'),
+        (TIGHT_PHYSICAL, 'Physical - Tight Focus'),
         (BEHAVIORAL, 'Behavioral'),
         (COGNITIVE, 'Cognitive'),
     )
