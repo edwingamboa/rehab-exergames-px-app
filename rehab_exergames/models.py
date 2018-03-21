@@ -55,6 +55,9 @@ class RehabilitationTask (models.Model):
     name = models.CharField(max_length=140)
     description = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 
 class RehabilitationExergame (Exergame):
     rehabilitation_type = models.CharField(
@@ -65,5 +68,5 @@ class RehabilitationExergame (Exergame):
         max_length=20,
         choices=Constants.AUTONOMY_DEGREE
     )
-    associated_pathologies = models.ManyToManyField(Pathology)
+    associated_pathologies = models.ManyToManyField(Pathology, blank=True)
     assisted_rehabilitation_tasks = models.ManyToManyField(RehabilitationTask)
