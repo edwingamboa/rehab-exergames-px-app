@@ -1,0 +1,83 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Rehabilitation Exergame Details{% endblock %}
+
+{% block card_content %}
+<div>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</div>
+<div>
+    Description:
+    <span class="text-muted"> {{ object.description }}</span>
+</div>
+{% if object.image %}
+<div class="product-img">
+    <img src="{{ object.image_url }}" alt="{{ object.name }} rehabilitation exergame image">
+</div>
+{% endif %}
+<div>
+    Input interaction devices:
+    <ul>
+        {% for input_dev in object.input_interaction_devices.all %}
+         <li><span class="text-muted">{{ input_dev.name }} </span></li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Output interaction devices:
+    <ul>
+        {% for output_dev in object.output_interaction_devices.all %}
+         <li><span class="text-muted">{{ output_dev.name }} </span></li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Associated movements:
+    <ul>
+        {% for movement in object.associated_movements.all %}
+         <li><span class="text-muted">{{ movement.name }} </span></li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Thematic content:
+    <span class="text-muted"> {{ object.get_thematic_content_display }}</span>
+</div>
+<div>
+    Rehabilitation type:
+    <span class="text-muted"> {{ object.get_rehabilitation_type_display }}</span>
+</div>
+<div>
+    Autonomy degree:
+    <span class="text-muted"> {{ object.get_autonomy_degree_display }}</span>
+</div>
+<div>
+    Associated rehabilitation tasks:
+    <ul>
+        {% for task in object.assisted_rehabilitation_tasks.all %}
+         <li><span class="text-muted">{{ task.name }} </span></li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Associated pathologies:
+    <ul>
+        {% for pathology in object.associated_pathologies.all %}
+         <li><span class="text-muted">{{ pathology.name }} </span></li>
+        {% empty %}
+        <span class="text-muted">No associated pathologies</span>
+        {% endfor %}
+    </ul>
+</div>
+{% if object.configurable %}
+<span class="label label-primary">Configurable</span>
+{% endif %}
+{% if object.provide_performance_assessment %}
+<span class="label label-primary">Provides performance assessment</span>
+{% endif %}
+{% endblock %}
+
+{% block update_url %} {% url 'rehab_exergames:update' object.id %} {% endblock %}
+{% block list_url %} {% url 'rehab_exergames:list' %} {% endblock %}
