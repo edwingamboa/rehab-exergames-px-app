@@ -12,6 +12,14 @@ class Constants:
     ABSTRACT = 4
     REACHED_ANGLE = 1
     NONE = 0
+    BEHAVIORAL = 'behavioral'
+    COGNITIVE = 'cognitive'
+    WIDE_PHYSICAL = 'wide_physical'
+    TIGHT_PHYSICAL = 'tight_physical'
+    CONSTANT_SUPER = 'constant_supervision'
+    ADAPTATION = 'adaptation'
+    ASYNC_SUPERVISION = 'async_supervision'
+    NO_SUPERVISION = 'no_supervision'
     GAME_STATUS = (
         (ACTIVE, 'Active'),
         (INACTIVE, 'Inactive'),
@@ -30,4 +38,16 @@ class Constants:
     PERFORMANCE_MEASURE = (
         (REACHED_ANGLE, 'Reached Angle'),
         (NONE, 'None'),
+    )
+    REHABILITATION_TYPE = (
+        (WIDE_PHYSICAL, 'Physical - Wide Focus'),
+        (TIGHT_PHYSICAL, 'Wide Focus - Tight Focus'),
+        (BEHAVIORAL, 'Behavioral'),
+        (COGNITIVE, 'Cognitive'),
+    )
+    AUTONOMY_DEGREE = (
+        (CONSTANT_SUPER, '1. Only motivates, requires constant physiotherapist supervision'),
+        (ADAPTATION, '2. Provides adaptation features or constraints motion, requires constant physiotherapist supervision'),
+        (ASYNC_SUPERVISION , '3. Requires asynchronous physiotherapist supervision remotely or along periodic meetings'),
+        (NO_SUPERVISION , '4. Standalone, does not require physiotherapist supervision'),
     )

@@ -3,6 +3,7 @@ from django.db import models
 from utilities.constants import Constants
 from movements.models import Movement
 from interaction_devices.models import InteractionDevice
+from pathologies.models import Pathology
 
 
 def get_image_path(instance, filename):
@@ -48,3 +49,21 @@ class Exergame (Game):
     associated_movements = models.ManyToManyField(Movement)
     configurable = models.BooleanField()
     provide_performance_assessment = models.BooleanField()
+
+
+class RehabilitationTask (models.Model):
+    name = models.CharField(max_length=140)
+    description = models.TextField()
+
+
+class RehabilitationExergame (Exergame):
+    rehabilitation_type = models.CharField(
+        max_length=20,
+        choices=Constants.REHABILITATION_TYPE
+    )
+    autonomy_degree = models.CharField(
+        max_length=20,
+        choices=Constants.AUTONOMY_DEGREE
+    )
+    associated_pathologies = models.ManyToManyField(Pathology)
+    assisted_rehabilitation_tasks = models.ManyToManyField(RehabilitationTask)
