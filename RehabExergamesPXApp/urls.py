@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^interaction_device/', include('interaction_devices.urls', namespace='interaction_device')),
     url(r'^movements/', include('movements.urls', namespace='movements')),
     url(r'^pathologies/', include('pathologies.urls', namespace='pathologies')),
+    url(r'^rehab_exergames/', include('rehab_exergames.urls', namespace='rehab_exergames')),
 ]
