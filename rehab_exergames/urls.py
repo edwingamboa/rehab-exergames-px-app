@@ -17,6 +17,7 @@ from .views import (
     ConstraintDetail,
     ConstraintCreation,
     ConstraintUpdate,
+    ConstraintFilteredByCategoryList,
 )
 
 urlpatterns = [
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^constraint_category/new', ConstraintCategoryCreation.as_view(), name='new_constraint_cat'),
     url(r'^constraint_category/update/(?P<pk>\d+)$', ConstraintCategoryUpdate.as_view(), name='update_constraint_cat'),
     url(r'^constraint/$', ConstraintList.as_view(), name='list_constraint'),
+    url(r'^constraint/by_cat/(?P<pk>\d+)$', ConstraintFilteredByCategoryList.as_view(), name='list_constraint_by_cat'),
     url(r'^constraint/(?P<pk>\d+)$', ConstraintDetail.as_view(), name='detail_constraint'),
     url(r'^constraint/new', ConstraintCreation.as_view(), name='new_constraint'),
     url(r'^constraint/update/(?P<pk>\d+)$', ConstraintUpdate.as_view(), name='update_constraint'),

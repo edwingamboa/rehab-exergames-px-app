@@ -121,7 +121,18 @@ class ConstraintCategoryUpdate(UpdateView):
 
 
 class ConstraintList(ListView):
+    template_name = 'rehab_exergames/constraint_list.html'
+    model = ConstraintCategory
+
+
+class ConstraintFilteredByCategoryList(ListView):
     model = Constraint
+    template_name = 'rehab_exergames/constraintfilteredbycategory_list.html'
+
+    def get_queryset(self):
+        category = ConstraintCategory.objects.get(id=self.kwargs['pk'])
+        print(category)
+        return Constraint.objects.filter(categories__id=category.id)
 
 
 class ConstraintDetail(DetailView):
