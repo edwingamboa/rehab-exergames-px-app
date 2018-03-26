@@ -70,3 +70,12 @@ class RehabilitationExergame (Exergame):
     )
     associated_pathologies = models.ManyToManyField(Pathology, blank=True)
     assisted_rehabilitation_tasks = models.ManyToManyField(RehabilitationTask)
+
+
+class Constraint (models.Model):
+    name = models.CharField(max_length=140)
+    description = models.TextField()
+    category = models.CharField(
+        max_length=20,
+        choices=Constants.AUTONOMY_DEGREE
+    )
