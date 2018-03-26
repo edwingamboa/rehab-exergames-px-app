@@ -1,0 +1,18 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Rehabilitation Exergame Constraints Details{% endblock %}
+
+{% block card_content %}
+<p>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</p>
+<p>
+    Description:
+    <span class="text-muted"> {{ object.description }}</span>
+</p>
+{% endblock %}
+
+{% block update_url %} {% url 'rehab_exergames:update_constraint' object.id %} {% endblock %}
+{% block list_url %} {% url 'rehab_exergames:list_constraint' %} {% endblock %}
