@@ -11,6 +11,7 @@ from .models import (
     RehabilitationTask,
     RehabilitationExergame,
     ConstraintCategory,
+    Constraint,
 )
 from .forms import (
     RehabilitationExergameForm
@@ -117,3 +118,37 @@ class ConstraintCategoryUpdate(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(ConstraintCategoryUpdate, self).form_valid(form)
+
+
+class ConstraintList(ListView):
+    model = Constraint
+
+
+class ConstraintDetail(DetailView):
+    model = Constraint
+
+
+class ConstraintCreation(CreateView):
+    model = Constraint
+    fields = ['name', 'description', 'categories']
+    success_msg = "Constraint " + Constants.SUCCESS_CREATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('rehab_exergames:detail_constraint', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(ConstraintCreation, self).form_valid(form)
+
+
+class ConstraintUpdate(UpdateView):
+    model = Constraint
+    fields = ['name', 'description', 'categories']
+    success_msg = "Constraint" + Constants.SUCCESS_UPDATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('rehab_exergames:detail_constraint', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(ConstraintUpdate, self).form_valid(form)

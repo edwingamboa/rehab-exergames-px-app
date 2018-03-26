@@ -78,3 +78,12 @@ class ConstraintCategory (models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Constraint (models.Model):
+    name = models.CharField(max_length=140)
+    description = models.TextField()
+    categories = models.ManyToManyField(ConstraintCategory)
+
+    def __str__(self):
+        return self.name
