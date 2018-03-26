@@ -10,6 +10,7 @@ from django.views.generic.list import ListView
 from .models import (
     RehabilitationTask,
     RehabilitationExergame,
+    ConstraintCategory,
 )
 from .forms import (
     RehabilitationExergameForm
@@ -82,3 +83,37 @@ class RehabilitationExergameUpdate(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(RehabilitationExergameUpdate, self).form_valid(form)
+
+
+class ConstraintCategoryList(ListView):
+    model = ConstraintCategory
+
+
+class ConstraintCategoryDetail(DetailView):
+    model = ConstraintCategory
+
+
+class ConstraintCategoryCreation(CreateView):
+    model = ConstraintCategory
+    fields = ['name', 'description']
+    success_msg = "Constraint Category " + Constants.SUCCESS_CREATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('rehab_exergames:detail_constraint_cat', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(ConstraintCategoryCreation, self).form_valid(form)
+
+
+class ConstraintCategoryUpdate(UpdateView):
+    model = ConstraintCategory
+    fields = ['name', 'description']
+    success_msg = "Constraint Category" + Constants.SUCCESS_UPDATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('rehab_exergames:detail_constraint_cat', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(ConstraintCategoryUpdate, self).form_valid(form)

@@ -9,6 +9,10 @@ from .views import (
     RehabilitationTaskDetail,
     RehabilitationTaskCreation,
     RehabilitationTaskUpdate,
+    ConstraintCategoryList,
+    ConstraintCategoryDetail,
+    ConstraintCategoryCreation,
+    ConstraintCategoryUpdate,
 )
 
 urlpatterns = [
@@ -20,4 +24,8 @@ urlpatterns = [
     url(r'^rehab_task/(?P<pk>\d+)$', RehabilitationTaskDetail.as_view(), name='detail_task'),
     url(r'^rehab_task/new', RehabilitationTaskCreation.as_view(), name='new_task'),
     url(r'^rehab_task/update/(?P<pk>\d+)$', RehabilitationTaskUpdate.as_view(), name='update_task'),
+    url(r'^constraint_category/$', ConstraintCategoryList.as_view(), name='list_constraint_cat'),
+    url(r'^constraint_category/(?P<pk>\d+)$', ConstraintCategoryDetail.as_view(), name='detail_constraint_cat'),
+    url(r'^constraint_category/new', ConstraintCategoryCreation.as_view(), name='new_constraint_cat'),
+    url(r'^constraint_category/update/(?P<pk>\d+)$', ConstraintCategoryUpdate.as_view(), name='update_constraint_cat'),
 ]
