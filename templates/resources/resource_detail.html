@@ -1,0 +1,38 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Resource Details{% endblock %}
+
+{% block card_content %}
+<p>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</p>
+<p>
+    Description:
+    <span class="text-muted"> {{ object.description }}</span>
+</p>
+<p>
+    Url:
+    <span class="text-muted">
+        {% if object.url %}
+            <a target="_blank" href="{{ object.url }}">{{ object.url }}</a>
+        {% else %}
+            None
+        {% endif %}
+    </span>
+</p>
+<p>
+    File:
+    <span class="text-muted">
+        {% if object.file %}
+        <a target="_blank" href="{{ object.file.url }}"> {{ object.file.name }}</a>
+        {% else %}
+            None
+        {% endif %}
+    </span>
+</p>
+{% endblock %}
+
+{% block update_url %} {% url 'resources:update' object.id %} {% endblock %}
+{% block list_url %} {% url 'resources:list' %} {% endblock %}
