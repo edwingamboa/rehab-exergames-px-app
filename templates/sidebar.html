@@ -10,7 +10,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="material-icons">videogame_asset</i>
-                <p>Rehabilitation Exergames<b class="caret"></b></p>
+                <p>Rehab. Exergames<b class="caret"></b></p>
             </a>
             <ul class="dropdown-menu">
                 <li><a href="{% url 'rehab_exergames:new' %}">New Rehabilitation Exergame</a></li>
@@ -69,6 +69,18 @@
             <ul class="dropdown-menu">
                 <li><a href="{% url 'resources:new' %}">New Resource</a></li>
                 <li><a href="{% url 'resources:list' %}">List Resources</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="material-icons">playlist_add_check</i>
+                <p>PX Evaluation<b class="caret"></b></p>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-header">Evaluation Aspects</li>
+                <li><a href="{% url 'px_evaluation:new_aspects' %}">New Aspect</a></li>
+                <li><a href="{% url 'px_evaluation:list_aspects' %}">List Aspects</a></li>
+                <li class="divider"></li>
             </ul>
         </li>
     </ul>
