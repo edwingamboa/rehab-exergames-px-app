@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block card_content %}
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% block card_form %}
         {% csrf_token %}
         {% bootstrap_form form %}
