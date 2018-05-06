@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rehab_exergames',
     'interaction_devices',
     'movements',
-    'pathologies'
+    'pathologies',
+    'resources'
 ]
 
 MIDDLEWARE = [
@@ -130,5 +131,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),
 )
-#esta linea la cambie tenia static_collected
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'files')
+MEDIA_URL = '/files/'
