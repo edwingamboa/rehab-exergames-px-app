@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'interaction_devices',
     'movements',
     'pathologies',
-    'resources'
+    'resources',
+    'px_evaluation'
 ]
 
 MIDDLEWARE = [

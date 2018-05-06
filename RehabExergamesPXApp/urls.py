@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^pathologies/', include('pathologies.urls', namespace='pathologies')),
     url(r'^rehab_exergames/', include('rehab_exergames.urls', namespace='rehab_exergames')),
     url(r'^resources/', include('resources.urls', namespace='resources')),
+    url(r'^px_evaluation/', include('px_evaluation.urls', namespace='px_evaluation')),
 ]
 
 if settings.DEBUG:
