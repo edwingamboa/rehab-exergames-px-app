@@ -1,0 +1,36 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Method Details{% endblock %}
+
+{% block card_content %}
+<div>
+    Name:
+    <span class="text-muted"> {{ object.name }}</span>
+</div>
+<div>
+    Description:
+    {% if object.description %}
+    <span class="text-muted"> {{ object.description }}</span>
+    {% else %}
+    -
+    {% endif %}
+</div>
+<div>
+    Type:
+    <span class="text-muted"> {{ object.type }}</span>
+</div>
+<div>
+    Resources:
+    <ul>
+        {% for resource in object.resources.all %}
+        <li><span class="text-muted"><a href="{% url 'resources:detail' resource.id %}">{{ resource }}</a></span></li>
+        {% empty %}
+        <span class="text-muted">No associated resources</span>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block update_url %} {% url 'px_evaluation:update_methods' object.id %} {% endblock %}
+{% block list_url %} {% url 'px_evaluation:list_methods' %} {% endblock %}
