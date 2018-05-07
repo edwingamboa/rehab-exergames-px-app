@@ -6,3 +6,24 @@ class Aspect(models.Model):
     name = models.CharField(max_length=140)
     description = models.TextField(blank=True)
     resources = models.ManyToManyField(Resource, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class MethodType(models.Model):
+    name = models.CharField(max_length=140)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Method(models.Model):
+    name = models.CharField(max_length=140)
+    description = models.TextField(blank=True)
+    type = models.ForeignKey(MethodType)
+    resources = models.ManyToManyField(Resource, blank=True)
+
+    def __str__(self):
+        return self.name
