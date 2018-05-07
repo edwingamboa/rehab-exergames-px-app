@@ -27,3 +27,14 @@ class Method(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Instrument(models.Model):
+    name = models.CharField(max_length=140)
+    description = models.TextField(blank=True)
+    aspects = models.ManyToManyField(Aspect, blank=True)
+    methods = models.ManyToManyField(Method, blank=True)
+    resources = models.ManyToManyField(Resource, blank=True)
+
+    def __str__(self):
+        return self.name

@@ -3,7 +3,8 @@ from django.contrib import messages
 from .models import (
     Aspect,
     Method,
-    MethodType
+    MethodType,
+    Instrument,
 )
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -114,3 +115,37 @@ class MethodTypeUpdate(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(MethodTypeUpdate, self).form_valid(form)
+
+
+class InstrumentList(ListView):
+    model = Instrument
+
+
+class InstrumentDetail(DetailView):
+    model = Instrument
+
+
+class InstrumentCreation(CreateView):
+    model = Instrument
+    fields = ['name', 'description', 'aspects', 'methods', 'resources']
+    success_msg = "Instrument " + Constants.SUCCESS_CREATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('px_evaluation:detail_instruments', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(InstrumentCreation, self).form_valid(form)
+
+
+class InstrumentUpdate(UpdateView):
+    model = Instrument
+    fields = ['name', 'description', 'aspects', 'methods', 'resources']
+    success_msg = "Instrument " + Constants.SUCCESS_UPDATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('px_evaluation:detail_instruments', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(InstrumentUpdate, self).form_valid(form)
