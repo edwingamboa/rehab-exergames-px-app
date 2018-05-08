@@ -7,16 +7,22 @@
 
 {% block card_content %}
     <a href="{% block new_url %} {% endblock new_url %}" class="btn btn-success pull-right"><i class="fa  fa-plus-circle"></i> New </a>
-    <table class="table">
-        <thead class="text-info">
-        {% block table_head %}
-        {% endblock table_head %}
-        </thead>
-        <tbody>
-        {% block table_body %}
-        {% endblock table_body %}
-        </tbody>
-    </table>
+    {% if object_list %}
+        <table class="table">
+            <thead class="text-info">
+            {% block table_head %}
+            {% endblock table_head %}
+            </thead>
+            <tbody>
+            {% block table_body %}
+            {% endblock table_body %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="row">
+            <div class="text-muted col-lg-12">There are no items</div>
+        </div>
+    {% endif %}
 {% endblock card_content %}
 
 {% block card_footer %}
