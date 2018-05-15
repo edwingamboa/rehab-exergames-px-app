@@ -1,0 +1,11 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}PX Evaluation Details{% endblock %}
+
+{% block card_content %}
+
+{% endblock %}
+
+{% block update_url %} {% url 'px_evaluation:update' object.id %} {% endblock %}
+{% block list_url %} {% url 'px_evaluation:list' %} {% endblock %}
