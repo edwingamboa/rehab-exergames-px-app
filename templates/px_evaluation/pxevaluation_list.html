@@ -1,0 +1,47 @@
+{% extends "list_base.html" %}
+
+{% block card_title %}PX Evaluations{% endblock card_title %}
+{% block card_description %}Manage PX Evaluations{% endblock card_description%}
+
+{% block table_head %}
+    <tr>
+        <th>Id</th>
+        <th>Rehabilitation Exergame</th>
+        <th>Goal</th>
+        <th>Current stage</th>
+        <th>Manage</th>
+    </tr>
+{% endblock table_head %}
+{% block table_body %}
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.rehab_exergame_characterisation }}</td>
+            <td>{{ object.evaluation_goal }}</td>
+            <td><span class="label
+                    {% if object.current_stage == 'rehab_env_analysis' %} label-success
+                    {% elif object.current_stage == 'eval_goal_def' %} label-info
+                    {% elif object.current_stage == 'aspects_sel' %} label-warning
+                    {% elif object.current_stage == 'methods_sel' %} label-primary
+                    {% elif object.current_stage == 'instruments_sel' %} warning-dark
+                    {% elif  object.current_stage == 'eval_prep' %} default-dark
+                    {% else %} success-dark
+                    {% endif %}">{{ object.get_current_stage_display }}</span></td>
+            <td>
+                <div class="dropdown">
+                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                        Options
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'px_evaluation:detail' object.id %}">View</a></li>
+                        <li><a href="{% url 'px_evaluation:update' object.id %}">Update</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock table_body %}
+
+{% block new_url %} {% url 'px_evaluation:new' %} {% endblock new_url %}
+{% block new_object_name %}PX Evaluation{% endblock new_object_name %}

@@ -1,0 +1,64 @@
+{% extends "form_base.html" %}
+
+{% block card_color %}green{% endblock %}
+
+{% block card_title %}
+    {% if not object or object.current_stage == 'rehab_env_analysis' %} 1. Rehabilitation Environment Analysis
+    {% elif object.current_stage == 'eval_goal_def' %} 2. Evaluation Goal Definition
+    {% elif object.current_stage == 'aspects_sel' %} 3. Evaluation Aspects Selection
+    {% elif object.current_stage == 'methods_sel' %} 4. Evaluation Methods Selection
+    {% elif object.current_stage == 'instruments_sel' %}  5. Evaluation Instruments Selection
+    {% elif  object.current_stage == 'eval_prep' %} 6. Evaluation Preparation
+    {% else %} 7. Results Analysis and Reporting
+    {% endif %}
+{% endblock %}
+{% block card_description %}
+    {% if not object or object.current_stage == 'rehab_env_analysis' %}
+        <p>
+            Select the rehabilitation exergame to be evaluated. Then, upload a document containing a player characterisation.
+            Finally, select relevant constraints. Before registering a new evaluation, you may also want to
+            <a href="{% url 'rehab_exergames:new_constraint' %}">add a new constraint <i class="material-icons md-18">add_circle </i></a>
+        </p>
+    {% elif object.current_stage == 'eval_goal_def' %}
+        <p>
+            Define the evaluation goal based on development maturity and therapeutic needs. Prioritise evaluating
+            movement mapping, adaptation and rehabilitation parameters validity before testing with patients.
+        </p>
+    {% elif object.current_stage == 'aspects_sel' %}
+        <p>
+            Select evaluation aspects based on the evaluation goal defined at previous stage.
+            <a href="#" data-toggle="tooltip" title="{{ object.evaluation_goal }}">Watch evaluation goal <i class="material-icons md-18"> remove_red_eye </i></a>
+        </p>
+    {% elif object.current_stage == 'methods_sel' %}
+        <p>
+            Select evaluation methods based on the <a href="#" data-toggle="tooltip" title="{% for aspect in object.evaluation_aspects.all %}
+{{ forloop.counter }}. {{ aspect }}{% empty %}There are no associated evaluation aspects{% endfor %}">
+            aspects to be evaluated <i class="material-icons md-18"> remove_red_eye </i></a>. Don't forget to assure
+            availability of needed resources
+        </p>
+    {% elif object.current_stage == 'instruments_sel' %}
+         <p>
+            Select evaluation instruments based on the <a href="#" data-toggle="tooltip" title="{% for method in object.evaluation_methods.all %}
+{{ forloop.counter }}. {{ method }}{% empty %}There are no associated evaluation methods{% endfor %}">
+            evaluation methods to be employed <i class="material-icons md-18"> remove_red_eye </i></a>. Don't forget to assure
+            availability of needed resources
+        </p>
+    {% elif  object.current_stage == 'eval_prep' %}
+        <p>
+            Compose and upload an evaluation plan
+        </p>
+    {% else %}
+        <p>
+            Compose and upload a report analysing data collected during evaluation focusing in findings and recommendations.
+        </p>
+    {% endif %}
+{% endblock %}
+
+{% block card_footer_buttons %}
+{% if  object.current_stage == 'report' %}
+<input type="submit" name="save" value="Finish" class="btn btn-success"/>
+{% else %}
+<input type="submit" name="save_continue" value="Save and Continue" class="btn btn-success"/>
+<input type="submit" name="save" value="Save and Close" class="btn btn-info"/>
+{% endif %}
+{% endblock %}
