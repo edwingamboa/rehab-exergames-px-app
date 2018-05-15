@@ -20,6 +20,8 @@
     {% endblock card_form %}
 {% endblock card_content %}
 {% block card_footer %}
-    <input type="submit" value="Save" class="btn btn-success"/>
+    {% block card_footer_buttons %}
+        <input type="submit" value="Save" class="btn btn-success"/>
+    {% endblock card_footer_buttons %}
 </form>
 {% endblock card_footer %}
