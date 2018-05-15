@@ -5,6 +5,7 @@ from .models import (
     Method,
     MethodType,
     Instrument,
+    PXEvaluation,
 )
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -13,6 +14,7 @@ from django.views.generic.edit import (
     UpdateView,
 )
 from utilities.constants import Constants
+from .forms import PXEvaluationUpdateForm
 
 
 class AspectList(ListView):
@@ -149,3 +151,54 @@ class InstrumentUpdate(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(InstrumentUpdate, self).form_valid(form)
+
+
+class PXEvaluationList(ListView):
+    model = PXEvaluation
+
+
+class PXEvaluationDetail(DetailView):
+    model = PXEvaluation
+
+
+class PXEvaluationCreation(CreateView):
+    model = PXEvaluation
+    fields = ['rehab_exergame_characterisation', 'players_characterisation', 'rehabilitation_constraints']
+    success_msg = "Evaluation " + Constants.SUCCESS_CREATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('px_evaluation:detail', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super(PXEvaluationCreation, self).form_valid(form)
+
+
+class PXEvaluationUpdate(UpdateView):
+    model = PXEvaluation
+    form_class = PXEvaluationUpdateForm
+    success_msg = "Evaluation " + Constants.SUCCESS_CREATE_MESSAGE
+
+    def form_valid(self, form):
+        px_evaluation = form.save(commit=False)
+        if px_evaluation.current_stage == Constants.ENV_ANALYSIS:
+            px_evaluation.current_stage = Constants.EVAL_GOAL_DEF
+        elif px_evaluation.current_stage == Constants.EVAL_GOAL_DEF:
+            px_evaluation.current_stage = Constants.ASPECTS_SEL
+        elif px_evaluation.current_stage == Constants.ASPECTS_SEL:
+            px_evaluation.current_stage = Constants.METHODS_SEL
+        elif px_evaluation.current_stage == Constants.METHODS_SEL:
+            px_evaluation.current_stage = Constants.INSTRUMENTS_SEL
+        elif px_evaluation.current_stage == Constants.INSTRUMENTS_SEL:
+            px_evaluation.current_stage = Constants.EVAL_PREP
+        elif px_evaluation.current_stage == Constants.EVAL_PREP:
+            px_evaluation.current_stage = Constants.REPORT
+
+        px_evaluation.save()
+        messages.success(self.request, self.success_msg)
+        print(form.data)
+        if 'save_continue' in form.data:
+            self.success_url = reverse_lazy('px_evaluation:update', kwargs={'pk': self.object.id})
+        elif 'save' in form.data:
+            self.success_url = reverse_lazy('px_evaluation:detail', kwargs={'pk': self.object.id})
+        return super(PXEvaluationUpdate, self).form_valid(form)

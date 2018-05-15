@@ -17,6 +17,10 @@ from .views import (
     InstrumentDetail,
     InstrumentList,
     InstrumentUpdate,
+    PXEvaluationDetail,
+    PXEvaluationList,
+    PXEvaluationCreation,
+    PXEvaluationUpdate,
 )
 
 urlpatterns = [
@@ -36,4 +40,8 @@ urlpatterns = [
     url(r'^instruments/(?P<pk>\d+)$', InstrumentDetail.as_view(), name='detail_instruments'),
     url(r'^instruments/new', InstrumentCreation.as_view(), name='new_instruments'),
     url(r'^instruments/update/(?P<pk>\d+)$', InstrumentUpdate.as_view(), name='update_instruments'),
+    url(r'^px_evaluations/$', PXEvaluationList.as_view(), name='list'),
+    url(r'^px_evaluations/(?P<pk>\d+)$', PXEvaluationDetail.as_view(), name='detail'),
+    url(r'^px_evaluations/new', PXEvaluationCreation.as_view(), name='new'),
+    url(r'^px_evaluations/update/(?P<pk>\d+)', PXEvaluationUpdate.as_view(), name='update'),
 ]
