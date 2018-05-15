@@ -77,6 +77,10 @@
                 <p>PX Evaluation<b class="caret"></b></p>
             </a>
             <ul class="dropdown-menu">
+                <li class="dropdown-header">PX Evaluation</li>
+                <li><a href="{% url 'px_evaluation:new' %}">New Evaluation</a></li>
+                <li><a href="{% url 'px_evaluation:list' %}">List Evaluations</a></li>
+                <li class="divider"></li>
                 <li class="dropdown-header">Evaluation Aspects</li>
                 <li><a href="{% url 'px_evaluation:new_aspects' %}">New Aspect</a></li>
                 <li><a href="{% url 'px_evaluation:list_aspects' %}">List Aspects</a></li>
