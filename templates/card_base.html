@@ -6,18 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<div class="card">
-    <div class="card-header" data-background-color="{% block card_color %} {% endblock %}">
-        <h4 class="title">{% block card_title %}{% endblock card_title %}</h4>
-		<p class="category">{% block card_description %}{% endblock card_description %}</p>
+<section class="content-header">
+    <h1>
+        {% block content_title %}{% endblock content_title %}
+        <small>{% block content_subtitle %}{% endblock content_subtitle %}</small>
+    </h1>
+    <ol class="breadcrumb">
+        {% block breadcrumb %}{% endblock breadcrumb %}
+    </ol>
+</section>
+<div class="box {% block card_color %} {% endblock %}">
+    <div class="box-header with-border">
+        <h3 class="box-title">{% block card_title %}{% endblock card_title %}</h3>
+        <p class="text-muted">{% block card_description %}{% endblock card_description %}</p>
+        <div class="box-tools pull-right">
+            {% block card-tool-buttons %}{% endblock card-tool-buttons %}
+        </div>
     </div>
-    <div class="card-content {% block additional_card_classes %} {% endblock %}">
+    <div class="box-body {% block additional_card_classes %} {% endblock %}">
         {% block card_content %} {% endblock %}
     </div>
-    <div class="card-footer">
+    <!-- /.box-body -->
+    <div class="box-footer">
         {% block card_footer %} {% endblock %}
     </div>
+    <!-- /.box-footer-->
 </div>
+<!-- /.box -->
 {% endblock %}
 {% block specific-js %}
 {% endblock %}

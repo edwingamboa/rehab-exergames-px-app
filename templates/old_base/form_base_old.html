@@ -1,0 +1,27 @@
+{% extends "card_base.html" %}
+{% load bootstrap3 %}
+
+{% block card_color %}{% if object %}purple{% else %}green{% endif %}{% endblock %}
+
+{% block card_title %}
+    {% if object %}
+        Update
+    {% else %}
+        New
+    {% endif %}
+    {% block card_title_suffix %}{% endblock %}
+{% endblock %}
+
+{% block card_content %}
+<form method="post" enctype="multipart/form-data">
+    {% block card_form %}
+        {% csrf_token %}
+        {% bootstrap_form form %}
+    {% endblock card_form %}
+{% endblock card_content %}
+{% block card_footer %}
+    {% block card_footer_buttons %}
+        <input type="submit" value="Save" class="btn btn-success"/>
+    {% endblock card_footer_buttons %}
+</form>
+{% endblock card_footer %}

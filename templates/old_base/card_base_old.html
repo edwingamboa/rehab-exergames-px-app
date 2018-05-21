@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{# Load the tag library #}
+{% load staticfiles %}
+
+{% block specific-css %}
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header" data-background-color="{% block card_color %} {% endblock %}">
+        <h4 class="title">{% block card_title %}{% endblock card_title %}</h4>
+		<p class="category">{% block card_description %}{% endblock card_description %}</p>
+    </div>
+    <div class="card-content {% block additional_card_classes %} {% endblock %}">
+        {% block card_content %} {% endblock %}
+    </div>
+    <div class="card-footer">
+        {% block card_footer %} {% endblock %}
+    </div>
+</div>
+{% endblock %}
+{% block specific-js %}
+{% endblock %}

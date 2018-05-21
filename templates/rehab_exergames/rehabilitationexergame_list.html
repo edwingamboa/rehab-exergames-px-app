@@ -18,15 +18,16 @@
             <td>{{ object.name }}</td>
             <td>{{ object.description }}</td>
             <td>
-                <div class="dropdown">
-                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                        Options
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'rehab_exergames:detail' object.id %}">View</a></li>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-info">Options</button>
+                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'rehab_exergames:detail' object.id %}">View</a></li>
                         <li><a href="{% url 'rehab_exergames:update' object.id %}">Update</a></li>
-                    </ul>
+                  </ul>
                 </div>
             </td>
         </tr>

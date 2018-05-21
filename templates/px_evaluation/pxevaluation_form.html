@@ -14,43 +14,29 @@
 {% endblock %}
 {% block card_description %}
     {% if not object or object.current_stage == 'rehab_env_analysis' %}
-        <p>
-            Select the rehabilitation exergame to be evaluated. Then, upload a document containing a player characterisation.
-            Finally, select relevant constraints. Before registering a new evaluation, you may also want to
-            <a href="{% url 'rehab_exergames:new_constraint' %}">add a new constraint <i class="material-icons md-18">add_circle </i></a>
-        </p>
+        Select the rehabilitation exergame to be evaluated. Then, upload a document containing a player characterisation.
+        Finally, select relevant constraints. Before registering a new evaluation, you may also want to
+        <a href="{% url 'rehab_exergames:new_constraint' %}">add a new constraint <i class="fa fa-eye"></i></a>
     {% elif object.current_stage == 'eval_goal_def' %}
-        <p>
-            Define the evaluation goal based on development maturity and therapeutic needs. Prioritise evaluating
-            movement mapping, adaptation and rehabilitation parameters validity before testing with patients.
-        </p>
+        Define the evaluation goal based on development maturity and therapeutic needs. Prioritise evaluating
+        movement mapping, adaptation and rehabilitation parameters validity before testing with patients.
     {% elif object.current_stage == 'aspects_sel' %}
-        <p>
-            Select evaluation aspects based on the evaluation goal defined at previous stage.
-            <a href="#" data-toggle="tooltip" title="{{ object.evaluation_goal }}">Watch evaluation goal <i class="material-icons md-18"> remove_red_eye </i></a>
-        </p>
+        Select evaluation aspects based on the evaluation goal defined at previous stage.
+        <a href="#" data-toggle="tooltip" title="{{ object.evaluation_goal }}">Watch evaluation goal <i class="fa fa-eye"></i></a>
     {% elif object.current_stage == 'methods_sel' %}
-        <p>
-            Select evaluation methods based on the <a href="#" data-toggle="tooltip" title="{% for aspect in object.evaluation_aspects.all %}
+        Select evaluation methods based on the <a href="#" data-toggle="tooltip" title="{% for aspect in object.evaluation_aspects.all %}
 {{ forloop.counter }}. {{ aspect }}{% empty %}There are no associated evaluation aspects{% endfor %}">
-            aspects to be evaluated <i class="material-icons md-18"> remove_red_eye </i></a>. Don't forget to assure
-            availability of needed resources
-        </p>
+        aspects to be evaluated <i class="fa fa-eye"></i></a>. Don't forget to assure
+        availability of needed resources
     {% elif object.current_stage == 'instruments_sel' %}
-         <p>
-            Select evaluation instruments based on the <a href="#" data-toggle="tooltip" title="{% for method in object.evaluation_methods.all %}
+         Select evaluation instruments based on the <a href="#" data-toggle="tooltip" title="{% for method in object.evaluation_methods.all %}
 {{ forloop.counter }}. {{ method }}{% empty %}There are no associated evaluation methods{% endfor %}">
-            evaluation methods to be employed <i class="material-icons md-18"> remove_red_eye </i></a>. Don't forget to assure
-            availability of needed resources
-        </p>
+        evaluation methods to be employed <i class="fa fa-eye"></i></a>. Don't forget to assure
+        availability of needed resources
     {% elif  object.current_stage == 'eval_prep' %}
-        <p>
-            Compose and upload an evaluation plan
-        </p>
+        Compose and upload an evaluation plan
     {% else %}
-        <p>
-            Compose and upload a report analysing data collected during evaluation focusing in findings and recommendations.
-        </p>
+        Compose and upload a report analysing data collected during evaluation focusing in findings and recommendations.
     {% endif %}
 {% endblock %}
 
