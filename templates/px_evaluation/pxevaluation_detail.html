@@ -4,6 +4,93 @@
 {% block card_description %}PX Evaluation Details{% endblock %}
 
 {% block card_content %}
+<div>
+    Rehabilitation exergame characterisation: 
+    <span class="text-muted">
+        <a target="_blank" href="{% url 'rehab_exergames:detail' object.rehab_exergame_characterisation.id %}"> {{ object.rehab_exergame_characterisation }}</a>
+    </span>
+</div>
+<div>
+    Players characterisation:
+    <span class="text-muted">
+        {% if object.players_characterisation %}
+        <a target="_blank" href="{{ object.players_characterisation.url }}"> {{ object.players_characterisation.name }}</a>
+        {% else %}
+            None
+        {% endif %}
+    </span>
+</div>
+<div>
+    Rehabilitation constraints:
+    <ul>
+        {% for constraint in object.rehabilitation_constraints.all %}
+        <li><span class="text-muted"><a href="{% url 'rehab_exergames:detail_constraint' constraint.id %}">{{ constraint }}</a></span></li>
+        {% empty %}
+        <span class="text-muted">No associated constraints</span>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Evaluation goal:
+    <span class="text-muted">
+        {% if object.evaluation_goal %}
+        {{ object.evaluation_goal }}
+        {% else %}
+            None
+        {% endif %}
+    </span>
+</div>
+<div>
+    Evaluation aspects:
+    <ul>
+        {% for aspect in object.evaluation_aspects.all %}
+        <li><span class="text-muted"><a href="{% url 'px_evaluation:detail_aspects' aspect.id %}">{{ aspect }}</a></span></li>
+        {% empty %}
+        <span class="text-muted">No associated aspects</span>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Evaluation methods:
+    <ul>
+        {% for method in object.evaluation_methods.all %}
+        <li><span class="text-muted"><a href="{% url 'px_evaluation:detail_methods' method.id %}">{{ method }}</a></span></li>
+        {% empty %}
+        <span class="text-muted">No associated methods</span>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Evaluation instruments:
+    <ul>
+        {% for instrument in object.evaluation_instruments.all %}
+        <li><span class="text-muted"><a href="{% url 'px_evaluation:detail_instruments' instrument.id %}">{{ instrument }}</a></span></li>
+        {% empty %}
+        <span class="text-muted">No associated instrumets</span>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    Evaluation plan:
+    <span class="text-muted">
+        {% if object.evaluation_plan %}
+        <a target="_blank" href="{{ object.evaluation_plan.url }}"> {{ object.evaluation_plan.name }}</a>
+        {% else %}
+            None
+        {% endif %}
+    </span>
+</div>
+<div>
+    Evaluation report:
+    <span class="text-muted">
+        {% if object.evaluation_report %}
+        <a target="_blank" href="{{ object.evaluation_report.url }}"> {{ object.evaluation_report.name }}</a>
+        {% else %}
+            None
+        {% endif %}
+    </span>
+</div>
+
 
 {% endblock %}
 
