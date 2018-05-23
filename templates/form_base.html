@@ -5,11 +5,10 @@
 
 {% block card_title %}
     {% if object %}
-        Update
+        {{ object.id }}. {{ object }}
     {% else %}
-        New
+        New {% block card_title_suffix %}{% endblock %}
     {% endif %}
-    {% block card_title_suffix %}{% endblock %}
 {% endblock %}
 
 {% block card_content %}
