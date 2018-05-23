@@ -174,7 +174,7 @@ class PXEvaluationCreation(CreateView):
         return super(PXEvaluationCreation, self).form_valid(form)
 
 
-class PXEvaluationUpdate(UpdateView):
+class PXEvaluationContinueCreation(UpdateView):
     model = PXEvaluation
     form_class = PXEvaluationUpdateForm
     success_msg = "Evaluation " + Constants.SUCCESS_CREATE_MESSAGE
@@ -201,4 +201,18 @@ class PXEvaluationUpdate(UpdateView):
             self.success_url = reverse_lazy('px_evaluation:update', kwargs={'pk': self.object.id})
         elif 'save' in form.data:
             self.success_url = reverse_lazy('px_evaluation:detail', kwargs={'pk': self.object.id})
+        return super(PXEvaluationContinueCreation, self).form_valid(form)
+
+
+class PXEvaluationUpdate(UpdateView):
+    model = PXEvaluation
+    fields = '__all__'
+    template_name = 'px_evaluation/pxevaluation_update.html'
+    success_msg = "Evaluation " + Constants.SUCCESS_UPDATE_MESSAGE
+
+    def get_success_url(self):
+        return reverse_lazy('px_evaluation:detail', kwargs={'pk': self.object.id})
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
         return super(PXEvaluationUpdate, self).form_valid(form)
