@@ -1,6 +1,6 @@
 {% extends "form_base.html" %}
 
-{% block card_color %}green{% endblock %}
+{% block card_color %}box-solid{% endblock %}
 
 {% block card_title %}
     {% if not object or object.current_stage == 'rehab_env_analysis' %} 1. Rehabilitation Environment Analysis
@@ -12,6 +12,21 @@
     {% else %} 7. Results Analysis and Reporting
     {% endif %}
 {% endblock %}
+
+{% block before_card_header %}
+  <div class="progress progress-xs">
+    <div class="progress-bar progress-bar-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {% if not object or object.current_stage == 'rehab_env_analysis' %}14%
+{% elif object.current_stage == 'eval_goal_def' %}28%
+{% elif object.current_stage == 'aspects_sel' %}42%
+{% elif object.current_stage == 'methods_sel' %}56%
+{% elif object.current_stage == 'instruments_sel' %}70%
+{% elif  object.current_stage == 'eval_prep' %}84%
+{% else %}100%
+{% endif %}"></div>
+  </div>
+{% endblock %}
+
+
 {% block card_description %}
     {% if not object or object.current_stage == 'rehab_env_analysis' %}
         Select the rehabilitation exergame to be evaluated. Then, upload a document containing a player characterisation.

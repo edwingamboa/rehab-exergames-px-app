@@ -20,3 +20,8 @@
 .danger-dark {
     background-color: #B71C1C;
 }
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
