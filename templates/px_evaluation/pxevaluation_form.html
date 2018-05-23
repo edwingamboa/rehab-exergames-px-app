@@ -15,14 +15,14 @@
 
 {% block before_card_header %}
   <div class="progress progress-xs">
-    <div class="progress-bar progress-bar-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {% if not object or object.current_stage == 'rehab_env_analysis' %}14%
-{% elif object.current_stage == 'eval_goal_def' %}28%
-{% elif object.current_stage == 'aspects_sel' %}42%
-{% elif object.current_stage == 'methods_sel' %}56%
-{% elif object.current_stage == 'instruments_sel' %}70%
-{% elif  object.current_stage == 'eval_prep' %}84%
-{% else %}100%
-{% endif %}"></div>
+      {% if not object or object.current_stage == 'rehab_env_analysis' %}<div class="progress-bar progress-bar-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 14%"></div>
+      {% elif object.current_stage == 'eval_goal_def' %<div class="progress-bar progress-bar-aqua" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 28%"></div>
+      {% elif object.current_stage == 'aspects_sel' %}<div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 42%"></div>
+      {% elif object.current_stage == 'methods_sel' %}<div class="progress-bar progress-bar-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 56%"></div>
+      {% elif object.current_stage == 'instruments_sel' %}<div class="progress-bar bg-purple" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+      {% elif  object.current_stage == 'eval_prep' %}<div class="progress-bar bg-maroon" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 84%"></div>
+      {% else %}<div class="progress-bar bg-navi" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+      {% endif %}
   </div>
 {% endblock %}
 

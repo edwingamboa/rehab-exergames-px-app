@@ -74,4 +74,4 @@ class PXEvaluationUpdateForm(forms.ModelForm):
     class Meta:
         model = PXEvaluation
         fields = '__all__'
-        # exclude = ('date', 'current_stage')
+        exclude = ('date', 'current_stage')
