@@ -4,93 +4,152 @@
 {% block card_description %}PX Evaluation Details{% endblock %}
 
 {% block card_content %}
-<div>
-    Rehabilitation exergame characterisation: 
-    <span class="text-muted">
-        <a target="_blank" href="{% url 'rehab_exergames:detail' object.rehab_exergame_characterisation.id %}"> {{ object.rehab_exergame_characterisation }}</a>
-    </span>
-</div>
-<div>
-    Players characterisation:
-    <span class="text-muted">
-        {% if object.players_characterisation %}
-        <a target="_blank" href="{{ object.players_characterisation.url }}"> {{ object.players_characterisation.name }}</a>
-        {% else %}
-            None
-        {% endif %}
-    </span>
-</div>
-<div>
-    Rehabilitation constraints:
-    <ul>
-        {% for constraint in object.rehabilitation_constraints.all %}
-        <li><span class="text-muted"><a href="{% url 'rehab_exergames:detail_constraint' constraint.id %}">{{ constraint }}</a></span></li>
-        {% empty %}
-        <span class="text-muted">No associated constraints</span>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Evaluation goal:
-    <span class="text-muted">
-        {% if object.evaluation_goal %}
-        {{ object.evaluation_goal }}
-        {% else %}
-            None
-        {% endif %}
-    </span>
-</div>
-<div>
-    Evaluation aspects:
-    <ul>
-        {% for aspect in object.evaluation_aspects.all %}
-        <li><span class="text-muted"><a href="{% url 'px_evaluation:detail_aspects' aspect.id %}">{{ aspect }}</a></span></li>
-        {% empty %}
-        <span class="text-muted">No associated aspects</span>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Evaluation methods:
-    <ul>
-        {% for method in object.evaluation_methods.all %}
-        <li><span class="text-muted"><a href="{% url 'px_evaluation:detail_methods' method.id %}">{{ method }}</a></span></li>
-        {% empty %}
-        <span class="text-muted">No associated methods</span>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Evaluation instruments:
-    <ul>
-        {% for instrument in object.evaluation_instruments.all %}
-        <li><span class="text-muted"><a href="{% url 'px_evaluation:detail_instruments' instrument.id %}">{{ instrument }}</a></span></li>
-        {% empty %}
-        <span class="text-muted">No associated instrumets</span>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Evaluation plan:
-    <span class="text-muted">
-        {% if object.evaluation_plan %}
-        <a target="_blank" href="{{ object.evaluation_plan.url }}"> {{ object.evaluation_plan.name }}</a>
-        {% else %}
-            None
-        {% endif %}
-    </span>
-</div>
-<div>
-    Evaluation report:
-    <span class="text-muted">
-        {% if object.evaluation_report %}
-        <a target="_blank" href="{{ object.evaluation_report.url }}"> {{ object.evaluation_report.name }}</a>
-        {% else %}
-            None
-        {% endif %}
-    </span>
-</div>
-
+<ul class="timeline">
+    <!-- timeline item -->
+    <li>
+        <i class="fa bg-green"><b>1</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Rehabilitation Environment Analysis</h3>
+            <div class="timeline-body">
+                <dl>
+                    <dt>Rehabilitation exergame characterisation</dt>
+                    <dd>
+                        <ul class="products-list product-list-in-box">
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="{{ object.rehab_exergame_characterisation.image_url }}" alt="{{ object.rehab_exergame_characterisation }} rehabilitation exergame image">
+                                </div>
+                                <div class="product-info">
+                                    <a href="{% url 'rehab_exergames:detail' object.rehab_exergame_characterisation.id %}">{{ object.rehab_exergame_characterisation }}
+                                        <span class="pull-right"><i class="fa fa-eye"></i></span></a>
+                                    <span class="product-description">
+                                      {{ object.rehab_exergame_characterisation.description }}
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    <dt>Players characterisation</dt>
+                    <dd>{% if object.players_characterisation %}
+                        <a target="_blank" href="{{ object.players_characterisation.url }}"> {{ object.players_characterisation.name }} <i class="fa fa-download"></i></a>
+                        {% else %}
+                        None
+                        {% endif %}
+                    </dd>
+                    <dt> Rehabilitation constraints</dt>
+                    <dd>
+                        <ul class="nav nav-pills nav-stacked">
+                            {% for constraint in object.rehabilitation_constraints.all %}
+                            <li><a href="{% url 'rehab_exergames:detail_constraint' constraint.id %}">{{ constraint }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                            {% empty %}
+                            No associated aspects
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <!-- timeline item -->
+    <li>
+        <i class="fa bg-aqua"><b>2</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Evaluation goal</h3>
+            <div class="timeline-body">
+                <p>
+                    {% if object.evaluation_goal %}
+                    {{ object.evaluation_goal }}
+                    {% else %}
+                    None
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <!-- timeline item -->
+    <li>
+        <i class="fa bg-yellow"><b>3</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Evaluation aspects</h3>
+            <div class="timeline-body">
+                <ul class="nav nav-pills nav-stacked">
+                    {% for aspect in object.evaluation_aspects.all %}
+                    <li><a href="{% url 'px_evaluation:detail_aspects' aspect.id %}">{{ aspect }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                    {% empty %}
+                    No associated aspects
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <!-- timeline item -->
+    <li>
+        <i class="fa bg-blue"><b>4</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Evaluation methods</h3>
+            <div class="timeline-body">
+                <ul class="nav nav-pills nav-stacked">
+                    {% for method in object.evaluation_methods.all %}
+                    <li><a href="{% url 'px_evaluation:detail_methods' method.id %}">{{ method }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                    {% empty %}
+                    No associated methods
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <li>
+        <i class="fa bg-purple"><b>5</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Evaluation instruments</h3>
+            <div class="timeline-body">
+                <ul class="nav nav-pills nav-stacked">
+                    {% for instrument in object.evaluation_instruments.all %}
+                    <li><a href="{% url 'px_evaluation:detail_instruments' instrument.id %}">{{ instrument }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                    {% empty %}
+                    No associated instruments
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <li>
+        <i class="fa bg-maroon"><b>6</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Evaluation plan</h3>
+            <div class="timeline-body">
+                <ul class="nav nav-pills nav-stacked">
+                    {% if object.evaluation_plan %}
+                    <li><a target="_blank" href="{{ object.evaluation_plan.url }}"> {{ object.evaluation_plan.name }}<span class="pull-right text-blue"><i class="fa fa-download"></i></span></a></li>
+                    {% else %}
+                    None
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <li>
+        <i class="fa bg-navy"><b>7</b></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header">Evaluation Report</h3>
+            <div class="timeline-body">
+                <ul class="nav nav-pills nav-stacked">
+                    {% if object.evaluation_report %}
+                    <li><a target="_blank" href="{{ object.evaluation_report.url }}"> {{ object.evaluation_report.name }}<span class="pull-right text-blue"><i class="fa fa-download"></i></span></a></li>
+                    {% else %}
+                    None
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+</ul>
 
 {% endblock %}
 
