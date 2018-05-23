@@ -23,9 +23,9 @@
                     {% elif object.current_stage == 'eval_goal_def' %} label-info
                     {% elif object.current_stage == 'aspects_sel' %} label-warning
                     {% elif object.current_stage == 'methods_sel' %} label-primary
-                    {% elif object.current_stage == 'instruments_sel' %} warning-dark
-                    {% elif  object.current_stage == 'eval_prep' %} default-dark
-                    {% else %} success-dark
+                    {% elif object.current_stage == 'instruments_sel' %} bg-purple
+                    {% elif  object.current_stage == 'eval_prep' %} bg-maroon
+                    {% else %} bg-navy
                     {% endif %}">{{ object.get_current_stage_display }}</span></td>
             <td>
                 <div class="dropdown">
