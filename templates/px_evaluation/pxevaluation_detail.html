@@ -9,6 +9,9 @@
     <li>
         <i class="fa bg-green"><b>1</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'rehab_env_analysis' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Rehabilitation Environment Analysis</h3>
             <div class="timeline-body">
                 <dl>
@@ -54,6 +57,9 @@
     <li>
         <i class="fa bg-aqua"><b>2</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'eval_goal_def' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Evaluation goal</h3>
             <div class="timeline-body">
                 <p>
@@ -71,6 +77,9 @@
     <li>
         <i class="fa bg-yellow"><b>3</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'aspects_sel' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Evaluation aspects</h3>
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
@@ -88,6 +97,9 @@
     <li>
         <i class="fa bg-blue"><b>4</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'methods_sel' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Evaluation methods</h3>
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
@@ -104,6 +116,9 @@
     <li>
         <i class="fa bg-purple"><b>5</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'instruments_sel' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Evaluation instruments</h3>
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
@@ -120,6 +135,9 @@
     <li>
         <i class="fa bg-maroon"><b>6</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'eval_prep' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Evaluation plan</h3>
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
@@ -136,6 +154,9 @@
     <li>
         <i class="fa bg-navy"><b>7</b></i>
         <div class="timeline-item">
+            {% if object.current_stage == 'report' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
+            {% endif %}
             <h3 class="timeline-header">Evaluation Report</h3>
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
