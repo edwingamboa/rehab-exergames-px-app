@@ -198,7 +198,7 @@ class PXEvaluationContinueCreation(UpdateView):
         messages.success(self.request, self.success_msg)
         print(form.data)
         if 'save_continue' in form.data:
-            self.success_url = reverse_lazy('px_evaluation:update', kwargs={'pk': self.object.id})
+            self.success_url = reverse_lazy('px_evaluation:continue', kwargs={'pk': self.object.id})
         elif 'save' in form.data:
             self.success_url = reverse_lazy('px_evaluation:detail', kwargs={'pk': self.object.id})
         return super(PXEvaluationContinueCreation, self).form_valid(form)

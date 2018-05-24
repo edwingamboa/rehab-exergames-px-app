@@ -35,6 +35,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'px_evaluation:detail' object.id %}">View</a></li>
+                        {% if object.current_stage != 'report' %}
+                            <li><a href="{% url 'px_evaluation:continue' object.id %}">Continue Evaluation</a></li>
+                        {% endif %}
                         <li><a href="{% url 'px_evaluation:update' object.id %}">Update</a></li>
                     </ul>
                 </div>

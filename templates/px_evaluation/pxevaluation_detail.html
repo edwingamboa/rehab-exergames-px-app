@@ -155,3 +155,9 @@
 
 {% block update_url %} {% url 'px_evaluation:update' object.id %} {% endblock %}
 {% block list_url %} {% url 'px_evaluation:list' %} {% endblock %}
+
+{% block additional_footer_buttons %}
+    {% if object.current_stage != 'report' %}
+        <a href="{% url 'px_evaluation:continue' object.id %}" class="btn btn-primary">Continue Evaluation</a>
+    {% endif %}
+{% endblock %}

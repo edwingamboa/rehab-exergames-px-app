@@ -21,6 +21,7 @@ from .views import (
     PXEvaluationList,
     PXEvaluationCreation,
     PXEvaluationUpdate,
+    PXEvaluationContinueCreation
 )
 
 urlpatterns = [
@@ -44,4 +45,5 @@ urlpatterns = [
     url(r'^px_evaluations/(?P<pk>\d+)$', PXEvaluationDetail.as_view(), name='detail'),
     url(r'^px_evaluations/new', PXEvaluationCreation.as_view(), name='new'),
     url(r'^px_evaluations/update/(?P<pk>\d+)', PXEvaluationUpdate.as_view(), name='update'),
+    url(r'^px_evaluations/continue/(?P<pk>\d+)', PXEvaluationContinueCreation.as_view(), name='continue'),
 ]
