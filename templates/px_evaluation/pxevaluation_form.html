@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block before_card_header %}
-  <div class="progress progress-xs">
+  <div class="progress progress-xxs">
       {% if not object or object.current_stage == 'rehab_env_analysis' %}<div class="progress-bar progress-bar-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 14%"></div>
       {% elif object.current_stage == 'eval_goal_def' %<div class="progress-bar progress-bar-aqua" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 28%"></div>
       {% elif object.current_stage == 'aspects_sel' %}<div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 42%"></div>
