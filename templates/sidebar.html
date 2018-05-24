@@ -1,10 +1,56 @@
 {% load staticfiles %}
 <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">MAIN NAVIGATION</li>
     <li>
         <a href="{% url 'dashboard:dashboard' %}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
+    </li>
+    <li class="treeview">
+        <a href="#"  >
+            <i class="fa fa-check-square-o"></i><span>PX Evaluation</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{% url 'px_evaluation:new' %}">New Evaluation</a></li>
+            <li><a href="{% url 'px_evaluation:list' %}">List Evaluations</a></li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-list"></i><span>Evaluation Aspects</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'px_evaluation:new_aspects' %}">New Aspect</a></li>
+                    <li><a href="{% url 'px_evaluation:list_aspects' %}">List Aspects</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-ellipsis-h"></i><span>Evaluation Methods</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'px_evaluation:new_methods' %}">New Method</a></li>
+                    <li><a href="{% url 'px_evaluation:list_methods' %}">List Methods</a></li>
+                    <li><a href="{% url 'px_evaluation:new_method_types' %}">New Method Type</a></li>
+                    <li><a href="{% url 'px_evaluation:list_method_types' %}">List Method Types</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-wrench"></i><span>Evaluation Instruments</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'px_evaluation:new_instruments' %}">New Instrument</a></li>
+                    <li><a href="{% url 'px_evaluation:list_instruments' %}">List Instruments</a></li>
+                </ul>
+            </li>
+        </ul>
     </li>
     <li class="treeview">
         <a href="#">
@@ -111,53 +157,6 @@
         <ul class="treeview-menu">
             <li><a href="{% url 'resources:new' %}">New Resource</a></li>
             <li><a href="{% url 'resources:list' %}">List Resources</a></li>
-        </ul>
-    </li>
-    <li class="treeview">
-        <a href="#"  >
-            <i class="fa fa-check-square-o"></i><span>PX Evaluation</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="{% url 'px_evaluation:new' %}">New Evaluation</a></li>
-            <li><a href="{% url 'px_evaluation:list' %}">List Evaluations</a></li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-list"></i><span>Evaluation Aspects</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{% url 'px_evaluation:new_aspects' %}">New Aspect</a></li>
-                    <li><a href="{% url 'px_evaluation:list_aspects' %}">List Aspects</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-ellipsis-h"></i><span>Evaluation Methods</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{% url 'px_evaluation:new_methods' %}">New Method</a></li>
-                    <li><a href="{% url 'px_evaluation:list_methods' %}">List Methods</a></li>
-                    <li><a href="{% url 'px_evaluation:new_method_types' %}">New Method Type</a></li>
-                    <li><a href="{% url 'px_evaluation:list_method_types' %}">List Method Types</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-wrench"></i><span>Evaluation Instruments</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{% url 'px_evaluation:new_instruments' %}">New Instrument</a></li>
-                    <li><a href="{% url 'px_evaluation:list_instruments' %}">List Instruments</a></li>
-                </ul>
-            </li>
         </ul>
     </li>
 </ul>
