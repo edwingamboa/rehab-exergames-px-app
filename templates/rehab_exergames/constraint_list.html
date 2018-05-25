@@ -1,26 +1,21 @@
-{% extends "list_base.html" %}
+{% extends "card_base_no_footer.html" %}
 
-{% block card_title %}Rehabilitation Exergame Constraint{% endblock card_title %}
-{% block card_description %}Select a constraint category{% endblock card_description%}
+{% block card_color %}box-info{% endblock %}
+{% block card_title %}Rehabilitation Exergames Constraints{% endblock card_title %}
 
-{% block table_head %}
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Constraints</th>
-    </tr>
-{% endblock table_head %}
-{% block table_body %}
-    {% for object in object_list %}
-        <tr>
-            <td>{{ object.name }}</td>
-            <td>{{ object.description }}</td>
-            <td>
-                <a class="btn btn-primary" href="{% url 'rehab_exergames:list_constraint_by_cat' object.id %}">List Constraints</a>
-            </td>
-        </tr>
-    {% endfor %}
-{% endblock table_body %}
+{% block card_content %}
+{% for object in object_list %}
+<strong>{{ object.id }}. {{ object.name }}</strong>
 
-{% block new_url %} {% url 'rehab_exergames:new_constraint' %} {% endblock new_url %}
-{% block new_object_name %}Constraint{% endblock new_object_name %}
+<p class="text-muted">
+    {{ object.description }}
+    <a class="btn btn-info btn-sm pull-right" href="{% url 'rehab_exergames:list_constraint_by_cat' object.id %}">
+        <i class="fa fa fa-table"></i> List Constraints
+    </a>
+</p>
+<hr>
+{% empty %}
+There are no constraints
+{% endfor %}
+
+{% endblock %}
