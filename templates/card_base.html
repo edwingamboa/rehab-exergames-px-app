@@ -9,6 +9,7 @@
 <section class="content-header">
     <h1>{% block content_title %}{% endblock content_title %}<small>{% block content_subtitle %}{% endblock content_subtitle %}</small></h1>
     <ol class="breadcrumb">{% block breadcrumb %}{% endblock breadcrumb %}</ol>
+    {% block additional_card_header %}{% endblock %}
 </section>
 <section class="content">
     <div class="box {% block card_color %} {% endblock %}">

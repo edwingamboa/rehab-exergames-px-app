@@ -54,10 +54,8 @@ class Constants:
         (NONE, 'None'),
     )
     REHABILITATION_TYPE = (
-        (WIDE_PHYSICAL, 'Physical - Wide Focus'),
-        (TIGHT_PHYSICAL, 'Physical - Tight Focus'),
-        (BEHAVIORAL, 'Behavioral'),
-        (COGNITIVE, 'Cognitive'),
+        (WIDE_PHYSICAL, 'Wide Focus'),
+        (TIGHT_PHYSICAL, 'Tight Focus'),
     )
     AUTONOMY_DEGREE = (
         (CONSTANT_SUPER, '1. Only motivates, requires constant physiotherapist supervision'),

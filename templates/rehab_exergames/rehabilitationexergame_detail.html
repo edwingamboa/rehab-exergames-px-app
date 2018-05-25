@@ -1,82 +1,113 @@
 {% extends "detail_base.html" %}
 {% load staticfiles %}
 
-{% block card_description %}Rehabilitation Exergame Details{% endblock %}
+{% block card_title %}Rehabilitation Exergame Details{% endblock %}
 
 {% block card_content %}
-<div>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
+<div class="box box-widget widget-user-2">
+    <div class="widget-user-header bg-aqua">
+        <div class="widget-user-image">
+            {% if object.image %}
+            <img class="img-circle img-rehab-eg" src="{{ object.image_url }}" alt="{{ object.name }} rehabilitation exergame image">
+            {% endif %}
+        </div>
+        <!-- /.widget-user-image -->
+        <h3 class="widget-user-username">{{ object.id }}. {{ object.name }}</h3>
+        <h5 class="widget-user-desc">{{ object.description }}</h5>
+    </div>
+    <div class="box-footer">
+        <div class="row">
+            <div class="col-sm-4 border-right">
+                <div class="description-block">
+                    <h5 class="description-header">{{ object.get_rehabilitation_type_display }}</h5>
+                    <span class="description-text">Rehabilitation Type</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 border-right">
+                <div class="description-block">
+                    <h5 class="description-header"><a href="#" data-toggle="tooltip"  title="{{ object.get_autonomy_degree_display }}">{{ object.get_autonomy_degree_display|slice:":1" }} <i class="fa fa-info-circle"></i></a></h5>
+                    <span class="description-text">Autonomy degree</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4">
+                <div class="description-block">
+                    <h5 class="description-header">{{ object.get_thematic_content_display }}</h5>
+                    <span class="description-text">Thematic content</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <dl class="col-md-12">
+                <dt>Input interaction devices</dt>
+                <dd>
+                    <ul class="nav nav-pills nav-stacked">
+                        {% for input_dev in object.input_interaction_devices.all %}
+                        <li><a href="{% url 'interaction_device:detail_tech' input_dev.id %}">{{ input_dev.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                        {% empty %}
+                        No associated input devices
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dt>Output interaction devices</dt>
+                <dd>
+                    <ul class="nav nav-pills nav-stacked">
+                        {% for output_dev in object.output_interaction_devices.all %}
+                        <li><a href="{% url 'interaction_device:detail_tech' output_dev.id %}">{{ output_dev.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                        {% empty %}
+                        No associated output devices
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dt>Associated movements</dt>
+                <dd>
+                    <ul class="nav nav-pills nav-stacked">
+                        {% for movement in object.associated_movements.all %}
+                        <li><a href="{% url 'movements:detail' movement.id %}">{{ movement.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                        {% empty %}
+                        No associated movements
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dt>Associated rehabilitation tasks</dt>
+                <dd>
+                    <ul class="nav nav-pills nav-stacked">
+                        {% for task in object.assisted_rehabilitation_tasks.all %}
+                        <li><a href="{% url 'rehab_exergames:detail_task' task.id %}">{{ task.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                        {% empty %}
+                        No associated tasks
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dt>Associated pathologies</dt>
+                <dd>
+                    <ul class="nav nav-pills nav-stacked">
+                        {% for pathology in object.associated_pathologies.all %}
+                        <li><a href="{% url 'pathologies:detail' pathology.id %}">{{ pathology.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                        {% empty %}
+                        No associated pathologies<
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dt>Capabilities</dt>
+                <dd>
+                    {% if object.configurable %}
+                    <span class="label label-primary">Configurable</span>
+                    {% endif %}
+                    {% if object.provide_performance_assessment %}
+                    <span class="label label-primary">Provides performance assessment</span>
+                    {% endif %}
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<div>
-    Description:
-    <span class="text-muted"> {{ object.description }}</span>
-</div>
-{% if object.image %}
-<div class="product-img">
-    <img src="{{ object.image_url }}" alt="{{ object.name }} rehabilitation exergame image">
-</div>
-{% endif %}
-<div>
-    Input interaction devices:
-    <ul>
-        {% for input_dev in object.input_interaction_devices.all %}
-         <li><span class="text-muted">{{ input_dev.name }} </span></li>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Output interaction devices:
-    <ul>
-        {% for output_dev in object.output_interaction_devices.all %}
-         <li><span class="text-muted">{{ output_dev.name }} </span></li>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Associated movements:
-    <ul>
-        {% for movement in object.associated_movements.all %}
-         <li><span class="text-muted">{{ movement.name }} </span></li>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Thematic content:
-    <span class="text-muted"> {{ object.get_thematic_content_display }}</span>
-</div>
-<div>
-    Rehabilitation type:
-    <span class="text-muted"> {{ object.get_rehabilitation_type_display }}</span>
-</div>
-<div>
-    Autonomy degree:
-    <span class="text-muted"> {{ object.get_autonomy_degree_display }}</span>
-</div>
-<div>
-    Associated rehabilitation tasks:
-    <ul>
-        {% for task in object.assisted_rehabilitation_tasks.all %}
-         <li><span class="text-muted">{{ task.name }} </span></li>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    Associated pathologies:
-    <ul>
-        {% for pathology in object.associated_pathologies.all %}
-         <li><span class="text-muted">{{ pathology.name }} </span></li>
-        {% empty %}
-        <span class="text-muted">No associated pathologies</span>
-        {% endfor %}
-    </ul>
-</div>
-{% if object.configurable %}
-<span class="label label-primary">Configurable</span>
-{% endif %}
-{% if object.provide_performance_assessment %}
-<span class="label label-primary">Provides performance assessment</span>
-{% endif %}
+
 {% endblock %}
 
 {% block update_url %} {% url 'rehab_exergames:update' object.id %} {% endblock %}
