@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'movements',
     'pathologies',
     'resources',
-    'px_evaluation'
+    'px_evaluation',
+    'questionnaires_standard',
 ]
 
 MIDDLEWARE = [
