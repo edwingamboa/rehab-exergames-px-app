@@ -6,6 +6,8 @@ class Constants:
     IN_OUTPUT_DEVICE = 3
     SUCCESS_UPDATE_MESSAGE = 'was updated correctly'
     SUCCESS_CREATE_MESSAGE = 'was created correctly'
+    SUCCESS_INIT_MESSAGE = 'creation initiated correctly'
+    SUCCESS_CONTINUE_MESSAGE = 'creation continued correctly'
     # Thematic content
     DAILY_ACTIVITIES = 1
     REALISTIC = 2
@@ -33,7 +35,13 @@ class Constants:
     EVAL_PREP = 'eval_prep'
     EVAL = 'eval'
     REPORT = 'report'
-
+    # Questionnaire status
+    INIT = 'init',
+    IN_DESIGN = 'in_design',
+    IN_PRE_TEST = 'in_pre_test',
+    FINISHED = 'finished',
+    IN_REVIEW = 'in_review',
+    # Lists
     GAME_STATUS = (
         (ACTIVE, 'Active'),
         (INACTIVE, 'Inactive'),
@@ -70,6 +78,13 @@ class Constants:
         (METHODS_SEL, 'Evaluation Methods Selection'),
         (INSTRUMENTS_SEL, 'Evaluation Instruments Selection'),
         (EVAL_PREP, 'Evaluation Preparation'),
-        #(EVAL, 'Evaluation'),
+        # (EVAL, 'Evaluation'),
         (REPORT, 'Results Analysis and Reporting'),
+    )
+    QUESTIONNAIRE_STATUS = (
+        (INIT,  'Initiated'),
+        (IN_DESIGN,  'In Design'),
+        (IN_PRE_TEST,  'In Pre-Testing'),
+        (FINISHED,  'Finished'),
+        (IN_REVIEW,  'In Review'),
     )
