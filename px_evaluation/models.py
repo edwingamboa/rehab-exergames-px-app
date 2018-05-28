@@ -7,8 +7,10 @@ from rehab_exergames.models import (
 )
 from utilities.constants import Constants
 
+
 def get_evaluation_file_path(instance, filename):
     return os.path.join('evaluation_files', str(instance.id), filename)
+
 
 class Aspect(models.Model):
     name = models.CharField(max_length=140)
