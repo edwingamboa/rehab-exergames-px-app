@@ -1,0 +1,8 @@
+{% extends "form_base.html" %}
+
+{% block card_description %}Current step: <span class="label
+                    {% if object.status == 'init' %} label-success
+                    {% elif object.status == 'in_design' %} label-info
+                    {% elif object.status == 'in_pre_test' %} label-warning
+                    {% elif object.status == 'finished' %} bg-maroon
+                    {% endif %}">{{ object.get_status_display }}</span>{% endblock card_description %}

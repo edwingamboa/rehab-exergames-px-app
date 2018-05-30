@@ -1,0 +1,139 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Questionnaire Details{% endblock %}
+
+{% block card_content %}
+<ul class="timeline">
+    <!-- timeline item -->
+    <li>
+        <i class="fa bg-green"><b>1</b></i>
+        <div class="timeline-item">
+            {% if object.status == 'init' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current step</span>
+            {% endif %}
+            <h3 class="timeline-header">Questionnaire Design I</h3>
+            <div class="timeline-body">
+                <dl>
+                    <dt>Evaluation objective</dt>
+                    <dd>
+                        {{ object.evaluation_objective }}
+                    </dd>
+                    <dt>Name</dt>
+                    <dd>
+                        {{ object.name }}
+                    </dd>
+                    <dt>Evaluation aspects</dt>
+                    <dd>
+                        <ul class="nav nav-pills nav-stacked">
+                            {% for aspect in object.aspects.all %}
+                            <li><a href="{% url 'px_evaluation:detail_aspects' aspect.id %}">{{ aspect }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                            {% empty %}
+                            No associated aspects
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                    <dt>Target respondents</dt>
+                    <dd>
+                        {{ object.target_respondents }}
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <!-- timeline item -->
+    <li>
+        <i class="fa {% if object.status == 'in_design' or object.status == 'in_pre_test' or object.status == 'finished' %} bg-aqua {% endif %}"><b>2</b></i>
+        <div class="timeline-item">
+            {% if object.status == 'in_design' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current step</span>
+            {% endif %}
+            <h3 class="timeline-header">Questionnaire Design II</h3>
+            {% if object.status == 'in_design' or object.status == 'in_pre_test' or object.status == 'finished' %}
+            <div class="timeline-body">
+                <dl>
+                    <dt>Description</dt>
+                    <dd>{{ object.description }}</dd>
+
+                    <dt>Questionnaire document</dt>
+                    <dd>
+                        <ul class="nav nav-pills nav-stacked">
+                            {% if object.questionnaire_document %}
+                            <li><a target="_blank" href="{% url 'resources:detail' object.questionnaire_document.id %}"> {{ object.questionnaire_document }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                            {% else %}
+                            None
+                            {% endif %}
+                        </ul>
+                    </dd>
+                    
+                    <dt>Additional documents</dt>
+                    <dd>
+                        <ul class="nav nav-pills nav-stacked">
+                            {% for document in object.additional_documents.all %}
+                            <li><a href="{% url 'resources:detail' document.id %}">{{ document }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                            {% empty %}
+                            No additional documents
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            {% endif %}
+        </div>
+    </li>
+    <!-- END timeline item -->
+    <!-- timeline item -->
+    <li>
+        <i class="fa {% if object.status == 'in_pre_test' or object.status == 'finished' %}bg-yellow{% endif %}"><b>3</b></i>
+        <div class="timeline-item">
+            {% if object.status == 'in_pre_test' %}
+                <span class="time"><i class="fa fa-flag-o"></i> Current step</span>
+            {% endif %}
+            <h3 class="timeline-header">Questionnaire Pre-Testing</h3>
+            {% if object.status == 'in_pre_test' or object.status == 'finished' %}
+            <div class="timeline-body">
+                <dl>
+                    <dt>Validity</dt>
+                    <dd>{{ object.validity }} <span class="text-muted">({{ object.validity_measure }})</span></dd>
+
+                    <dt>Reliability</dt>
+                    <dd>{{ object.reliability }} <span class="text-muted">({{ object.reliability_measure }})</span></dd>
+                </dl>
+                <dt>Pre-Testing report</dt>
+                    <dd>
+                        <ul class="nav nav-pills nav-stacked">
+                            {% if object.pre_testing_report %}
+                            <li><a target="_blank" href="{% url 'resources:detail' object.pre_testing_report.id %}"> {{ object.pre_testing_report }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+                            {% else %}
+                            None
+                            {% endif %}
+                        </ul>
+                    </dd>
+            </div>
+            {% endif %}
+        </div>
+    </li>
+    <!-- END timeline item -->
+
+    <li>
+        <i class="fa fa-flag {% if object.status == 'finished' %}bg-maroon{% endif %}"></i>
+        {% if object.status == 'finished' %}
+        <div class="timeline-item">
+            <span class="time"><i class="fa fa-flag-o"></i> Finished</span>
+        </div>
+        {% endif %}
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block update_url %} {% url 'questionnaire:update' object.id %} {% endblock %}
+{% block update_label %}Refine{% endblock %}
+{% block list_url %} {% url 'questionnaire:list' %} {% endblock %}
+
+{% block additional_footer_buttons %}
+    {% if object.status != 'finished' %}
+        <a href="{% url 'questionnaire:continue' object.id %}" class="btn btn-primary">Continue Evaluation</a>
+    {% endif %}
+{% endblock %}

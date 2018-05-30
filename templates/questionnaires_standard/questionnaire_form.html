@@ -1,21 +1,18 @@
 {% extends "form_base.html" %}
 
-{% extends "form_base.html" %}
-
 {% block card_color %}box-solid{% endblock %}
 
 {% block card_title %}
     {% if not object or object.status == 'init' %} 1. Questionnaire Design I
     {% elif object.status == 'in_design' %} 2. Questionnaire Design II
     {% elif object.status == 'in_pre_test' %} 3. Questionnaire Pre-Testing
-    {% elif object.status == 'finished' %} 4. Finish Questionnaire
     {% endif %}
 {% endblock %}
 
 {% block before_card_header %}
   <div class="progress progress-xxs">
       {% if not object or object.status == 'init' %}<div class="progress-bar progress-bar-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
-      {% elif object.status == 'in_design' %<div class="progress-bar progress-bar-aqua" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+      {% elif object.status == 'in_design' %}<div class="progress-bar progress-bar-aqua" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
       {% elif object.status == 'in_pre_test' %}<div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
       {% elif object.status == 'finished' %}<div class="progress-bar progress-bar-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
       {% endif %}
@@ -28,12 +25,12 @@
         This step involves:
         <ol>
             <li>Defining the evaluation objective of your questionnaire <a href="#" data-toggle="tooltip" title="It involves exploratory research. This includes consulting experts, collecting data from people directly related to the problem itself"><i class="fa fa-info-circle"></i></a></li>
-            <li>Giving a title to your questionnaire <a href="#" data-toggle="tooltip" title="Chose a title that informs respondents about evaluation goal"><i class="fa fa-info-circle"></i></a></li>
+            <li>Giving a name to your questionnaire <a href="#" data-toggle="tooltip" title="Chose a title that informs respondents about evaluation goal"><i class="fa fa-info-circle"></i></a></li>
             <li>Selecting aspects to be evaluated by your questionnaire <a href="#" data-toggle="tooltip" title="Define which PX aspects should be studied in order to achieve evaluation objective; e.g., motivation, effectiveness, ease of use, attractiveness"><i class="fa fa-info-circle"></i></a></li>
             <li>Defining your target respondents <a href="#" data-toggle="tooltip" title="Decide which is the appropriate population to be asked. Identify characteristics of the target respondents that should be considered along the design process, e.g., age, education level, familiarity with tests and questionnaires, cultural bias or language barrier"><i class="fa fa-info-circle"></i></a></li>
         </ol>
     {% elif object.status == 'in_design' %}
-        To finish build your questionnaire, you should:
+        To build your questionnaire, you should:
         <ol>
             <li>Generate questions <a href="#" data-toggle="tooltip" title="Generate as many questions as possible for each aspect to be evaluated. At this stage, details such as wording is not important. The generated questions have to meet evaluation goal, so that they can be employed to study aspects selected previously"></i></a></li>
             <li>Filter questions <a href="#" data-toggle="tooltip" title="Include questions that can be used to achieve evaluation goal, i.e., to evaluate each selected evaluation aspect"></i></a></li>

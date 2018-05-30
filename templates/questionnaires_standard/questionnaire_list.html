@@ -1,0 +1,45 @@
+{% extends "list_base.html" %}
+
+{% block card_title %}Questionnaires{% endblock card_title %}
+{% block card_description %}Manage Questionnaires{% endblock card_description%}
+
+{% block table_head %}
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Current step</th>
+        <th>Manage</th>
+    </tr>
+{% endblock table_head %}
+{% block table_body %}
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td><span class="label
+                    {% if object.status == 'init' %} label-success
+                    {% elif object.status == 'in_design' %} label-info
+                    {% elif object.status == 'in_pre_test' %} label-warning
+                    {% elif object.status == 'finished' %} bg-maroon
+                    {% endif %}">{{ object.get_status_display }}</span></td>
+            <td>
+                <div class="dropdown">
+                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                        Options
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'questionnaire:detail' object.id %}"><i class="fa fa-eye"></i>View</a></li>
+                        {% if object.status != 'finished' %}
+                            <li><a href="{% url 'questionnaire:continue' object.id %}"><i class="fa fa-chevron-circle-right"></i>Continue Development</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'questionnaire:update' object.id %}"><i class="fa fa-edit"></i>Refine</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock table_body %}
+
+{% block new_url %} {% url 'questionnaire:new' %} {% endblock new_url %}
+{% block new_object_name %}Questionnaire{% endblock new_object_name %}
