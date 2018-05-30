@@ -36,11 +36,14 @@ class Constants:
     EVAL = 'eval'
     REPORT = 'report'
     # Questionnaire status
-    INIT = 'init',
-    IN_DESIGN = 'in_design',
-    IN_PRE_TEST = 'in_pre_test',
-    FINISHED = 'finished',
-    IN_REVIEW = 'in_review',
+    INIT = 'init'
+    IN_DESIGN = 'in_design'
+    IN_PRE_TEST = 'in_pre_test'
+    FINISHED = 'finished'
+    IN_REVIEW = 'in_review'
+    # Questionnaire measures types
+    VALIDITY = 'validity'
+    RELIABILITY = 'reliability'
     # Lists
     GAME_STATUS = (
         (ACTIVE, 'Active'),
@@ -87,4 +90,8 @@ class Constants:
         (IN_PRE_TEST,  'In Pre-Testing'),
         (FINISHED,  'Finished'),
         (IN_REVIEW,  'In Review'),
+    )
+    QUESTIONNAIRE_MEASURE_TYPES = (
+        (VALIDITY,  'Validity'),
+        (RELIABILITY,  'Reliability'),
     )
