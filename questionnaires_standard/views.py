@@ -25,11 +25,11 @@ class MeasureDetail(DetailView):
 
 class MeasureCreation(CreateView):
     model = Measure
-    fields = ['name', 'description', 'resources']
+    fields = '__all__'
     success_msg = "Measure " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
-        return reverse_lazy('questionnaires:detail_measures', kwargs={'pk': self.object.id})
+        return reverse_lazy('questionnaire:detail_measures', kwargs={'pk': self.object.id})
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
@@ -38,11 +38,11 @@ class MeasureCreation(CreateView):
 
 class MeasureUpdate(UpdateView):
     model = Measure
-    fields = ['name', 'description', 'resources']
+    fields = '__all__'
     success_msg = "Measure " + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):
-        return reverse_lazy('questionnaires:detail_measures', kwargs={'pk': self.object.id})
+        return reverse_lazy('questionnaire:detail_measures', kwargs={'pk': self.object.id})
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
@@ -63,7 +63,7 @@ class QuestionnaireCreation(CreateView):
     success_msg = "Evaluation " + Constants.SUCCESS_INIT_MESSAGE
 
     def get_success_url(self):
-        return reverse_lazy('questionnaires:detail', kwargs={'pk': self.object.id})
+        return reverse_lazy('questionnaire:detail', kwargs={'pk': self.object.id})
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
