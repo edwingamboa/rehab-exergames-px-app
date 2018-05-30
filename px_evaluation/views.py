@@ -166,11 +166,15 @@ class PXEvaluationCreation(CreateView):
     fields = ['rehab_exergame_characterisation', 'players_characterisation', 'rehabilitation_constraints']
     success_msg = "Evaluation " + Constants.SUCCESS_CREATE_MESSAGE
 
-    def get_success_url(self):
-        return reverse_lazy('px_evaluation:detail', kwargs={'pk': self.object.id})
-
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
+        px_evaluation = form.save(commit=False)
+        px_evaluation.current_stage = Constants.EVAL_GOAL_DEF
+        px_evaluation.save()
+        if 'save_continue' in form.data:
+            self.success_url = reverse_lazy('px_evaluation:continue', kwargs={'pk': px_evaluation.id})
+        elif 'save' in form.data:
+            self.success_url = reverse_lazy('px_evaluation:detail', kwargs={'pk': px_evaluation.id})
         return super(PXEvaluationCreation, self).form_valid(form)
 
 
@@ -196,7 +200,7 @@ class PXEvaluationContinueCreation(UpdateView):
 
         px_evaluation.save()
         messages.success(self.request, self.success_msg)
-        print(form.data)
+
         if 'save_continue' in form.data:
             self.success_url = reverse_lazy('px_evaluation:continue', kwargs={'pk': self.object.id})
         elif 'save' in form.data:
