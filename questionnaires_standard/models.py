@@ -10,6 +10,10 @@ from utilities.constants import Constants
 class Measure(models.Model):
     name = models.CharField(max_length=140)
     description = models.TextField(blank=True)
+    type = models.CharField(
+        max_length=20,
+        choices=Constants.QUESTIONNAIRE_MEASURE_TYPES,
+    )
     resources = models.ManyToManyField(Resource, blank=True)
 
     def __str__(self):
@@ -19,13 +23,13 @@ class Measure(models.Model):
 class Questionnaire(Instrument):
     evaluation_objective = models.TextField()
     target_respondents = models.TextField()
-    questionnaire_document = models.ForeignKey(Resource)
-    additional_documents = models.ManyToManyField(Resource)
+    questionnaire_document = models.ForeignKey(Resource, related_name='%(class)s_questionnaire_doc')
+    additional_documents = models.ManyToManyField(Resource, related_name='%(class)s_additional_docs')
     validity = models.CharField(max_length=140)
-    validity_measure = models.ForeignKey(Measure)
+    validity_measure = models.ForeignKey(Measure, related_name='%(class)s_validity')
     reliability = models.CharField(max_length=140)
-    reliability_measure = models.ForeignKey(Measure)
-    pre_testing_report = models.ForeignKey(Resource)
+    reliability_measure = models.ForeignKey(Measure, related_name='%(class)s_reliability')
+    pre_testing_report = models.ForeignKey(Resource, related_name='%(class)s_pre_test_report')
     status = models.CharField(
         max_length=20,
         default=Constants.INIT,
