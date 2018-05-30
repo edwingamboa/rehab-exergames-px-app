@@ -10,7 +10,10 @@ from django.views.generic.edit import (
     CreateView,
     UpdateView,
 )
-from .forms import QuestionnaireUpdateForm
+from .forms import (
+    QuestionnaireContinueCreationForm,
+    QuestionnaireUpdateForm
+)
 from utilities.constants import Constants
 
 
@@ -59,20 +62,24 @@ class QuestionnaireDetail(DetailView):
 
 class QuestionnaireCreation(CreateView):
     model = Questionnaire
-    fields = ['evaluation_objective', 'target_respondents', 'aspects']
+    fields = ['evaluation_objective', 'name', 'aspects', 'target_respondents']
     success_msg = "Evaluation " + Constants.SUCCESS_INIT_MESSAGE
-
-    def get_success_url(self):
-        return reverse_lazy('questionnaire:detail', kwargs={'pk': self.object.id})
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
+        questionnaire = form.save(commit=False)
+        questionnaire.status = Constants.IN_DESIGN
+        questionnaire.save()
+        if 'save_continue' in form.data:
+            self.success_url = reverse_lazy('questionnaire:continue', kwargs={'pk': questionnaire.id})
+        elif 'save' in form.data:
+            self.success_url = reverse_lazy('questionnaire:detail', kwargs={'pk': questionnaire.id})
         return super(QuestionnaireCreation, self).form_valid(form)
 
 
 class QuestionnaireContinueCreation(UpdateView):
     model = Questionnaire
-    form_class = QuestionnaireUpdateForm
+    form_class = QuestionnaireContinueCreationForm
     success_msg = "Questionnaire " + Constants.SUCCESS_CONTINUE_MESSAGE
 
     def form_valid(self, form):
@@ -86,7 +93,6 @@ class QuestionnaireContinueCreation(UpdateView):
 
         questionnaire_dev.save()
         messages.success(self.request, self.success_msg)
-        print(form.data)
         if 'save_continue' in form.data:
             self.success_url = reverse_lazy('questionnaire:continue', kwargs={'pk': self.object.id})
         elif 'save' in form.data:
@@ -96,8 +102,7 @@ class QuestionnaireContinueCreation(UpdateView):
 
 class QuestionnaireUpdate(UpdateView):
     model = Questionnaire
-    fields = '__all__'
-    exclude = ['status', 'methods', 'resources']
+    form_class = QuestionnaireUpdateForm
     template_name = 'questionnaires_standard/questionnaire_update.html'
     success_msg = "Questionnaire " + Constants.SUCCESS_UPDATE_MESSAGE
 
