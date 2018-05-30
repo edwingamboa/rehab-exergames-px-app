@@ -90,7 +90,7 @@
                         {% for pathology in object.associated_pathologies.all %}
                         <li><a href="{% url 'pathologies:detail' pathology.id %}">{{ pathology.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                         {% empty %}
-                        No associated pathologies<
+                        No associated pathologies
                         {% endfor %}
                     </ul>
                 </dd>

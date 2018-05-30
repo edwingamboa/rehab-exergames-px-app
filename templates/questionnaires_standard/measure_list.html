@@ -1,0 +1,37 @@
+{% extends "list_base.html" %}
+
+{% block card_title %}Questionnaire Measures{% endblock card_title %}
+{% block card_description %}Manage Questionnaire Measures{% endblock card_description%}
+
+{% block table_head %}
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Manage</th>
+    </tr>
+{% endblock table_head %}
+{% block table_body %}
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.get_type_display }}</td>
+            <td>
+                <div class="dropdown">
+                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                        Options
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'questionnaire:detail_measures' object.id %}"><i class="fa fa-eye"></i>View</a></li>
+                        <li><a href="{% url 'questionnaire:update_measures' object.id %}"><i class="fa fa-edit"></i>Update</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock table_body %}
+
+{% block new_url %} {% url 'questionnaire:new_measures' %} {% endblock new_url %}
+{% block new_object_name %}Measure{% endblock new_object_name %}

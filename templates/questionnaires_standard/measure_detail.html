@@ -1,0 +1,35 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block card_description %}Rehabilitation Exergame Constraints Details{% endblock %}
+
+{% block card_content %}
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+        {{ object.description }}
+        {% else %}
+        -
+        {% endif %}
+    </dd>
+    <dt>Type</dt>
+    <dd>{{ object.get_type_display }}</dd>
+    <dt>Resources</dt>
+    <dd>
+        <ul class="nav nav-pills nav-stacked">
+            {% for resource in object.resources.all %}
+            <li><a href="{% url 'resources:detail' resource.id %}">{{ resource.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+            {% empty %}
+            No associated resources
+            {% endfor %}
+        </ul>
+    </dd>
+</dl>
+
+{% endblock %}
+
+{% block update_url %} {% url 'questionnaire:update_measures' object.id %} {% endblock %}
+{% block list_url %} {% url 'questionnaire:list_measures' %} {% endblock %}

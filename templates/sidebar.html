@@ -50,6 +50,28 @@
                     <li><a href="{% url 'px_evaluation:list_instruments' %}"><i class="fa fa-table"></i>List Instruments</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-file-text-o"></i><span>Questionnaire Dev.</span>
+                    <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'questionnaire:new' %}"><i class="fa fa-plus-circle"></i>New Questionnaire</a></li>
+                    <li><a href="{% url 'questionnaire:list' %}"><i class="fa fa-table"></i>List Questionnaires</a></li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-check-square-o"></i><span>Measures</span>
+                            <span class="pull-right-container">
+                                      <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{% url 'questionnaire:new_measures' %}"><i class="fa fa-plus-circle"></i>New Measure</a></li>
+                            <li><a href="{% url 'questionnaire:list_measures' %}"><i class="fa fa-table"></i>List Measures</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </li>
     <li class="treeview">
@@ -60,8 +82,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="{% url 'rehab_exergames:new' %}"><i class="fa fa-plus-circle"></i>New Rehabilitation Exergame</a></li>
-            <li><a href="{% url 'rehab_exergames:list' %}"><i class="fa fa-table"></i>List Rehabilitation Exergames</a></li>
+            <li><a href="{% url 'rehab_exergames:new' %}"><i class="fa fa-plus-circle"></i>New Rehab. Exergame</a></li>
+            <li><a href="{% url 'rehab_exergames:list' %}"><i class="fa fa-table"></i>List Rehab. Exergames</a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-tasks"></i><span>Rehabilitation Tasks</span>
                     <span class="pull-right-container">
@@ -82,8 +104,17 @@
                 <ul class="treeview-menu">
                     <li><a href="{% url 'rehab_exergames:new_constraint' %}"><i class="fa fa-plus-circle"></i>New Constraint</a></li>
                     <li><a href="{% url 'rehab_exergames:list_constraint' %}"><i class="fa fa-table"></i>List Constraints</a></li>
-                    <li><a href="{% url 'rehab_exergames:new_constraint_cat' %}"><i class="fa fa-plus-circle"></i>New Constraint Category</a></li>
-                    <li><a href="{% url 'rehab_exergames:list_constraint_cat' %}"><i class="fa fa-table"></i>List Constraint Categories</a></li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-dot-circle-o"></i><span>Constraint Categories</span>
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{% url 'rehab_exergames:new_constraint_cat' %}"><i class="fa fa-plus-circle"></i>New Category</a></li>
+                            <li><a href="{% url 'rehab_exergames:list_constraint_cat' %}"><i class="fa fa-table"></i>List Categories</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -129,8 +160,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{% url 'movements:new_config_par' %}"><i class="fa fa-plus-circle"></i>New Configuration Parameter</a></li>
-            <li><a href="{% url 'movements:list_config_par' %}"><i class="fa fa-table"></i>List Configuration Parameters</a></li>
+                    <li><a href="{% url 'movements:new_config_par' %}"><i class="fa fa-plus-circle"></i>New Parameter</a></li>
+            <li><a href="{% url 'movements:list_config_par' %}"><i class="fa fa-table"></i>List Parameters</a></li>
                 </ul>
             </li>
         </ul>
