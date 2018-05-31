@@ -7,12 +7,13 @@
 <ul class="timeline">
     <!-- timeline item -->
     <li>
-        <i class="fa bg-green"><b>1</b></i>
+        <i class="fa {% if object.current_stage == 'rehab_env_analysis' or object.current_stage == 'eval_goal_def' or object.current_stage == 'aspects_sel' or object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}bg-green{% endif %}"><b>1</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'rehab_env_analysis' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Rehabilitation Environment Analysis</h3>
+            {% if object.current_stage == 'rehab_env_analysis' or object.current_stage == 'eval_goal_def' or object.current_stage == 'aspects_sel' or object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <dl>
                     <dt>Rehabilitation exergame characterisation</dt>
@@ -33,6 +34,7 @@
                                 </div>
                             </li>
                         </ul>
+                    </dd>
                     <dt>Players characterisation</dt>
                     <dd>{% if object.players_characterisation %}
                         <a target="_blank" href="{{ object.players_characterisation.url }}"> {{ object.players_characterisation.name }} <i class="fa fa-download"></i></a>
@@ -52,17 +54,19 @@
                     </dd>
                 </dl>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
     <!-- timeline item -->
     <li>
-        <i class="fa bg-aqua"><b>2</b></i>
+        <i class="fa {% if object.current_stage == 'eval_goal_def' or object.current_stage == 'aspects_sel' or object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}bg-aqua{% endif %}"><b>2</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'eval_goal_def' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Evaluation goal</h3>
+            {% if object.current_stage == 'eval_goal_def' or object.current_stage == 'aspects_sel' or object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <p>
                     {% if object.evaluation_goal %}
@@ -72,17 +76,19 @@
                     {% endif %}
                 </p>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
     <!-- timeline item -->
     <li>
-        <i class="fa bg-yellow"><b>3</b></i>
+        <i class="fa {% if object.current_stage == 'aspects_sel' or object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}bg-yellow{% endif %}"><b>3</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'aspects_sel' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Evaluation aspects</h3>
+            {% if object.current_stage == 'aspects_sel' or object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
                     {% for aspect in object.evaluation_aspects.all %}
@@ -92,17 +98,19 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
     <!-- timeline item -->
     <li>
-        <i class="fa bg-blue"><b>4</b></i>
+        <i class="fa {% if object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}bg-blue{% endif %}"><b>4</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'methods_sel' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Evaluation methods</h3>
+            {% if object.current_stage == 'methods_sel' or object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
                     {% for method in object.evaluation_methods.all %}
@@ -112,16 +120,18 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
     <li>
-        <i class="fa bg-purple"><b>5</b></i>
+        <i class="fa {% if object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}bg-purple{% endif %}"><b>5</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'instruments_sel' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Evaluation instruments</h3>
+            {% if object.current_stage == 'instruments_sel' or object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
                     {% for instrument in object.evaluation_instruments.all %}
@@ -131,16 +141,18 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
     <li>
-        <i class="fa bg-maroon"><b>6</b></i>
+        <i class="fa {% if object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}bg-maroon{% endif %}"><b>6</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'eval_prep' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Evaluation plan</h3>
+            {% if object.current_stage == 'eval_prep' or object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
                     {% if object.evaluation_plan %}
@@ -150,16 +162,18 @@
                     {% endif %}
                 </ul>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
     <li>
-        <i class="fa bg-navy"><b>7</b></i>
+        <i class="fa {% if object.current_stage == 'report' or object.current_stage == 'finished' %}bg-navy{% endif %}"><b>7</b></i>
         <div class="timeline-item">
             {% if object.current_stage == 'report' %}
                 <span class="time"><i class="fa fa-flag-o"></i> Current stage</span>
             {% endif %}
             <h3 class="timeline-header">Evaluation Report</h3>
+            {% if object.current_stage == 'report' or object.current_stage == 'finished' %}
             <div class="timeline-body">
                 <ul class="nav nav-pills nav-stacked">
                     {% if object.evaluation_report %}
@@ -169,9 +183,19 @@
                     {% endif %}
                 </ul>
             </div>
+            {% endif %}
         </div>
     </li>
     <!-- END timeline item -->
+
+    <li>
+        <i class="fa fa-flag {% if object.current_stage == 'finished' %}bg-black{% endif %}"></i>
+        {% if object.current_stage == 'finished' %}
+        <div class="timeline-item">
+            <span class="time"><i class="fa fa-flag-o"></i> Finished</span>
+        </div>
+        {% endif %}
+    </li>
 </ul>
 
 {% endblock %}
