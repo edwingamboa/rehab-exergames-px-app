@@ -1,12 +1,15 @@
 from django import forms
-from .models import Questionnaire
+from .models import (
+    Questionnaire,
+    Measure
+)
 from utilities.constants import Constants
+from django.db.models import Q
 
 
 class QuestionnaireContinueCreationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(QuestionnaireContinueCreationForm, self).__init__(*args,**kwargs)
-
         instance = kwargs.get('instance', None)
         if instance:
             if instance.status == Constants.INIT:
@@ -31,6 +34,12 @@ class QuestionnaireContinueCreationForm(forms.ModelForm):
                 del self.fields['reliability_measure']
                 del self.fields['pre_testing_report']
             elif instance.status == Constants.IN_PRE_TEST or instance.status == Constants.FINISHED:
+                self.fields['validity_measure'].queryset = Measure.objects.filter(
+                    Q(type=Constants.VALIDITY)
+                )
+                self.fields['reliability_measure'].queryset = Measure.objects.filter(
+                    Q(type=Constants.RELIABILITY)
+                )
                 del self.fields['evaluation_objective']
                 del self.fields['target_respondents']
                 del self.fields['aspects']
@@ -66,6 +75,13 @@ class QuestionnaireUpdateForm(forms.ModelForm):
                 del self.fields['reliability']
                 del self.fields['reliability_measure']
                 del self.fields['pre_testing_report']
+            else:
+                self.fields['validity_measure'].queryset = Measure.objects.filter(
+                    Q(type=Constants.VALIDITY)
+                )
+                self.fields['reliability_measure'].queryset = Measure.objects.filter(
+                    Q(type=Constants.RELIABILITY)
+                )
 
     class Meta:
         model = Questionnaire
