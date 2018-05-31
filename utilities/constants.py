@@ -83,6 +83,7 @@ class Constants:
         (EVAL_PREP, 'Evaluation Preparation'),
         # (EVAL, 'Evaluation'),
         (REPORT, 'Results Analysis and Reporting'),
+        (FINISHED, 'Finished'),
     )
     QUESTIONNAIRE_STATUS = (
         (INIT,  'Initiated'),

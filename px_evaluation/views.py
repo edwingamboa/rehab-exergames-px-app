@@ -197,6 +197,10 @@ class PXEvaluationContinueCreation(UpdateView):
             px_evaluation.current_stage = Constants.EVAL_PREP
         elif px_evaluation.current_stage == Constants.EVAL_PREP:
             px_evaluation.current_stage = Constants.REPORT
+        elif px_evaluation.current_stage == Constants.EVAL_PREP:
+            px_evaluation.current_stage = Constants.REPORT
+        elif px_evaluation.current_stage == Constants.REPORT:
+            px_evaluation.current_stage = Constants.FINISHED
 
         px_evaluation.save()
         messages.success(self.request, self.success_msg)
