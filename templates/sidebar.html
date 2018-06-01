@@ -7,7 +7,7 @@
     </li>
     <li class="treeview">
         <a href="#"  >
-            <i class="fa fa-check-square-o"></i><span>PX Evaluation</span>
+            <i class="fa fa-check-square-o"></i><span>PX Evaluations</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -35,8 +35,17 @@
                 <ul class="treeview-menu">
                     <li><a href="{% url 'px_evaluation:new_methods' %}"><i class="fa fa-plus-circle"></i>New Method</a></li>
                     <li><a href="{% url 'px_evaluation:list_methods' %}"><i class="fa fa-table"></i>List Methods</a></li>
-                    <li><a href="{% url 'px_evaluation:new_method_types' %}"><i class="fa fa-plus-circle"></i>New Method Type</a></li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-dot-circle-o"></i><span>Method Types</span>
+                            <span class="pull-right-container">
+                              <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{% url 'px_evaluation:new_method_types' %}"><i class="fa fa-plus-circle"></i>New Method Type</a></li>
                     <li><a href="{% url 'px_evaluation:list_method_types' %}"><i class="fa fa-table"></i>List Method Types</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="treeview">
@@ -50,26 +59,26 @@
                     <li><a href="{% url 'px_evaluation:list_instruments' %}"><i class="fa fa-table"></i>List Instruments</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-file-text-o"></i><span>Questionnaire Dev.</span>
-                    <span class="pull-right-container">
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#"><i class="fa fa-file-text-o"></i><span>PX Questionnaires</span>
+            <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
                             </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{% url 'questionnaire:new' %}"><i class="fa fa-plus-circle"></i>New Questionnaire</a></li>
-                    <li><a href="{% url 'questionnaire:list' %}"><i class="fa fa-table"></i>List Questionnaires</a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-check-square-o"></i><span>Measures</span>
-                            <span class="pull-right-container">
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{% url 'questionnaire:new' %}"><i class="fa fa-plus-circle"></i>New Questionnaire</a></li>
+            <li><a href="{% url 'questionnaire:list' %}"><i class="fa fa-table"></i>List Questionnaires</a></li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-check-square-o"></i><span>Measures</span>
+                    <span class="pull-right-container">
                                       <i class="fa fa-angle-left pull-right"></i>
                                     </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{% url 'questionnaire:new_measures' %}"><i class="fa fa-plus-circle"></i>New Measure</a></li>
-                            <li><a href="{% url 'questionnaire:list_measures' %}"><i class="fa fa-table"></i>List Measures</a></li>
-                        </ul>
-                    </li>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'questionnaire:new_measures' %}"><i class="fa fa-plus-circle"></i>New Measure</a></li>
+                    <li><a href="{% url 'questionnaire:list_measures' %}"><i class="fa fa-table"></i>List Measures</a></li>
                 </ul>
             </li>
         </ul>
@@ -137,7 +146,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{% url 'interaction_device:new_tech' %}"><i class="fa fa-plus-circle"></i>New Device Technology</a></li>
-            <li><a href="{% url 'interaction_device:list_tech' %}"><i class="fa fa-table"></i>List Device Technologies</a></li>
+                    <li><a href="{% url 'interaction_device:list_tech' %}"><i class="fa fa-table"></i>List Device Technologies</a></li>
                 </ul>
             </li>
         </ul>
@@ -161,7 +170,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{% url 'movements:new_config_par' %}"><i class="fa fa-plus-circle"></i>New Parameter</a></li>
-            <li><a href="{% url 'movements:list_config_par' %}"><i class="fa fa-table"></i>List Parameters</a></li>
+                    <li><a href="{% url 'movements:list_config_par' %}"><i class="fa fa-table"></i>List Parameters</a></li>
                 </ul>
             </li>
         </ul>
@@ -174,8 +183,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="{% url 'movements:new' %}"><i class="fa fa-plus-circle"></i>New Pathology</a></li>
-            <li><a href="{% url 'movements:list' %}"><i class="fa fa-table"></i>List Pathologies</a></li>
+            <li><a href="{% url 'pathologies:new' %}"><i class="fa fa-plus-circle"></i>New Pathology</a></li>
+            <li><a href="{% url 'pathologies:list' %}"><i class="fa fa-table"></i>List Pathologies</a></li>
         </ul>
     </li>
     <li class="treeview">

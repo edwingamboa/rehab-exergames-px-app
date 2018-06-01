@@ -1,6 +1,8 @@
 {% extends "detail_base.html" %}
 {% load staticfiles %}
 
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_instrument.html" %}{% endblock pre-breadcrumbs %}
+
 {% block card_description %}Instrument Details{% endblock %}
 
 {% block card_content %}

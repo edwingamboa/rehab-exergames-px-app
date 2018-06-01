@@ -1,6 +1,14 @@
 {% extends "card_base.html" %}
 {% load bootstrap3 %}
 
+{% block current_breadcrumb_label %}
+    {% if object %}
+        Update
+    {% else %}
+        New
+    {% endif %}
+{% endblock current_breadcrumb_label %}
+
 {% block card_color %}{% if object %}box-warning{% else %}box-success{% endif %}{% endblock %}
 
 {% block card_title %}

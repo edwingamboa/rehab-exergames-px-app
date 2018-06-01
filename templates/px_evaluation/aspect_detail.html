@@ -1,6 +1,8 @@
 {% extends "detail_base.html" %}
 {% load staticfiles %}
 
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_aspect.html" %}{% endblock pre-breadcrumbs %}
+
 {% block card_description %}Aspect Details{% endblock %}
 
 {% block card_content %}

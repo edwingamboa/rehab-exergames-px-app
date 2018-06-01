@@ -1,5 +1,8 @@
 {% extends "card_base_no_footer.html" %}
 
+{% block current_breadcrumb_label %}List{% endblock current_breadcrumb_label %}
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_constraint.html" %}{% endblock pre-breadcrumbs %}
+
 {% block card_color %}box-info{% endblock %}
 {% block card_title %}Rehabilitation Exergames Constraints{% endblock card_title %}
 

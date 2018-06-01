@@ -1,6 +1,8 @@
 {% extends "detail_base.html" %}
 {% load staticfiles %}
 
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_configurationparameter.html" %}{% endblock pre-breadcrumbs %}
+
 {% block card_description %}Movement Configuration Parameter Details{% endblock %}
 
 {% block card_content %}

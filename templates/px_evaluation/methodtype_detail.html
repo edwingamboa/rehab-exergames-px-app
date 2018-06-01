@@ -1,6 +1,8 @@
 {% extends "detail_base.html" %}
 {% load staticfiles %}
 
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_methodtype.html" %}{% endblock pre-breadcrumbs %}
+
 {% block card_description %}Method Type Details{% endblock %}
 
 {% block card_content %}
