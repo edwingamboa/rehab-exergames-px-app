@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <ul class="sidebar-menu" data-widget="tree">
-    <li>
+    <li class="no-treeview">
         <a href="{% url 'dashboard:dashboard' %}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
@@ -43,7 +43,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{% url 'px_evaluation:new_method_types' %}"><i class="fa fa-plus-circle"></i>New Method Type</a></li>
-                    <li><a href="{% url 'px_evaluation:list_method_types' %}"><i class="fa fa-table"></i>List Method Types</a></li>
+                            <li><a href="{% url 'px_evaluation:list_method_types' %}"><i class="fa fa-table"></i>List Method Types</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -200,4 +200,3 @@
         </ul>
     </li>
 </ul>
-<div class="sidebar-background" style="background-image: url({% static 'material-dashboard-1.2.0/assets/img/sidebar-1.jpg' %}) "></div>
