@@ -4,6 +4,7 @@ from .views import (
     RehabilitationExergameList,
     RehabilitationExergameDetail,
     RehabilitationExergameCreation,
+    RehabilitationExergameCreationPopUp,
     RehabilitationExergameUpdate,
     RehabilitationTaskList,
     RehabilitationTaskDetail,
@@ -16,6 +17,7 @@ from .views import (
     ConstraintList,
     ConstraintDetail,
     ConstraintCreation,
+    ConstraintCreationPopUp,
     ConstraintUpdate,
     ConstraintFilteredByCategoryList,
 )
@@ -24,6 +26,7 @@ urlpatterns = [
     url(r'^$', RehabilitationExergameList.as_view(), name='list'),
     url(r'^(?P<pk>\d+)$', RehabilitationExergameDetail.as_view(), name='detail'),
     url(r'^new', RehabilitationExergameCreation.as_view(), name='new'),
+    url(r'^pop_up_new', RehabilitationExergameCreationPopUp.as_view(), name='pop_up_new'),
     url(r'^update/(?P<pk>\d+)$', RehabilitationExergameUpdate.as_view(), name='update'),
     url(r'^rehab_task/$', RehabilitationTaskList.as_view(), name='list_task'),
     url(r'^rehab_task/(?P<pk>\d+)$', RehabilitationTaskDetail.as_view(), name='detail_task'),
@@ -37,5 +40,6 @@ urlpatterns = [
     url(r'^constraint/by_cat/(?P<pk>\d+)$', ConstraintFilteredByCategoryList.as_view(), name='list_constraint_by_cat'),
     url(r'^constraint/(?P<pk>\d+)$', ConstraintDetail.as_view(), name='detail_constraint'),
     url(r'^constraint/new', ConstraintCreation.as_view(), name='new_constraint'),
+    url(r'^constraint/pop_up_new', ConstraintCreationPopUp.as_view(), name='pop_up_new_constraint'),
     url(r'^constraint/update/(?P<pk>\d+)$', ConstraintUpdate.as_view(), name='update_constraint'),
 ]

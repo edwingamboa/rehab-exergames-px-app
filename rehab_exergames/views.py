@@ -4,7 +4,9 @@ from utilities.constants import Constants
 from django.views.generic.edit import (
     CreateView,
     UpdateView,
+    FormView,
 )
+from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from .models import (
@@ -14,7 +16,8 @@ from .models import (
     Constraint,
 )
 from .forms import (
-    RehabilitationExergameForm
+    RehabilitationExergameForm,
+    ConstraintCreationPopUpForm
 )
 
 
@@ -71,6 +74,18 @@ class RehabilitationExergameCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(RehabilitationExergameCreation, self).form_valid(form)
+
+
+class RehabilitationExergameCreationPopUp(FormView):
+    model = RehabilitationExergame
+    success_msg = "Rehabilitation Exergame " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = RehabilitationExergameForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class RehabilitationExergameUpdate(UpdateView):
@@ -150,6 +165,18 @@ class ConstraintCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(ConstraintCreation, self).form_valid(form)
+
+
+class ConstraintCreationPopUp(FormView):
+    model = Constraint
+    success_msg = "Constraint " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = ConstraintCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class ConstraintUpdate(UpdateView):

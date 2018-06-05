@@ -17,9 +17,16 @@ from django.views.generic.edit import (
 from django.http import HttpResponse
 from utilities.constants import Constants
 from .forms import (
-    PXEvaluationUpdateForm,
+    PXEvaluationForm,
+    PXEvaluationContinueForm,
+    PXEvaluationCreationForm,
     AspectForm,
     AspectCreationPopUpForm,
+    MethodForm,
+    MethodCreationPopUpForm,
+    InstrumentForm,
+    InstrumentCreationPopUpForm,
+    MethodTypeCreationPopUpForm,
 )
 
 
@@ -33,7 +40,7 @@ class AspectDetail(DetailView):
 
 class AspectCreation(CreateView):
     model = Aspect
-    fields = ['name', 'description', 'resources']
+    form_class = AspectForm
     success_msg = "Aspect " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
@@ -46,7 +53,7 @@ class AspectCreation(CreateView):
 
 class AspectUpdate(UpdateView):
     model = Aspect
-    fields = ['name', 'description', 'resources']
+    form_class = AspectForm
     success_msg = "Aspect " + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):
@@ -61,7 +68,6 @@ class AspectCreationPopUp(FormView):
     model = Aspect
     success_msg = "Aspect " + Constants.SUCCESS_CREATE_MESSAGE
     template_name = 'form_popup.html'
-
     form_class = AspectCreationPopUpForm
 
     def form_valid(self, form):
@@ -80,7 +86,7 @@ class MethodDetail(DetailView):
 
 class MethodCreation(CreateView):
     model = Method
-    fields = ['name', 'description', 'type', 'resources']
+    form_class = MethodForm
     success_msg = "Method " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
@@ -91,9 +97,21 @@ class MethodCreation(CreateView):
         return super(MethodCreation, self).form_valid(form)
 
 
+class MethodCreationPopUp(FormView):
+    model = Method
+    success_msg = "Method " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = MethodCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
+
+
 class MethodUpdate(UpdateView):
     model = Method
-    fields = ['name', 'description', 'type', 'resources']
+    form_class = MethodForm
     success_msg = "Method " + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):
@@ -125,6 +143,18 @@ class MethodTypeCreation(CreateView):
         return super(MethodTypeCreation, self).form_valid(form)
 
 
+class MethodTypeCreationPopUp(FormView):
+    model = MethodType
+    success_msg = "Method Type " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = MethodTypeCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
+
+
 class MethodTypeUpdate(UpdateView):
     model = MethodType
     fields = ['name', 'description']
@@ -148,7 +178,7 @@ class InstrumentDetail(DetailView):
 
 class InstrumentCreation(CreateView):
     model = Instrument
-    fields = ['name', 'description', 'aspects', 'methods', 'resources']
+    form_class = InstrumentForm
     success_msg = "Instrument " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
@@ -159,9 +189,22 @@ class InstrumentCreation(CreateView):
         return super(InstrumentCreation, self).form_valid(form)
 
 
+class InstrumentCreationPopUp(FormView):
+    model = Instrument
+    success_msg = "Instrument " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = InstrumentCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
+
+
+
 class InstrumentUpdate(UpdateView):
     model = Instrument
-    fields = ['name', 'description', 'aspects', 'methods', 'resources']
+    form_class = InstrumentForm
     success_msg = "Instrument " + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):
@@ -182,7 +225,7 @@ class PXEvaluationDetail(DetailView):
 
 class PXEvaluationCreation(CreateView):
     model = PXEvaluation
-    fields = ['rehab_exergame_characterisation', 'players_characterisation', 'rehabilitation_constraints']
+    form_class = PXEvaluationCreationForm
     success_msg = "Evaluation " + Constants.SUCCESS_CREATE_MESSAGE
 
     def form_valid(self, form):
@@ -199,7 +242,7 @@ class PXEvaluationCreation(CreateView):
 
 class PXEvaluationContinueCreation(UpdateView):
     model = PXEvaluation
-    form_class = PXEvaluationUpdateForm
+    form_class = PXEvaluationContinueForm
     success_msg = "Evaluation " + Constants.SUCCESS_CREATE_MESSAGE
 
     def form_valid(self, form):
@@ -233,7 +276,7 @@ class PXEvaluationContinueCreation(UpdateView):
 
 class PXEvaluationUpdate(UpdateView):
     model = PXEvaluation
-    fields = '__all__'
+    form_class = PXEvaluationForm
     template_name = 'px_evaluation/pxevaluation_update.html'
     success_msg = "Evaluation " + Constants.SUCCESS_UPDATE_MESSAGE
 

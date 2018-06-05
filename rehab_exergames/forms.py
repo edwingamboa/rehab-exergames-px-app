@@ -1,5 +1,8 @@
 from django import forms
-from .models import RehabilitationExergame
+from .models import (
+    RehabilitationExergame,
+    Constraint,
+)
 from interaction_devices.models import InteractionDevice
 from utilities.constants import Constants
 from django.db.models import Q
@@ -19,3 +22,9 @@ class RehabilitationExergameForm(forms.ModelForm):
         model = RehabilitationExergame
         fields = '__all__'
         exclude = ['status']
+
+
+class ConstraintCreationPopUpForm(forms.ModelForm):
+    class Meta(object):
+        model = Constraint
+        fields = ['name', 'description', 'categories']
