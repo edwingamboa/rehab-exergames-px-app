@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import ModelForm
 from .models import (
     Questionnaire,
     Measure
@@ -21,6 +22,7 @@ class QuestionnaireForm(forms.ModelForm):
             self.fields['questionnaire_document'].queryset = Resource.objects.all()
             self.fields['additional_documents'].queryset = Resource.objects.all()
             self.fields['pre_testing_report'].queryset = Resource.objects.all()
+            self.fields['aspects'].queryset = Aspect.objects.all()
             self.fields['validity_measure'].queryset = Measure.objects.filter(
                 Q(type=Constants.VALIDITY)
             )
@@ -37,6 +39,14 @@ class QuestionnaireForm(forms.ModelForm):
                 Resource,
                 related_url='resources:pop_up_new'
             ),
+            'validity_measure': RelatedFieldWidgetCanAdd(
+                Measure,
+                related_url='questionnaire:pop_up_new_measures'
+            ),
+            'reliability_measure': RelatedFieldWidgetCanAdd(
+                Measure,
+                related_url='questionnaire:pop_up_new_measures'
+            ),
             'pre_testing_report': RelatedFieldWidgetCanAdd(
                 Resource,
                 related_url='resources:pop_up_new'
@@ -44,6 +54,10 @@ class QuestionnaireForm(forms.ModelForm):
             'additional_documents': RelatedFieldWidgetCanAddMultiple(
                 Resource,
                 related_url='resources:pop_up_new'
+            ),
+            'aspects': RelatedFieldWidgetCanAddMultiple(
+                Aspect,
+                related_url='px_evaluation:pop_up_new_aspects'
             ),
         }
 
@@ -105,3 +119,9 @@ class QuestionnaireUpdateForm(QuestionnaireForm):
                 del self.fields['reliability']
                 del self.fields['reliability_measure']
                 del self.fields['pre_testing_report']
+
+
+class MeasureForm(ModelForm):
+    class Meta:
+        model = Measure
+        fields = '__all__'

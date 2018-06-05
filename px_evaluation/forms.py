@@ -1,5 +1,9 @@
 from django import forms
-from .models import PXEvaluation
+from django.forms import ModelForm
+from .models import (
+    PXEvaluation,
+    Aspect
+)
 from utilities.constants import Constants
 
 
@@ -75,3 +79,9 @@ class PXEvaluationUpdateForm(forms.ModelForm):
         model = PXEvaluation
         fields = '__all__'
         exclude = ('date', 'current_stage')
+
+
+class AspectForm(ModelForm):
+    class Meta:
+        model = Aspect
+        fields = ['name', 'description', 'resources']

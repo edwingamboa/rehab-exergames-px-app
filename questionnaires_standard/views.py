@@ -9,10 +9,13 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import (
     CreateView,
     UpdateView,
+    FormView,
 )
+from django.http import HttpResponse
 from .forms import (
     QuestionnaireContinueCreationForm,
-    QuestionnaireUpdateForm
+    QuestionnaireUpdateForm,
+    MeasureForm
 )
 from utilities.constants import Constants
 
@@ -37,6 +40,19 @@ class MeasureCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(MeasureCreation, self).form_valid(form)
+
+
+class MeasureCreationPopUp(FormView):
+    model = Measure
+    success_msg = "Measure " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+
+    form_class = MeasureForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class MeasureUpdate(UpdateView):

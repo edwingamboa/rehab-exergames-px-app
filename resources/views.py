@@ -36,7 +36,6 @@ class ResourceCreation(CreateView):
 
 class ResourceCreationPopUp(FormView):
     model = Resource
-    fields = ['name', 'description', 'url', 'file']
     success_msg = "Resource " + Constants.SUCCESS_CREATE_MESSAGE
     template_name = 'form_popup.html'
 
@@ -44,9 +43,8 @@ class ResourceCreationPopUp(FormView):
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
-        resource = form.save()
-        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (resource.pk, resource))
-
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class ResourceUpdate(UpdateView):
