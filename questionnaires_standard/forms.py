@@ -13,7 +13,42 @@ from resources.models import Resource
 from px_evaluation.models import Aspect
 
 
-class QuestionnaireContinueCreationForm(forms.ModelForm):
+class QuestionnaireForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(QuestionnaireForm, self).__init__(*args,**kwargs)
+        instance = kwargs.get('instance', None)
+        if instance:
+            self.fields['questionnaire_document'].queryset = Resource.objects.all()
+            self.fields['additional_documents'].queryset = Resource.objects.all()
+            self.fields['pre_testing_report'].queryset = Resource.objects.all()
+            self.fields['validity_measure'].queryset = Measure.objects.filter(
+                Q(type=Constants.VALIDITY)
+            )
+            self.fields['reliability_measure'].queryset = Measure.objects.filter(
+                Q(type=Constants.RELIABILITY)
+            )
+
+    class Meta:
+        model = Questionnaire
+        fields = '__all__'
+        exclude = ('status', 'methods', 'resources')
+        widgets = {
+            'questionnaire_document': RelatedFieldWidgetCanAdd(
+                Resource,
+                related_url='resources:pop_up_new'
+            ),
+            'pre_testing_report': RelatedFieldWidgetCanAdd(
+                Resource,
+                related_url='resources:pop_up_new'
+            ),
+            'additional_documents': RelatedFieldWidgetCanAddMultiple(
+                Resource,
+                related_url='resources:pop_up_new'
+            ),
+        }
+
+
+class QuestionnaireContinueCreationForm(QuestionnaireForm):
     def __init__(self, *args, **kwargs):
         super(QuestionnaireContinueCreationForm, self).__init__(*args,**kwargs)
         instance = kwargs.get('instance', None)
@@ -40,12 +75,6 @@ class QuestionnaireContinueCreationForm(forms.ModelForm):
                 del self.fields['reliability_measure']
                 del self.fields['pre_testing_report']
             elif instance.status == Constants.IN_PRE_TEST or instance.status == Constants.FINISHED:
-                self.fields['validity_measure'].queryset = Measure.objects.filter(
-                    Q(type=Constants.VALIDITY)
-                )
-                self.fields['reliability_measure'].queryset = Measure.objects.filter(
-                    Q(type=Constants.RELIABILITY)
-                )
                 del self.fields['evaluation_objective']
                 del self.fields['target_respondents']
                 del self.fields['aspects']
@@ -54,20 +83,13 @@ class QuestionnaireContinueCreationForm(forms.ModelForm):
                 del self.fields['questionnaire_document']
                 del self.fields['additional_documents']
 
-    class Meta:
-        model = Questionnaire
-        fields = '__all__'
-        exclude = ('status', 'methods', 'resources')
 
-
-class QuestionnaireUpdateForm(forms.ModelForm):
+class QuestionnaireUpdateForm(QuestionnaireForm):
     def __init__(self, *args, **kwargs):
         super(QuestionnaireUpdateForm, self).__init__(*args,**kwargs)
 
         instance = kwargs.get('instance', None)
         if instance:
-            self.fields['questionnaire_document'].queryset = Resource.objects.all()
-            self.fields['additional_documents'].queryset = Resource.objects.all()
             if instance.status == Constants.INIT:
                 del self.fields['description']
                 del self.fields['questionnaire_document']
@@ -83,25 +105,3 @@ class QuestionnaireUpdateForm(forms.ModelForm):
                 del self.fields['reliability']
                 del self.fields['reliability_measure']
                 del self.fields['pre_testing_report']
-            else:
-                self.fields['validity_measure'].queryset = Measure.objects.filter(
-                    Q(type=Constants.VALIDITY)
-                )
-                self.fields['reliability_measure'].queryset = Measure.objects.filter(
-                    Q(type=Constants.RELIABILITY)
-                )
-
-    class Meta:
-        model = Questionnaire
-        fields = '__all__'
-        exclude = ('status', 'methods', 'resources')
-        widgets = {
-            'questionnaire_document': RelatedFieldWidgetCanAdd(
-                Resource,
-                related_url='resources:pop_up_new'
-            ),
-            'additional_documents': RelatedFieldWidgetCanAddMultiple(
-                Resource,
-                related_url='resources:pop_up_new'
-            ),
-        }
