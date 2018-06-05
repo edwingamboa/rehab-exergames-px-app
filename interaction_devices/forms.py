@@ -17,6 +17,7 @@ class InteractionDeviceForm(ModelForm):
             ),
         }
 
+
 class DeviceTechnologyCreationPopUpForm(ModelForm):
     class Meta:
         model = DeviceTechnology
