@@ -6,22 +6,30 @@
 {% block card_description %}Movement Details{% endblock %}
 
 {% block card_content %}
-<p>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
-</p>
-<p>
-    Description:
-    <span class="text-muted"> {{ object.description }}</span>
-</p>
-<p>
-    Configuration Parameters:
-    {% for config_par in object.configuration_parameters.all %}
-        <p><span class="text-muted"> {{ config_par }}</span></p>
-    {% empty %}
-        <span class="text-muted">The movement has no associated configuration parameters.</span>
-    {% endfor %}
-</p>
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+            {{ object.description }}
+        {% else %}
+            <span class="text-muted">None</span>
+        {% endif %}
+    </dd>
+
+    <dt>Configuration Parameters</dt>
+    <dd>
+        <ul class="nav nav-pills nav-stacked">
+            {% for config_par in object.configuration_parameters.all %}
+            <li><a href="{% url 'movements:detail_config_par' config_par.id %}">{{ config_par }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+            {% empty %}
+            <span class="text-muted">No associated configuration parameters</span>
+            {% endfor %}
+        </ul>
+    </dd>
+</dl>
 {% endblock %}
 
 {% block update_url %} {% url 'movements:update' object.id %} {% endblock %}

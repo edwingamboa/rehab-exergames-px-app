@@ -6,22 +6,34 @@
 {% block card_description %}Interaction Device Details{% endblock %}
 
 {% block card_content %}
-<p>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
-</p>
-<p>
-    Description:
-    <span class="text-muted"> {{ object.description }}</span>
-</p>
-<p>
-    Device Technology:
-    <span class="text-muted"> {{ object.device_technology.name}}</span>
-</p>
-<p>
-    Type:
-    <span class="text-muted"> {{ object.get_type_display}}</span>
-</p>
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+            {{ object.description }}
+        {% else %}
+            <span class="text-muted">None</span>
+        {% endif %}
+    </dd>
+
+    <dt>Device Technology</dt>
+    <dd>
+        <ul class="nav nav-pills nav-stacked">
+            {% if object.device_technology %}
+            <li><a target="_blank" href="{% url 'interaction_device:detail_tech' object.device_technology.id %}"> {{ object.device_technology }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+            {% else %}
+            <span class="text-muted">None</span>
+            {% endif %}
+        </ul>
+    </dd>
+
+    <dt>Type</dt>
+    <dd>{{ object.get_type_display }}</dd>
+</dl>
+
 {% endblock %}
 
 {% block update_url %} {% url 'interaction_device:update' object.id %} {% endblock %}

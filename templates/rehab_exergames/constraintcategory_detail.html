@@ -6,14 +6,19 @@
 {% block card_description %}Rehabilitation Exergame Constraints Categories Details{% endblock %}
 
 {% block card_content %}
-<p>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
-</p>
-<p>
-    Description:
-    <span class="text-muted"> {{ object.description }}</span>
-</p>
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+            {{ object.description }}
+        {% else %}
+            <span class="text-muted">None</span>
+        {% endif %}
+    </dd>
+</dl>
 {% endblock %}
 
 {% block update_url %} {% url 'rehab_exergames:update_constraint_cat' object.id %} {% endblock %}

@@ -6,18 +6,19 @@
 {% block card_description %}Method Type Details{% endblock %}
 
 {% block card_content %}
-<p>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
-</p>
-<div>
-    Description:
-    {% if object.description %}
-    <span class="text-muted"> {{ object.description }}</span>
-    {% else %}
-    -
-    {% endif %}
-</div>
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+            {{ object.description }}
+        {% else %}
+            <span class="text-muted">None</span>
+        {% endif %}
+    </dd>
+</dl>
 {% endblock %}
 
 {% block update_url %} {% url 'px_evaluation:update_method_types' object.id %} {% endblock %}
