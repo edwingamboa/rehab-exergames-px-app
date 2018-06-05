@@ -18,6 +18,12 @@ class MovementForm(ModelForm):
         }
 
 
+class MovementCreationPopUpForm(ModelForm):
+    class Meta:
+        model = Movement
+        fields = ['name', 'description', 'configuration_parameters']
+
+
 class ConfigurationParameterCreationPopUpForm(ModelForm):
     class Meta:
         model = ConfigurationParameter

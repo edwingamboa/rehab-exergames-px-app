@@ -15,7 +15,8 @@ from .models import (
 )
 from .forms import (
     DeviceTechnologyCreationPopUpForm,
-    InteractionDeviceForm
+    InteractionDeviceForm,
+    InteractionDeviceCreationPopUpForm
 )
 
 
@@ -39,6 +40,18 @@ class InteractionDeviceCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(InteractionDeviceCreation, self).form_valid(form)
+
+
+class InteractionDeviceCreationPopUp(FormView):
+    model = InteractionDevice
+    success_msg = "Interaction Device " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = InteractionDeviceCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class InteractionDeviceUpdate(UpdateView):

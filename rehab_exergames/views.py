@@ -17,7 +17,11 @@ from .models import (
 )
 from .forms import (
     RehabilitationExergameForm,
-    ConstraintCreationPopUpForm
+    RehabilitationExergameCreationPopUpForm,
+    ConstraintForm,
+    ConstraintCreationPopUpForm,
+    ConstraintCategoryCreationPopUpForm,
+    RehabilitationTaskCreationPopUpForm,
 )
 
 
@@ -40,6 +44,18 @@ class RehabilitationTaskCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(RehabilitationTaskCreation, self).form_valid(form)
+
+
+class RehabilitationTaskCreationPopUp(FormView):
+    model = RehabilitationTask
+    success_msg = "Rehabilitation Task " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = RehabilitationTaskCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class RehabilitationTaskUpdate(UpdateView):
@@ -80,7 +96,7 @@ class RehabilitationExergameCreationPopUp(FormView):
     model = RehabilitationExergame
     success_msg = "Rehabilitation Exergame " + Constants.SUCCESS_CREATE_MESSAGE
     template_name = 'form_popup.html'
-    form_class = RehabilitationExergameForm
+    form_class = RehabilitationExergameCreationPopUpForm
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
@@ -120,6 +136,18 @@ class ConstraintCategoryCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(ConstraintCategoryCreation, self).form_valid(form)
+    
+    
+class ConstraintCategoryCreationPopUp(FormView):
+    model = ConstraintCategory
+    success_msg = "Constraint Category " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = ConstraintCategoryCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class ConstraintCategoryUpdate(UpdateView):
@@ -156,7 +184,7 @@ class ConstraintDetail(DetailView):
 
 class ConstraintCreation(CreateView):
     model = Constraint
-    fields = ['name', 'description', 'categories']
+    form_class = ConstraintForm
     success_msg = "Constraint " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
@@ -181,7 +209,7 @@ class ConstraintCreationPopUp(FormView):
 
 class ConstraintUpdate(UpdateView):
     model = Constraint
-    fields = ['name', 'description', 'categories']
+    form_class = ConstraintForm
     success_msg = "Constraint" + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):

@@ -11,11 +11,6 @@ def get_image_path(instance, filename):
 
 
 # Create your models here.
-class ThematicContent(models.Model):
-    name = models.CharField(max_length=140)
-    description = models.TextField()
-
-
 class Game(models.Model):
     name = models.CharField(max_length=140)
     description = models.TextField()

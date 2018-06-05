@@ -18,6 +18,12 @@ class InteractionDeviceForm(ModelForm):
         }
 
 
+class InteractionDeviceCreationPopUpForm(ModelForm):
+    class Meta:
+        model = InteractionDevice
+        fields = ['name', 'description', 'type', 'device_technology']
+
+
 class DeviceTechnologyCreationPopUpForm(ModelForm):
     class Meta:
         model = DeviceTechnology
