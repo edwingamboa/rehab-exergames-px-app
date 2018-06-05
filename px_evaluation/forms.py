@@ -85,3 +85,9 @@ class AspectForm(ModelForm):
     class Meta:
         model = Aspect
         fields = ['name', 'description', 'resources']
+
+
+class AspectCreationPopUpForm(ModelForm):
+    class Meta:
+        model = Aspect
+        fields = ['name', 'description']

@@ -15,7 +15,8 @@ from django.http import HttpResponse
 from .forms import (
     QuestionnaireContinueCreationForm,
     QuestionnaireUpdateForm,
-    MeasureForm
+    MeasureForm,
+    MeasureCreationPopUpForm,
 )
 from utilities.constants import Constants
 
@@ -31,8 +32,8 @@ class MeasureDetail(DetailView):
 
 class MeasureCreation(CreateView):
     model = Measure
-    fields = '__all__'
     success_msg = "Measure " + Constants.SUCCESS_CREATE_MESSAGE
+    form_class = MeasureForm
 
     def get_success_url(self):
         return reverse_lazy('questionnaire:detail_measures', kwargs={'pk': self.object.id})
@@ -46,8 +47,7 @@ class MeasureCreationPopUp(FormView):
     model = Measure
     success_msg = "Measure " + Constants.SUCCESS_CREATE_MESSAGE
     template_name = 'form_popup.html'
-
-    form_class = MeasureForm
+    form_class = MeasureCreationPopUpForm
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
@@ -57,8 +57,8 @@ class MeasureCreationPopUp(FormView):
 
 class MeasureUpdate(UpdateView):
     model = Measure
-    fields = '__all__'
     success_msg = "Measure " + Constants.SUCCESS_UPDATE_MESSAGE
+    form_class = MeasureForm
 
     def get_success_url(self):
         return reverse_lazy('questionnaire:detail_measures', kwargs={'pk': self.object.id})

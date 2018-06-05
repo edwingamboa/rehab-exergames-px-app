@@ -19,6 +19,7 @@ from utilities.constants import Constants
 from .forms import (
     PXEvaluationUpdateForm,
     AspectForm,
+    AspectCreationPopUpForm,
 )
 
 
@@ -61,7 +62,7 @@ class AspectCreationPopUp(FormView):
     success_msg = "Aspect " + Constants.SUCCESS_CREATE_MESSAGE
     template_name = 'form_popup.html'
 
-    form_class = AspectForm
+    form_class = AspectCreationPopUpForm
 
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)

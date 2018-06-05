@@ -125,3 +125,16 @@ class MeasureForm(ModelForm):
     class Meta:
         model = Measure
         fields = '__all__'
+        widgets = {
+            'resources': RelatedFieldWidgetCanAddMultiple(
+                Resource,
+                related_url='resources:pop_up_new'
+            ),
+        }
+
+
+class MeasureCreationPopUpForm(ModelForm):
+    class Meta:
+        model = Measure
+        fields = '__all__'
+        exclude = ('resources',)
