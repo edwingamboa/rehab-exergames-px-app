@@ -201,7 +201,6 @@ class InstrumentCreationPopUp(FormView):
         return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
-
 class InstrumentUpdate(UpdateView):
     model = Instrument
     form_class = InstrumentForm

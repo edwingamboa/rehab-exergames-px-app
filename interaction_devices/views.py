@@ -4,12 +4,18 @@ from utilities.constants import Constants
 from django.views.generic.edit import (
     CreateView,
     UpdateView,
+    FormView,
 )
+from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from .models import (
     InteractionDevice,
     DeviceTechnology,
+)
+from .forms import (
+    DeviceTechnologyCreationPopUpForm,
+    InteractionDeviceForm
 )
 
 
@@ -24,7 +30,7 @@ class InteractionDeviceDetail(DetailView):
 
 class InteractionDeviceCreation(CreateView):
     model = InteractionDevice
-    fields = ['name', 'description', 'type', 'device_technology']
+    form_class = InteractionDeviceForm
     success_msg = "Interaction device " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
@@ -34,9 +40,10 @@ class InteractionDeviceCreation(CreateView):
         messages.success(self.request, self.success_msg)
         return super(InteractionDeviceCreation, self).form_valid(form)
 
+
 class InteractionDeviceUpdate(UpdateView):
     model = InteractionDevice
-    fields = ['name', 'description', 'type', 'device_technology']
+    form_class = InteractionDeviceForm
     success_msg = "Interaction device " + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):
@@ -45,6 +52,7 @@ class InteractionDeviceUpdate(UpdateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(InteractionDeviceUpdate, self).form_valid(form)
+
 
 class DeviceTechnologyList(ListView):
     model = DeviceTechnology
@@ -65,6 +73,19 @@ class DeviceTechnologyCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(DeviceTechnologyCreation, self).form_valid(form)
+
+
+class DeviceTechnologyCreationPopUp(FormView):
+    model = DeviceTechnology
+    success_msg = "Device Technology " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = DeviceTechnologyCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
+
 
 class DeviceTechnologyUpdate(UpdateView):
     model = DeviceTechnology
