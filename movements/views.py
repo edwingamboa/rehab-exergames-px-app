@@ -4,12 +4,18 @@ from utilities.constants import Constants
 from django.views.generic.edit import (
     CreateView,
     UpdateView,
+    FormView,
 )
+from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from .models import (
     Movement,
     ConfigurationParameter,
+)
+from .forms import (
+    ConfigurationParameterCreationPopUpForm,
+    MovementForm
 )
 
 
@@ -32,6 +38,18 @@ class ConfigurationParameterCreation(CreateView):
     def form_valid(self, form):
         messages.success(self.request, self.success_msg)
         return super(ConfigurationParameterCreation, self).form_valid(form)
+    
+
+class ConfigurationParameterCreationPopUp(FormView):
+    model = ConfigurationParameter
+    success_msg = "Configuration Parameter " + Constants.SUCCESS_CREATE_MESSAGE
+    template_name = 'form_popup.html'
+    form_class = ConfigurationParameterCreationPopUpForm
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        object = form.save()
+        return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
 
 
 class ConfigurationParameterUpdate(UpdateView):
@@ -57,7 +75,7 @@ class MovementDetail(DetailView):
 
 class MovementCreation(CreateView):
     model = Movement
-    fields = ['name', 'description', 'configuration_parameters']
+    form_class = MovementForm
     success_msg = "Movement " + Constants.SUCCESS_CREATE_MESSAGE
 
     def get_success_url(self):
@@ -70,7 +88,7 @@ class MovementCreation(CreateView):
 
 class MovementUpdate(UpdateView):
     model = Movement
-    fields = ['name', 'description', 'configuration_parameters']
+    form_class = MovementForm
     success_msg = "Movement " + Constants.SUCCESS_UPDATE_MESSAGE
 
     def get_success_url(self):

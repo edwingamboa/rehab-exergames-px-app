@@ -9,6 +9,7 @@ from .views import (
     ConfigurationParameterDetail,
     ConfigurationParameterCreation,
     ConfigurationParameterUpdate,
+    ConfigurationParameterCreationPopUp,
 )
 
 urlpatterns = [
@@ -19,5 +20,6 @@ urlpatterns = [
     url(r'^config_par/$', ConfigurationParameterList.as_view(), name='list_config_par'),
     url(r'^config_par/(?P<pk>\d+)$', ConfigurationParameterDetail.as_view(), name='detail_config_par'),
     url(r'^config_par/new', ConfigurationParameterCreation.as_view(), name='new_config_par'),
+    url(r'^config_par/pop_up_new', ConfigurationParameterCreationPopUp.as_view(), name='pop_up_new_config_par'),
     url(r'^config_par/update/(?P<pk>\d+)$', ConfigurationParameterUpdate.as_view(), name='update_config_par'),
 ]
