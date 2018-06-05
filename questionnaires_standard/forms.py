@@ -5,6 +5,12 @@ from .models import (
 )
 from utilities.constants import Constants
 from django.db.models import Q
+from utilities.custom_widgets import (
+    RelatedFieldWidgetCanAdd,
+    RelatedFieldWidgetCanAddMultiple
+)
+from resources.models import Resource
+from px_evaluation.models import Aspect
 
 
 class QuestionnaireContinueCreationForm(forms.ModelForm):
@@ -60,6 +66,8 @@ class QuestionnaireUpdateForm(forms.ModelForm):
 
         instance = kwargs.get('instance', None)
         if instance:
+            self.fields['questionnaire_document'].queryset = Resource.objects.all()
+            self.fields['additional_documents'].queryset = Resource.objects.all()
             if instance.status == Constants.INIT:
                 del self.fields['description']
                 del self.fields['questionnaire_document']
@@ -87,3 +95,13 @@ class QuestionnaireUpdateForm(forms.ModelForm):
         model = Questionnaire
         fields = '__all__'
         exclude = ('status', 'methods', 'resources')
+        widgets = {
+            'questionnaire_document': RelatedFieldWidgetCanAdd(
+                Resource,
+                related_url='resources:pop_up_new'
+            ),
+            'additional_documents': RelatedFieldWidgetCanAddMultiple(
+                Resource,
+                related_url='resources:pop_up_new'
+            ),
+        }

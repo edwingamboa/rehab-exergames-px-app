@@ -61,6 +61,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-purple sidebar-mini">
+{% block wrapper %}
 <div class="wrapper">
     <header class="main-header">
         <!-- Logo -->
@@ -102,8 +103,10 @@ desired effect
         {% include 'footer.html' %}
         {% endblock %}
     </footer>
+</div>
+{% endblock wrapper %}
 
-    <!--=================== Scripts for all pages ===================-->
+<!--=================== Scripts for all pages ===================-->
     {% block js %}
 
     <!-- jQuery 3 -->
@@ -156,6 +159,5 @@ desired effect
     <!--=================== Specific scripts for each page ===================-->
     {% block specific-js %}
     {% endblock %}
-</div>
 </body>
 </html>

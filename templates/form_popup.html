@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block wrapper %}
+
+<div class="box {% if object %}box-warning{% else %}box-success{% endif %}">
+    <form method="post" enctype="multipart/form-data">
+        <div class="box-body">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <input type="submit" value="Save" class="btn btn-success"/>
+        </div>
+        <!-- /.box-footer-->
+    </form>
+</div>
+{% endblock wrapper %}
+
+
