@@ -1,6 +1,7 @@
 from .models import Definition
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
+from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import (
@@ -61,3 +62,15 @@ class DefinitionCreationPopUp(FormView):
         messages.success(self.request, self.success_msg)
         object = form.save()
         return HttpResponse('<script>opener.closePopup(window, "%s", "%s");</script>' % (object.pk, object))
+
+
+class QuestionnaireProcess(TemplateView):
+    template_name = 'wiki/questionnaire_dev/questionnaire_process.html'
+
+
+class QuestionnaireDesign(TemplateView):
+    template_name = 'wiki/questionnaire_dev/questionnaire_design.html'
+
+
+class QuestionnairePreTesting(TemplateView):
+    template_name = 'wiki/questionnaire_dev/questionnaire_pre_testing.html'
