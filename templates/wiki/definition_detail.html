@@ -1,0 +1,27 @@
+{% extends "detail_base.html" %}
+{% load staticfiles %}
+
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_definition.html" %}{% endblock pre-breadcrumbs %}
+
+{% block card_description %}Definition{% endblock %}
+
+{% block card_content %}
+<dl>
+    <dt>{{ object.term }}</dt>
+    <dd><p>{{ object.definition }}</p></dd>
+
+    <dt>Resources</dt>
+    <dd>
+        <ul class="nav nav-pills nav-stacked">
+            {% for resource in object.resources.all %}
+            <li><a href="{% url 'resources:detail' resource.id %}">{{ resource }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+            {% empty %}
+            <span class="text-muted">No associated resources</span>
+            {% endfor %}
+        </ul>
+    </dd>
+</dl>
+{% endblock %}
+
+{% block update_url %} {% url 'wiki:update_definitions' object.id %} {% endblock %}
+{% block list_url %} {% url 'wiki:list_definitions' %} {% endblock %}
