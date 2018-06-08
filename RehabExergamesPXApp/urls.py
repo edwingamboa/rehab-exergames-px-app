@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^resources/', include('resources.urls', namespace='resources')),
     url(r'^px_evaluation/', include('px_evaluation.urls', namespace='px_evaluation')),
     url(r'^questionnaire/', include('questionnaires_standard.urls', namespace='questionnaire')),
+    url(r'^wiki/', include('wiki.urls', namespace='wiki')),
 ]
 
 if settings.DEBUG:

@@ -189,6 +189,27 @@
     </li>
     <li class="treeview">
         <a href="#"  >
+            <i class="fa fa-book"></i><span>Wiki</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="treeview">
+                <a href="#"><i class="fa fa-sliders"></i><span>Terms and Definitions</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'wiki:new_definitions' %}"><i class="fa fa-plus-circle"></i>New Definition</a></li>
+                    <li><a href="{% url 'wiki:list_definitions' %}"><i class="fa fa-table"></i>List Definitions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#"  >
             <i class="fa fa-book"></i><span>Resources</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

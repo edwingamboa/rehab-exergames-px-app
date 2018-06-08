@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'resources',
     'px_evaluation',
     'questionnaires_standard',
+    'wiki',
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,5 @@
 from django.conf.urls import url
-
+from django.views.generic import TemplateView
 from .views import (
     MeasureCreation,
     MeasureDetail,
@@ -24,4 +24,16 @@ urlpatterns = [
     url(r'^questionnaire_dev/new', QuestionnaireCreation.as_view(), name='new'),
     url(r'^questionnaire_dev/update/(?P<pk>\d+)', QuestionnaireUpdate.as_view(), name='update'),
     url(r'^questionnaire_dev/continue/(?P<pk>\d+)', QuestionnaireContinueCreation.as_view(), name='continue'),
+    url(r'^questionnaire_process',
+        TemplateView.as_view(template_name='questionnaires_standard/questionnaire_process.html'),
+        name='questionnaire_process'),
+    url(r'^questionnaire_process/design',
+        TemplateView.as_view(template_name='questionnaires_standard/questionnaire_design.html'),
+        name='questionnaire_design'),
+    url(r'^questionnaire_process/pre-testing',
+        TemplateView.as_view(template_name='questionnaires_standard/questionnaire_pre_testing.html'),
+        name='questionnaire_pre_testing'),
+    url(r'^glossary',
+        TemplateView.as_view(template_name='questionnaires_standard/glossary.html'),
+        name='glossary'),
 ]
