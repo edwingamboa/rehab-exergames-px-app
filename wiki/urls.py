@@ -9,6 +9,7 @@ from .views import (
     QuestionnaireProcess,
     QuestionnaireDesign,
     QuestionnairePreTesting,
+    QuestionsFormulationGuide,
 )
 
 urlpatterns = [
@@ -19,5 +20,6 @@ urlpatterns = [
     url(r'^definitions/pop_up_new', DefinitionCreationPopUp.as_view(), name='pop_up_new_definitions'),
     url(r'^questionnaire_dev/process', QuestionnaireProcess.as_view(), name='questionnaire_process'),
     url(r'^questionnaire_dev/design', QuestionnaireDesign.as_view(), name='questionnaire_design'),
-    url(r'^questionnaire_dev/pre-testing', QuestionnairePreTesting.as_view(), name='questionnaire_pre_testing'),
+    url(r'^questionnaire_dev/pre_testing', QuestionnairePreTesting.as_view(), name='questionnaire_pre_testing'),
+    url(r'^questionnaire_dev/questions_guide', QuestionsFormulationGuide.as_view(), name='questions_guide'),
 ]

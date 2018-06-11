@@ -74,3 +74,7 @@ class QuestionnaireDesign(TemplateView):
 
 class QuestionnairePreTesting(TemplateView):
     template_name = 'wiki/questionnaire_dev/questionnaire_pre_testing.html'
+
+
+class QuestionsFormulationGuide(TemplateView):
+    template_name = 'wiki/questionnaire_dev/questions_guide.html'
