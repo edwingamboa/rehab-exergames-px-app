@@ -23,8 +23,13 @@
     <li>
         <i class="fa bg-green"><b>1</b></i>
         <div class="timeline-item">
-            <h3 class="timeline-header">Identify evaluation goal</h3>
-            <div class="timeline-body">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#goal_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+            <h3 class="timeline-header" id="goal">Identify evaluation goal</h3>
+            <div class="timeline-body collapse in" id="goal_body">
                 <p>{% include "wiki/term_mention.html" with term=term|get_definition:"Researcher" verbose="Researchers"%} determine the information they need to know and their reasons to know it. This may result in the identification of an <span class="text-green">evaluation goal</span> \cite{Diem,Radhakrishna2007,Crawford1997}.</p>
                 <p>Nevertheless, this definition process might not be straightforward, thus it involves exploratory research. This includes consulting experts, collecting data from people directly related to the problem itself; \eg by performing a focus group, reviewing literature, among others \cite{Crawford1997}. Then, an evaluation goal can be established.</p>
             </div>
@@ -35,8 +40,13 @@
     <li>
         <i class="fa bg-aqua"><b>2</b></i>
         <div class="timeline-item">
-            <h3 class="timeline-header">Is questionnaire the right approach?</h3>
-            <div class="timeline-body">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#is_right_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+            <h3 class="timeline-header" id="is_right">Is questionnaire the right approach?</h3>
+            <div class="timeline-body collapse in" id="is_right_body">
                 <p>Researchers determine whether questionnaire is the right approach to achieve evaluation goal \cite{Boynton2004:3}. Depending on the goal, other data collection methods may be more appropriate than questionnaires; \eg observation, video recording, interview, existing data analysis, among others. A multi-method approach may also be convenient \cite{Boynton2004:3,Krosnick2009}, in such a case, researchers should define a more specific goal for the questionnaire.</p>
                 <p>In case questionnaire is not appropriate to meet research goals, this process finishes since no questionnaire is to be selected or designed.</p>
             </div>
@@ -47,8 +57,13 @@
     <li>
         <i class="fa bg-yellow"><b>3</b></i>
         <div class="timeline-item">
-            <h3 class="timeline-header">Does an adequate, valid and reliable questionnaire exists?</h3>
-            <div class="timeline-body">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#existent_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+            <h3 class="timeline-header" id="existent">Does an adequate, valid and reliable questionnaire exists?</h3>
+            <div class="timeline-body collapse in" id="existent_body">
                 <p>Researchers determine whether an existing questionnaire can be employed instead of designing a new one \cite{Boynton2004:3}. Since researchers have conducted an exploratory research at the first step, they might have an initial idea of how similar studies were carried out and what instruments were employed. Otherwise, researchers should conduct an additional exploration in order to identify existing questionnaires, which could be employed to achieve research objectives. If any questionnaire is available, researchers should identify whether it is reliable and valid. Note that {% include "wiki/term_mention.html" with term=term|get_definition:"standardised questionnaire" verbose="standardised questionnaires"%} are preferred over other alternatives \cite{Boynton2004:3}.</p>
                 <p>In case an appropriate, valid and reliable questionnaire is identified; this would be used and this process finishes. Otherwise, researchers should carry a design stage and a pre-testing stage out.</p>
             </div>
@@ -59,11 +74,14 @@
     <li>
         <i class="fa bg-blue"><b>4</b></i>
         <div class="timeline-item">
-            <h3 class="timeline-header">Design</h3>
-            <div class="timeline-body">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#design_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+            <h3 class="timeline-header" id="design">Design</h3>
+            <div class="timeline-body collapse in" id="design_body">
                 <p>Researchers make decisions related to questions, wording, format, layout, among others. The main output of this step is a version of the questionnaire along with its accompanying documents.</p>
-            </div>
-            <div class="timeline-footer">
                 <a href="{% url 'wiki:questionnaire_design' %}" class="btn btn-info btn-xs flat">Read more</a>
             </div>
         </div>
@@ -73,11 +91,14 @@
     <li>
         <i class="fa bg-purple"><b>5</b></i>
         <div class="timeline-item">
-            <h3 class="timeline-header">Pre-testing</h3>
-            <div class="timeline-body">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#pre_testing_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+            <h3 class="timeline-header" id="pre_testing">Pre-testing</h3>
+            <div class="timeline-body collapse in" id="pre_testing_body">
                 <p>Researchers test the questionnaire designed during last step. Pre-testing should be planned, and collected data should be processed, analysed and reported. Researchers should establish validity and reliability of the designed questionnaire.</p>
-            </div>
-            <div class="timeline-footer">
                 <a class="btn btn-info btn-xs flat">Read more</a>
             </div>
         </div>
@@ -87,8 +108,13 @@
     <li>
         <i class="fa bg-maroon"><b>6</b></i>
         <div class="timeline-item">
-            <h3 class="timeline-header">Validity and reliability check</h3>
-            <div class="timeline-body">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#val_rel_check_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+            <h3 class="timeline-header" id="val_rel_check">Validity and reliability check</h3>
+            <div class="timeline-body collapse in" id="val_rel_check_body">
                 <p>Researchers determine whether designed questionnaire is valid and reliable enough. If so, the process is finished successfully, otherwise researches should return to design step and iterate until desired reliability and validity is achieved.</p>
             </div>
         </div>

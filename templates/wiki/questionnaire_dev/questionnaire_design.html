@@ -21,8 +21,13 @@
     <li>
         <i class="fa bg-green"><b>1</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#aspects_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="aspects">Determine aspects to be studied</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="aspects_body">
                 <p>Researchers shall define which {% include "wiki/term_mention.html" with term=term|get_definition:"PX" %} <a target="_blank" href="{% url 'px_evaluation:list_aspects' %}">aspects</a> should be studied in order to achieve the evaluation goal defined previously. Examples of PX aspects include: motivation, effectiveness, ease of use, attractiveness.</p>
             </div>
         </div>
@@ -32,8 +37,13 @@
     <li>
         <i class="fa bg-aqua"><b>2</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#respondents_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="respondents">Determine target respondents</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="respondents_body">
                 <p>Researches shall decide what is the appropriate population to be asked. This step also includes identifying characteristics of the target respondents that should be considered along the design process, \eg, age, education level, familiarity with tests and questionnaires, cultural bias or language barrier \cite{Diem,Crawford1997}. Also, researchers should not exclude disadvantage groups in order to avoid biases and avoid generalisation errors due to misunderstandings or ambiguity \cite{Boynton2004:2}.</p>
                 <p>This step is important since generalisations will be made upon target respondents; \ie, target respondents represent the population to whom the results of the questionnaire would apply \cite{Crawford1997,Diem}. Consequently, researchers may employ research techniques when they do not know target audience.</p>
             </div>
@@ -44,8 +54,13 @@
     <li>
         <i class="fa bg-yellow"><b>3</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#title_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="title">Title questionnaire</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="title_body">
                 <p>Researchers shall chose a title that informs respondents about evaluation goal \cite{Diem}</p>
             </div>
         </div>
@@ -55,8 +70,13 @@
     <li>
         <i class="fa bg-blue"><b>4</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#generate_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="generate">Generate questions</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="generate_body">
                 <p>Researchers shall generate as many questions as possible for each aspect to be evaluated. At this stage, details such as wording is not important. The generated questions have to meet the evaluation goal, so that they can be employed to study aspects selected previously \cite{Crawford1997,Radhakrishna2007}.</p>
             </div>
         </div>
@@ -66,8 +86,13 @@
     <li>
         <i class="fa bg-purple"><b>5</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#filter_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="filter">Filter questions</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="filter_body">
                 <p>Researchers shall only include questions that can be used to achieve the evaluation goal, \ie, to evaluate each selected evaluation aspect. However, researchers may include a few redundant questions to gain respondents' involvement \cite{Crawford1997}.</p>
             </div>
         </div>
@@ -77,8 +102,13 @@
     <li>
         <i class="fa bg-maroon"><b>6</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#wording_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="wording">Develop question wording and format</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="wording_body">
                 <p>Researchers shall produce questions that can be understood by respondents; collect complete, unbiased and accurate answers and are easy to administer for {% include "wiki/term_mention.html" with term=term|get_definition:"interviewer" verbose="interviewers"%}. To aim that, researchers may include explanations and definitions for each question. Researchers shall produce brief questions to keep respondents interested \cite{Crawford1997}.</p>
                 <p>A question can be {% include "wiki/term_mention.html" with term=term|get_definition:"open question" verbose="open"%}, {% include "wiki/term_mention.html" with term=term|get_definition:"closed question" verbose="closed"%} or closed with open response option \cite{Crawford1997}. Researchers should select one consistent format for the whole questionnaire.</p>
                 <p>With reference to closed questions, researchers should use scales that: have precise and clear answer categories, provide needed information and are appropriate for respondents and uniform \cite{Diem,Krosnick2009}. Researches shall make sure that questions match the selected scale \cite{Diem}. When researchers use a rating scale, they shall make scale progressive and select answer categories that represent respondents attitude meaningfully. Researchers shall not select a low or a high number of scale points. Five to seven point scales are recommended \cite{Krosnick2009}.</p>
@@ -91,8 +121,13 @@
     <li>
         <i class="fa bg-navy"><b>7</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#order_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="order">Decide questions order</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="order_body">
                 <p>Researchers shall order questions logically to promote understating and motivation \cite{Diem,Krosnick2009}. Researchers should:</p>
                 <ol>
                     <li>Put most important questions at the beginning \cite{Diem}. Those questions may be connected to questionnaire propose and impose minimal burden \cite{Krosnick2009}.</li>
@@ -111,8 +146,13 @@
     <li>
         <i class="fa bg-teal"><b>8</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#presentation_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="presentation">Decide questionnaire presentation and layout</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="presentation_body">
                 <p>Researchers should create questionnaires that look professional since presentation has a significant effect on the quality and quantity of obtained data \cite{Diem,Crawford1997}. To achieve that, researchers should use simple and clear formats, use booklets, use space and font adequately, use colour coding for different questionnaire versions and keep questionnaire as short as possible \cite{Crawford1997}.</p>
             </div>
         </div>
@@ -122,8 +162,13 @@
     <li>
         <i class="fa bg-orange"><b>9</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#add_docs_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="add_docs">Identify additional needed documents</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="add_docs_body">
                 <p>Researchers may include accompanying documents for clarity and/or motivation purposes. Additional documents include: a cover letter, accompanying guides for respondents or interviewer, an appreciation letter, a document describing steps to carry out after completing a questionnaire and a document providing details about the study, \eg, time and place \cite{Diem,Crawford1997,Boynton2004:2}.</p>
             </div>
         </div>
@@ -133,8 +178,13 @@
     <li>
         <i class="fa bg-red"><b>10</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#final_doc_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="final_doc">Questionnaire and accompanying documents</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="final_doc_body">
                 <p>Researchers should assemble questionnaire and accompanying documents into a single deliverable. Researchers should check and review the questionnaire, \eg, using checklists available <a target="_blank" href="http://www.bmj.com/content/328/7451/1312?panels_ajax_tab_tab=jnl_bmj_tab_related_art&panels_ajax_tab_trigger=related#c">online</a>.</p>
             </div>
         </div>
@@ -144,8 +194,13 @@
     <li>
         <i class="fa bg-gray"><b>11</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#approval_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="approval">Approval</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="approval_body">
                 <p>Researchers shall determine if the questionnaire need to be approved before it can be administered. Approval source may be internal or external to researchers organisation \cite{Diem}.</p>
             </div>
         </div>
@@ -155,8 +210,13 @@
     <li>
         <i class="fa bg-black"><b>12</b></i>
         <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#review_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
             <h3 class="timeline-header" id="review">Review and adjustment</h3>
-            <div class="timeline-body">
+            <div class="timeline-body collapse in" id="review_body">
                 <p>In case that approval was needed and questionnaire is not approved, researchers shall review and adjust questionnaire until it is approved.</p>
             </div>
         </div>
