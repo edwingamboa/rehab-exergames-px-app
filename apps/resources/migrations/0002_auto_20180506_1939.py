@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import resources.models
+import apps.resources.models
 
 
 class Migration(migrations.Migration):
@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='resource',
             name='file',
-            field=models.FileField(blank=True, upload_to=resources.models.get_resource_path),
+            field=models.FileField(blank=True, upload_to=apps.resources.models.get_resource_path),
         ),
     ]

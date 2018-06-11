@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import rehab_exergames.models
+import apps.rehab_exergames.models
 
 
 class Migration(migrations.Migration):
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=140)),
                 ('description', models.TextField()),
-                ('image', models.ImageField(blank=True, null=True, upload_to=rehab_exergames.models.get_image_path)),
+                ('image', models.ImageField(blank=True, null=True, upload_to=apps.rehab_exergames.models.get_image_path)),
                 ('status', models.PositiveIntegerField(choices=[(1, 'Active'), (0, 'Inactive')], default=1)),
             ],
         ),

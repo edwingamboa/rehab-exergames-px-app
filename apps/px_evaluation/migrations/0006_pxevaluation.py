@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import px_evaluation.models
+import apps.px_evaluation.models
 
 
 class Migration(migrations.Migration):
@@ -20,10 +20,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField(auto_now_add=True)),
-                ('players_characterisation', models.FileField(blank=True, upload_to=px_evaluation.models.get_evaluation_file_path)),
+                ('players_characterisation', models.FileField(blank=True, upload_to=apps.px_evaluation.models.get_evaluation_file_path)),
                 ('evaluation_goal', models.TextField()),
-                ('evaluation_plan', models.FileField(blank=True, upload_to=px_evaluation.models.get_evaluation_file_path)),
-                ('evaluation_report', models.FileField(blank=True, upload_to=px_evaluation.models.get_evaluation_file_path)),
+                ('evaluation_plan', models.FileField(blank=True, upload_to=apps.px_evaluation.models.get_evaluation_file_path)),
+                ('evaluation_report', models.FileField(blank=True, upload_to=apps.px_evaluation.models.get_evaluation_file_path)),
                 ('current_stage', models.CharField(choices=[('rehab_env_analysis', 'Rehabilitation Environment Analysis'), ('eval_goal_def', 'Evaluation Goal Definition'), ('aspects_sel', 'Evaluation Aspects Selection'), ('methods_sel', 'Evaluation Methods Selection'), ('instruments_sel', 'Evaluation Instruments Selection'), ('eval_prep', 'Evaluation Preparation'), ('eval', 'Evaluation'), ('report', 'Results Analysis and Reporting')], default='rehab_env_analysis', max_length=20)),
                 ('evaluation_aspects', models.ManyToManyField(blank=True, to='px_evaluation.Aspect')),
                 ('evaluation_instruments', models.ManyToManyField(blank=True, to='px_evaluation.Instrument')),
