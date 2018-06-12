@@ -28,3 +28,7 @@
 [aria-expanded="true"] .fa-chevron-up {
     display: block;
 }
+
+.multi-line-p {
+        white-space: pre-wrap;
+}

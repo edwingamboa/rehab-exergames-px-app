@@ -3,13 +3,9 @@
 
 {% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_definition.html" %}{% endblock pre-breadcrumbs %}
 
-{% block card_description %}Definition{% endblock %}
-
 {% block card_content %}
+<p class="multi-line-p">{{ object.definition }}</p>
 <dl>
-    <dt>{{ object.term }}</dt>
-    <dd><p>{{ object.definition }}</p></dd>
-
     <dt>Resources</dt>
     <dd>
         <ul class="nav nav-pills nav-stacked">
