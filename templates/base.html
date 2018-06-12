@@ -94,6 +94,20 @@ desired effect
 
     <div class="content-wrapper">
         {# =================== Main Content =================== #}
+        {% block content-header %}
+        <section class="content-header">
+            <h1>{% block content_title %}{% endblock content_title %}<small>{% block content_subtitle %}{% endblock content_subtitle %}</small></h1>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                {% block pre-breadcrumbs %} {% endblock pre-breadcrumbs %}
+                {% block post-breadcrumbs %}
+                <li class="active">{% block current_breadcrumb_label %}{% endblock current_breadcrumb_label %}</li>
+                {% endblock post-breadcrumbs %}
+                {% endblock breadcrumb %}
+            </ol>
+            {% block additional_card_header %}{% endblock %}
+        </section>
+        {% endblock %}
         {% block content %}
         {% endblock %}
     </div>

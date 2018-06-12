@@ -2,11 +2,164 @@
 {# Load the tag library #}
 {% load staticfiles %}
 
-{% block page-title %}Dashboard{% endblock %}
-{% block page-description %}PX Evaluation Model{% endblock %}
-{% block content %}
-    <p>Welcome!</p>
-{% endblock %}
+{% block current_breadcrumb_label %}<i class="fa fa-dashboard"></i> Dashboard{% endblock current_breadcrumb_label %}
+{% block content_title %}Dashboard{% endblock content_title %}
 
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>{{ total_px_evaluations }}</h3>
+                    <p>PX Evaluations</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-check-square-o"></i>
+                </div>
+                <a href="{% url 'px_evaluation:list' %}" class="small-box-footer">
+                    Manage <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{ total_rehab_exergames }}</h3>
+                    <p>Rehab. Exergames</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-gamepad"></i>
+                </div>
+                <a href="{% url 'rehab_exergames:list' %}" class="small-box-footer">
+                    Manage <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>{{ total_constraints }}</h3>
+                    <p>Rehab. Constraints</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-warning"></i>
+                </div>
+                <a href="{% url 'rehab_exergames:list_constraint' %}" class="small-box-footer">
+                    Manage <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>{{ total_questionnaires }}</h3>
+                    <p>PX Questionnaires</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-file-text-o"></i>
+                </div>
+                <a href="{% url 'questionnaire:list' %}" class="small-box-footer">
+                    Manage <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Last PX Evaluations</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Rehabilitation Exergame</th>
+                                <th>Goal</th>
+                                <th>Current stage</th>
+                                <th>Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for object in px_evaluations %}
+                            <tr>
+                                <td>{{ object.id }}</td>
+                                <td>{{ object.rehab_exergame_characterisation }}</td>
+                                <td>{{ object.evaluation_goal }}</td>
+                                <td><span class="label
+                                        {% if object.current_stage == 'rehab_env_analysis' %} label-success
+                                        {% elif object.current_stage == 'eval_goal_def' %} label-info
+                                        {% elif object.current_stage == 'aspects_sel' %} label-warning
+                                        {% elif object.current_stage == 'methods_sel' %} label-primary
+                                        {% elif object.current_stage == 'instruments_sel' %} bg-purple
+                                        {% elif  object.current_stage == 'eval_prep' %} bg-maroon
+                                        {% elif  object.current_stage == 'report' %} bg-navy
+                                        {% else %} bg-black
+                                        {% endif %}">{{ object.get_current_stage_display }}</span></td>
+                                <td>
+                                    <a class="btn btn-primary btn-xs btn-flat" href="{% url 'px_evaluation:detail' object.id %}"><i class="fa fa-eye"></i> View</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <a href="{% url 'px_evaluation:list' %}" class="btn btn-info">List all evaluations</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Last Rehabilitation Exergames</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <ul class="products-list product-list-in-box">
+                        {% for exergame in rehab_exergames %}
+                        <li class="item">
+                            {% if exergame.image_url %}
+                            <div class="product-img">
+                                <img class="img-circle" src="{{ exergame.image_url }}" alt="{{ exergame }} rehabilitation exergame image">
+                            </div>
+                            {% endif %}
+                            <div class="product-info">
+                                <a href="{% url 'rehab_exergames:detail' exergame.id %}">{{ exergame }}
+                                    <span class="pull-right"><i class="fa fa-eye"></i></span></a>
+                                <span class="product-description">
+                                      {{ exergame.description }}
+                                    </span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <a href="{%  url 'rehab_exergames:list' %}" class="uppercase">List all rehabilitation exergames</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 
