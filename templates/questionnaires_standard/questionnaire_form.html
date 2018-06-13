@@ -31,31 +31,31 @@
 
 {% block card_description %}
     {% if not object or object.status == 'init' %}
-        This step involves:
+        Before fill in the follwoing form you should:
         <ol>
-            <li>Defining the evaluation objective of your questionnaire <a href="#" data-toggle="tooltip" title="It involves exploratory research. This includes consulting experts, collecting data from people directly related to the problem itself"><i class="fa fa-info-circle"></i></a></li>
-            <li>Giving a name to your questionnaire <a href="#" data-toggle="tooltip" title="Chose a title that informs respondents about evaluation goal"><i class="fa fa-info-circle"></i></a></li>
-            <li>Selecting aspects to be evaluated by your questionnaire <a href="#" data-toggle="tooltip" title="Define which PX aspects should be studied in order to achieve evaluation objective; e.g., motivation, effectiveness, ease of use, attractiveness"><i class="fa fa-info-circle"></i></a></li>
-            <li>Defining your target respondents <a href="#" data-toggle="tooltip" title="Decide which is the appropriate population to be asked. Identify characteristics of the target respondents that should be considered along the design process, e.g., age, education level, familiarity with tests and questionnaires, cultural bias or language barrier"><i class="fa fa-info-circle"></i></a></li>
+            <li>Define the evaluation objective of your questionnaire <a target="_blank" href="{% url 'wiki:questionnaire_process' %}#goal" data-toggle="tooltip" title="It involves exploratory research. This includes consulting experts, collecting data from people directly related to the problem itself"><i class="fa fa-info-circle"></i></a></li>
+            <li>Select the aspects to be evaluated by your questionnaire <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#aspects" data-toggle="tooltip" title="Define which PX aspects should be studied in order to achieve evaluation objective; e.g., motivation, effectiveness, ease of use, attractiveness"><i class="fa fa-info-circle"></i></a></li>
+            <li>Define your target respondents <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#respondents" data-toggle="tooltip" title="Decide which is the appropriate population to be asked. Identify characteristics of the target respondents that should be considered along the design process, e.g., age, education level, familiarity with tests and questionnaires, cultural bias or language barrier"><i class="fa fa-info-circle"></i></a></li>
+            <li>Give a name to your questionnaire <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#title" data-toggle="tooltip" title="Chose a title that informs respondents about evaluation goal"><i class="fa fa-info-circle"></i></a></li>
         </ol>
     {% elif object.status == 'in_design' %}
-        To build your questionnaire, you should:
+        Before fill in the follwoing form you should:
         <ol>
-            <li>Generate questions <a href="#" data-toggle="tooltip" title="Generate as many questions as possible for each aspect to be evaluated. At this stage, details such as wording is not important. The generated questions have to meet evaluation goal, so that they can be employed to study aspects selected previously"></i></a></li>
-            <li>Filter questions <a href="#" data-toggle="tooltip" title="Include questions that can be used to achieve evaluation goal, i.e., to evaluate each selected evaluation aspect"></i></a></li>
-            <li>Develop question wording and format <a href="#" data-toggle="tooltip" title="Produce questions that can be understood by respondents; collect complete, unbiased and accurate answers and are easy to administer for interviewers"></i></a></li>
-            <li>Decide questions order <a href="#" data-toggle="tooltip" title="Order questions logically to promote understating and motivation"></i></a></li>
-            <li>Decide questionnaire presentation and layout <a href="#" data-toggle="tooltip" title="Questionnaires has to look professional since presentation has a significant effect on the quality and quantity of data obtained"></i></a></li>
-            <li>Identify additional needed documents <a href="#" data-toggle="tooltip" title="Iinclude accompanying documents for clarity and/or motivation purposes. Additional documents include: a cover letter, accompanying guides for respondents or interviewer or an appreciation letter."></i></a></li>
+            <li>Generate questions <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#generate" data-toggle="tooltip" title="Generate as many questions as possible for each aspect to be evaluated. At this stage, details such as wording is not important. The generated questions have to meet evaluation goal, so that they can be employed to study aspects selected previously"><i class="fa fa-info-circle"></i></a></li>
+            <li>Filter questions <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#filter" data-toggle="tooltip" title="Include questions that can be used to achieve evaluation goal, i.e., to evaluate each selected evaluation aspect"><i class="fa fa-info-circle"></i></a></li>
+            <li>Develop question wording and format <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#wording" data-toggle="tooltip" title="Produce questions that can be understood by respondents; collect complete, unbiased and accurate answers and are easy to administer for interviewers"><i class="fa fa-info-circle"></i></a></li>
+            <li>Decide questions order <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#order" data-toggle="tooltip" title="Order questions logically to promote understating and motivation"><i class="fa fa-info-circle"></i></a></li>
+            <li>Decide questionnaire presentation and layout <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#presentation" data-toggle="tooltip" title="Questionnaires has to look professional since presentation has a significant effect on the quality and quantity of data obtained"><i class="fa fa-info-circle"></i></a></li>
+            <li>Identify additional needed documents <a target="_blank" href="{% url 'wiki:questionnaire_design' %}#add_docs" data-toggle="tooltip" title="Iinclude accompanying documents for clarity and/or motivation purposes. Additional documents include: a cover letter, accompanying guides for respondents or interviewer or an appreciation letter."><i class="fa fa-info-circle"></i></a></li>
         </ol>
     {% elif object.status == 'in_pre_test' %}
-        Pre-testing or piloting process allows you to know whether a questionnaire would achieve desired results:
+        Before fill in the follwoing form you should:
         <ol>
-            <li>Plan pre-testing <a href="#" data-toggle="tooltip" title="Plan well in advance to collect quality data"></i></a></li>
-            <li>Perform pre-testing <a href="#" data-toggle="tooltip" title="During pre-testing you should observe, record and/or and take notes on important issues such as misunderstood, surprising or confusing questions, time required by respondents to complete questionnaire and respondents' reactions"></i></a></li>
-            <li>Enter, check and clean data <a href="#" data-toggle="tooltip" title="Agree and understand on the tools to be used for this step such as SPSS, Excel or own tools"></i></a></li>
-            <li>Analyse data <a href="#" data-toggle="tooltip" title="Select an analysis method based on collected data"></i></a></li>
-            <li>Report results <a href="#" data-toggle="tooltip" title="Filter relevant data to be reported and decide how the information will be presented"></i></a></li>
+            <li>Plan pre-testing <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#plan" data-toggle="tooltip" title="Plan well in advance to collect quality data"><i class="fa fa-info-circle"></i></a></li>
+            <li>Perform pre-testing <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#perform" data-toggle="tooltip" title="During pre-testing you should observe, record and/or and take notes on important issues such as misunderstood, surprising or confusing questions, time required by respondents to complete questionnaire and respondents' reactions"><i class="fa fa-info-circle"></i></a></li>
+            <li>Enter, check and clean data <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#clean" data-toggle="tooltip" title="Agree and understand on the tools to be used for this step such as SPSS, Excel or own tools"><i class="fa fa-info-circle"></i></a></li>
+            <li>Analyse data <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#analyse" data-toggle="tooltip" title="Select an analysis method based on collected data"><i class="fa fa-info-circle"></i></a></li>
+            <li>Report results <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#report" data-toggle="tooltip" title="Filter relevant data to be reported and decide how the information will be presented"><i class="fa fa-info-circle"></i></a></li>
         </ol>
     {% endif %}
 {% endblock %}
