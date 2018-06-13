@@ -10,33 +10,43 @@
 {% block card_title %}Questions Formulation Guide{% endblock %}
 
 {% block card_content %}
-
-<p>{% include "wiki/term_mention.html" with term=term|get_definition:"researcher" verbose="Researchers"%} should consider the following recommendations when composing questionnaire question:</p>
-<ol>
-    <li>Involve, if possible, representatives of target respondents in the design process of a questionnaire \cite{Boynton2004:2}.</li>
-    <li>Include explanations or examples when asking about abstract things \cite{Boynton2004:2,Crawford1997}. However, specific and concrete wording is preferred over abstract wording \cite{Krosnick2009}.</li>
-    <li>Use simple vocabulary that respondents can understand, considering that some words have different meanings in academia and in respondents' daily life \cite{Boynton2004:2,Diem,Krosnick2009}.</li>
-    <li>Avoid complex routing for {% include "wiki/term_mention.html" with term=term|get_definition:"screening question" verbose="screening questions"%} since that reduce respondents motivation and lead to indiscriminate answering \cite{Boynton2004:2}.</li>
-    <li>Pay careful attention to demographic data that is intended to be collected. Avoid asking sensitive and threatening data. Pre-testing questionnaires allow identifying this issue \cite{Boynton2004:2}</li>
-    <li>Use, if possible, official translators or translation services when developing questionnaires in more than one language \cite{Boynton2004:2}.</li>
-    <li>Avoid excluding disadvantaged groups of respondents to avoid biases, misunderstandings or ambiguity\cite{Boynton2004:2}.</li>
-    <li>Researchers should use specific adverbs instead of frequently, regularly, commonly, usually, hardly, etc. \cite{Boynton2004:3,Krosnick2009}.</li>
-    <li>Offer enough answer options when using {% include "wiki/term_mention.html" with term=term|get_definition:"closed question" verbose="closed questions"%} to avoid frustration \cite{Boynton2004:3}. Also, answer options should be mutually exclusive \cite{Krosnick2009}.</li>
-    <li>Plan carefully when using {% include "wiki/term_mention.html" with term=term|get_definition:"open question" verbose="open questions"%}, such plan should include time, skills and resources required for the <a target="_blank" href="{% url 'wiki:questionnaire_design' %}">design</a> and <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#analyse">analysis</a> processes of a questionnaire\cite{Boynton2004:3}.</li>
-    <li>Avoid starting questionnaires with threatening questions \cite{Diem}.</li>
-    <li>Include simple instructions \cite{Diem}.</li>
-    <li>Be as brief as possible \cite{Diem}.</li>
-    <li>Ask one question at a time \cite{Diem,Krosnick2009}.</li>
-    <li>Include easy to answer questions at the beginning of a questionnaire \cite{Crawford1997,Krosnick2009}. Initial questions should also address questionnaire topic directly \cite{Krosnick2009}.</li>
-    <li>Order questions in a way that one lead naturally to the other. Additionally, researchers should be group questions on the same topic \cite{Crawford1997,Krosnick2009}.</li>
-    <li>Include sensitive questions at the end of a questionnaire to avoid respondents cutting off before important information is collected \cite{Crawford1997,Krosnick2009}.</li>
-    <li>Allow filtering questions to avoid that respondents answer questions that do not apply to them \cite{Krosnick2009}.</li>
-    <li>Include a balance number of answer options when using rating scales. 7 options have been proved to lead to reliable and valid questionnaires \cite{Krosnick2009}.</li>
-    <li>Label points of rating scales. Points should be divided into approximately equal units \cite{Krosnick2009}.</li>
-    <li>Assure anonymity to avoid social desirability response bias \cite{Krosnick2009}.</li>
-    <li>Avoid burdening respondents. To achieve this, researchers should reduce reference period, use yes/no questions instead of all that apply questions. Also, respondents shouldn't perform computations that researchers can perform.</li>
-</ol>
-
+<div class="container-fluid">
+    <p>{% include "wiki/term_mention.html" with term=term|get_definition:"researcher" verbose="Researchers"%} should consider the following recommendations when composing questionnaire question:</p>
+    <ol>
+        <li>Involve, if possible, representatives of target respondents in the design process of a questionnaire [<a href="#Boynton2004:2">1</a>].</li>
+        <li>Include explanations or examples when asking about abstract things [<a href="#Boynton2004:2">1</a>,<a href="#Crawford1997">2</a>]. However, specific and concrete wording is preferred over abstract wording [<a href="#Krosnick2009">3</a>].</li>
+        <li>Use simple vocabulary that respondents can understand, considering that some words have different meanings in academia and in respondents' daily life [<a href="#Boynton2004:2">1</a>,<a href="#Diem">4</a>,<a href="#Krosnick2009">3</a>].</li>
+        <li>Avoid complex routing for {% include "wiki/term_mention.html" with term=term|get_definition:"screening question" verbose="screening questions"%} since that reduce respondents motivation and lead to indiscriminate answering [<a href="#Boynton2004:2">1</a>].</li>
+        <li>Pay careful attention to demographic data that is intended to be collected. Avoid asking sensitive and threatening data. Pre-testing questionnaires allow identifying this issue [<a href="#Boynton2004:2">1</a>]</li>
+        <li>Use, if possible, official translators or translation services when developing questionnaires in more than one language [<a href="#Boynton2004:2">1</a>].</li>
+        <li>Avoid excluding disadvantaged groups of respondents to avoid biases, misunderstandings or ambiguity[<a href="#Boynton2004:2">1</a>].</li>
+        <li>Researchers should use specific adverbs instead of frequently, regularly, commonly, usually, hardly, etc. [<a href="#Boynton2004:3">5</a>,<a href="#Krosnick2009">3</a>].</li>
+        <li>Offer enough answer options when using {% include "wiki/term_mention.html" with term=term|get_definition:"closed question" verbose="closed questions"%} to avoid frustration [<a href="#Boynton2004:3">5</a>]. Also, answer options should be mutually exclusive [<a href="#Krosnick2009">3</a>].</li>
+        <li>Plan carefully when using {% include "wiki/term_mention.html" with term=term|get_definition:"open question" verbose="open questions"%}, such plan should include time, skills and resources required for the <a target="_blank" href="{% url 'wiki:questionnaire_design' %}">design</a> and <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}#analyse">analysis</a> processes of a questionnaire[<a href="#Boynton2004:3">5</a>].</li>
+        <li>Avoid starting questionnaires with threatening questions [<a href="#Diem">4</a>].</li>
+        <li>Include simple instructions [<a href="#Diem">4</a>].</li>
+        <li>Be as brief as possible [<a href="#Diem">4</a>].</li>
+        <li>Ask one question at a time [<a href="#Diem">4</a>,<a href="#Krosnick2009">3</a>].</li>
+        <li>Include easy to answer questions at the beginning of a questionnaire [<a href="#Crawford1997">2</a>,<a href="#Krosnick2009">3</a>]. Initial questions should also address questionnaire topic directly [<a href="#Krosnick2009">3</a>].</li>
+        <li>Order questions in a way that one lead naturally to the other. Additionally, researchers should be group questions on the same topic [<a href="#Crawford1997">2</a>,<a href="#Krosnick2009">3</a>].</li>
+        <li>Include sensitive questions at the end of a questionnaire to avoid respondents cutting off before important information is collected [<a href="#Crawford1997">2</a>,<a href="#Krosnick2009">3</a>].</li>
+        <li>Allow filtering questions to avoid that respondents answer questions that do not apply to them [<a href="#Krosnick2009">3</a>].</li>
+        <li>Include a balance number of answer options when using rating scales. 7 options have been proved to lead to reliable and valid questionnaires [<a href="#Krosnick2009">3</a>].</li>
+        <li>Label points of rating scales. Points should be divided into approximately equal units [<a href="#Krosnick2009">3</a>].</li>
+        <li>Assure anonymity to avoid social desirability response bias [<a href="#Krosnick2009">3</a>].</li>
+        <li>Avoid burdening respondents. To achieve this, researchers should reduce reference period, use yes/no questions instead of all that apply questions. Also, respondents shouldn't perform computations that researchers can perform.</li>
+    </ol>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>References</h3>
+            <p id="Boynton2004:2">[1] P. M. Boynton, G. W. Wood, T. Greenhalgh, and Q. Clinic, “Reaching beyond the white middle classes,” BMJ, vol. 328, no. 7453, pp. 1433–1436, Jun. 2004.</p>
+            <p id="Crawford1997">[2] I. M. Crawford, “4: Marketing Research and Information Systems (Marketing & Agribusiness Texts),” Food & Agriculture Org, 1997.</p>
+            <p id="Krosnick2009">[3] J. A. Krosnick, S. Presser, J. D. Wright, P. V Marsden, and D. San, “Question and Questionnaire Design,” 2009.</p>
+            <p id="Diem">[4] K. G. Diem, “A Step-by-Step Guide to Developing Effective Questionnaires and Survey Procedures for Program Evaluation &amp; Research Program Leader in Educational Design.”</p>
+            <p id="Boynton2004:3">[5] P. M. Boynton and T. Greenhalgh, “Selecting, designing, and developing your questionnaire.,” BMJ, vol. 328, no. 7451, pp. 1312–5, May 2004.</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block update_url %}{% endblock %}

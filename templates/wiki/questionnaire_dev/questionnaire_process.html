@@ -11,119 +11,134 @@
 
 {% block card_content %}
 
-<p>The process of {% include "wiki/term_mention.html" with term=term|get_definition:"questionnaire" verbose="questionnaire"%} development is composed of three main activities and involves three decisions. At the end of the process, a {% include "wiki/term_mention.html" with term=term|get_definition:"Valid questionnaire" verbose="valid"%} and {% include "wiki/term_mention.html" with term=term|get_definition:"Reliable questionnaire" verbose="reliable"%} questionnaire for evaluating a certain or a group {% include "wiki/term_mention.html" with term=term|get_definition:"PX" %} <a target="_blank" href="{% url 'px_evaluation:list_aspects' %}">aspects</a> will be selected or developed.</p>
+<div class="container-fluid">
+    <p>The process of {% include "wiki/term_mention.html" with term=term|get_definition:"questionnaire" verbose="questionnaire"%} development is composed of three main activities and involves three decisions. At the end of the process, a {% include "wiki/term_mention.html" with term=term|get_definition:"Valid questionnaire" verbose="valid"%} and {% include "wiki/term_mention.html" with term=term|get_definition:"Reliable questionnaire" verbose="reliable"%} questionnaire for evaluating a certain or a group {% include "wiki/term_mention.html" with term=term|get_definition:"PX" %} <a target="_blank" href="{% url 'px_evaluation:list_aspects' %}">aspects</a> will be selected or developed.</p>
 
-<div id="que_dev_process_img" class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36\&quot; version=\&quot;8.7.6\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;74e2e168-ea6b-b213-b513-2b3c1d86103e\&quot; name=\&quot;Page-1\&quot;&gt;5Vpbc+I2FP41PMJYkq+PTci2ndl2Mk1nunnqCCyMWkBeWSywv75HsXwRMgkkMTRsHoh1LMnyd27fkTwgt8vtz5Lm899EyhYD7KXbARkPMEZ+ksA/LdmVEl+3tCCTPDWdGsED/86M0DPSNU9ZYXVUQiwUz23hVKxWbKosGZVSbOxuM7Gwn5rTjDmChylduNK/eKrmpTQMvUb+C+PZ3DzZ982NJa36GkExp6nYtETkbkBupRCqvFpub9lCY1fBUo77dOBuvS7JVuqYATieRhOMEIriCWWIDM0M3+hibd7VLFTtqpfPpFjnphuTim27IKeTqrvnrgnVbwoWwsSSKbmDLmaiISKVno15xGVr04K6QnTehpmgUWCUbBSc1bM3IMCFwaEbEx9HMfPCScqCyItROEx8B5QxK3i2cqAplBT/1iYB73gzV0t4zhjBJeg61/2W20x7xWi2EJvpnEo1yiVL2YyvWPp3LsWUFbD6m82cK/aQ06kes4ERIDuIehvdbp0ehJuQyAIbxVGFYgtw5HUAXtn7+6IdOGjfSzZUrFB8lV0F5MGefV8c8sSBlaUQ8ExTSDUXmVjRxV0jvYEosEqZntKzQWdbrr60rh91F3i/snXPJIcVM2kGAoZy96XdaPXXzf0B/zCldiYl0LUSIGoW+FmI3Dy6fCX9HieqDXAQazllL0QDRWXG1LNG7BqAZAuq+Dd7SV26NEPvBYfF1objR2gUeUEcYxLgxEfYMiOMwlHSvu3b85crNlPumUu9xtdZUG2rzyWOV7oqqH7JV1QJedaomFQuadAlYXKskwZ9OCnyjsjNHwLiC8EXOfDBJfSHB63S0jf5E23B3te1zjbAZCiX0PfTe+GcsikvYN4zGrIf27kGx7jLjMMOPUT96CHuI9k0Ceaxdedwsmnyy2P73v8u2QRHJBtj2m/INq/XZsVkLqpN9EGoQx2DXlCn90Z1dpOHILQjAdGssyELKD4fW0BuKnuEen7fkiAMKttAJNRd301tqTWa6+U9LTi4GQRjkGi9FqWK9QCI8FCnkfGCzfRUOrZyqON/MmKldX5TQBiG2uLPJwMY+n2x/jC08Q+6WH9XYYt7CcQVe3xn1z2R9duBGH1s1y1rg8sEYuK41O/iyj3KDxKb2yRdHkXO51Euxfw1hZfjM71opsVU00poZILCXOFCQziRcJWpGqT32N0425ZGtUWHXU55Nm6fXJBSHhuYTqae/UWyasf8WRKC3sopu0kI8ckoQj6Og/I3tlOiN2rdi2Bd9vzli/XDSbC7g8ELpxYE2Ob6Vz6ZNKwsB1+j0/n5ikQTWv8wPoXCRvb5KSSPQXX9xFtEkKWu7h2RzlKyj315hEJHZe8ZCC7OOdBR5QJ+a7nwegXga9mSOnAWctGshiowfyRKR7z9fVeU+BcldZhcIqacfCzSWxDCR513vLXwOcAWsJ1wMIpHKGz+ouP4gTMvrgbu6vb+yXGf2x/YPVBOhd7/8KiuDWjKvkKhADTjtux0zCY16H7LC3UxHkJ8h4eQ3ngIss0CRW6cxl1xOuknQvRSflzp8WnNs18gNQcs4Bw7Kcl1s8ojFXC5rSzcy+cIp54QfRh/OiY/93WmEJLnPkjwCR7h0G86nC/FEreav/4TBv0BiE2ecRic84whDFlEJzGmMxwks2SIXC1cfQWDm3qlqiK7dNBbAePowD0Y+AE8AduRCPlef34AzeaL3TJ6NZ89k7v/AA==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="que_dev_process_img" class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36\&quot; version=\&quot;8.7.6\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;74e2e168-ea6b-b213-b513-2b3c1d86103e\&quot; name=\&quot;Page-1\&quot;&gt;5Vpbc+I2FP41PMJYkq+PTci2ndl2Mk1nunnqCCyMWkBeWSywv75HsXwRMgkkMTRsHoh1LMnyd27fkTwgt8vtz5Lm899EyhYD7KXbARkPMEZ+ksA/LdmVEl+3tCCTPDWdGsED/86M0DPSNU9ZYXVUQiwUz23hVKxWbKosGZVSbOxuM7Gwn5rTjDmChylduNK/eKrmpTQMvUb+C+PZ3DzZ982NJa36GkExp6nYtETkbkBupRCqvFpub9lCY1fBUo77dOBuvS7JVuqYATieRhOMEIriCWWIDM0M3+hibd7VLFTtqpfPpFjnphuTim27IKeTqrvnrgnVbwoWwsSSKbmDLmaiISKVno15xGVr04K6QnTehpmgUWCUbBSc1bM3IMCFwaEbEx9HMfPCScqCyItROEx8B5QxK3i2cqAplBT/1iYB73gzV0t4zhjBJeg61/2W20x7xWi2EJvpnEo1yiVL2YyvWPp3LsWUFbD6m82cK/aQ06kes4ERIDuIehvdbp0ehJuQyAIbxVGFYgtw5HUAXtn7+6IdOGjfSzZUrFB8lV0F5MGefV8c8sSBlaUQ8ExTSDUXmVjRxV0jvYEosEqZntKzQWdbrr60rh91F3i/snXPJIcVM2kGAoZy96XdaPXXzf0B/zCldiYl0LUSIGoW+FmI3Dy6fCX9HieqDXAQazllL0QDRWXG1LNG7BqAZAuq+Dd7SV26NEPvBYfF1objR2gUeUEcYxLgxEfYMiOMwlHSvu3b85crNlPumUu9xtdZUG2rzyWOV7oqqH7JV1QJedaomFQuadAlYXKskwZ9OCnyjsjNHwLiC8EXOfDBJfSHB63S0jf5E23B3te1zjbAZCiX0PfTe+GcsikvYN4zGrIf27kGx7jLjMMOPUT96CHuI9k0Ceaxdedwsmnyy2P73v8u2QRHJBtj2m/INq/XZsVkLqpN9EGoQx2DXlCn90Z1dpOHILQjAdGssyELKD4fW0BuKnuEen7fkiAMKttAJNRd301tqTWa6+U9LTi4GQRjkGi9FqWK9QCI8FCnkfGCzfRUOrZyqON/MmKldX5TQBiG2uLPJwMY+n2x/jC08Q+6WH9XYYt7CcQVe3xn1z2R9duBGH1s1y1rg8sEYuK41O/iyj3KDxKb2yRdHkXO51Euxfw1hZfjM71opsVU00poZILCXOFCQziRcJWpGqT32N0425ZGtUWHXU55Nm6fXJBSHhuYTqae/UWyasf8WRKC3sopu0kI8ckoQj6Og/I3tlOiN2rdi2Bd9vzli/XDSbC7g8ELpxYE2Ob6Vz6ZNKwsB1+j0/n5ikQTWv8wPoXCRvb5KSSPQXX9xFtEkKWu7h2RzlKyj315hEJHZe8ZCC7OOdBR5QJ+a7nwegXga9mSOnAWctGshiowfyRKR7z9fVeU+BcldZhcIqacfCzSWxDCR513vLXwOcAWsJ1wMIpHKGz+ouP4gTMvrgbu6vb+yXGf2x/YPVBOhd7/8KiuDWjKvkKhADTjtux0zCY16H7LC3UxHkJ8h4eQ3ngIss0CRW6cxl1xOuknQvRSflzp8WnNs18gNQcs4Bw7Kcl1s8ojFXC5rSzcy+cIp54QfRh/OiY/93WmEJLnPkjwCR7h0G86nC/FEreav/4TBv0BiE2ecRic84whDFlEJzGmMxwks2SIXC1cfQWDm3qlqiK7dNBbAePowD0Y+AE8AduRCPlef34AzeaL3TJ6NZ89k7v/AA==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+        </div>
+    </div>
+    <p>The process is detailed below:</p>
 
-<p>The process is detailed below:</p>
-
-<div class="margin">
-    <ul class="timeline">
-    <!-- timeline item -->
-    <li>
-        <i class="fa bg-green"><b>1</b></i>
-        <div class="timeline-item">
+    <div class="margin">
+        <ul class="timeline">
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-green"><b>1</b></i>
+                <div class="timeline-item">
             <span class="time">
                 <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#goal_body" aria-expanded="true">
                     <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
                 </button>
             </span>
-            <h3 class="timeline-header" id="goal">Identify evaluation goal</h3>
-            <div class="timeline-body collapse in" id="goal_body">
-                <p>{% include "wiki/term_mention.html" with term=term|get_definition:"Researcher" verbose="Researchers"%} determine the information they need to know and their reasons to know it. This may result in the identification of an <span class="text-green">evaluation goal</span> \cite{Diem,Radhakrishna2007,Crawford1997}.</p>
-                <p>Nevertheless, this definition process might not be straightforward, thus it involves exploratory research. This includes consulting experts, collecting data from people directly related to the problem itself; \eg by performing a focus group, reviewing literature, among others \cite{Crawford1997}. Then, an evaluation goal can be established.</p>
-            </div>
-        </div>
-    </li>
-    <!-- END timeline item -->
-    <!-- timeline item -->
-    <li>
-        <i class="fa bg-aqua"><b>2</b></i>
-        <div class="timeline-item">
+                    <h3 class="timeline-header" id="goal">Identify evaluation goal</h3>
+                    <div class="timeline-body collapse in" id="goal_body">
+                        <p>{% include "wiki/term_mention.html" with term=term|get_definition:"Researcher" verbose="Researchers"%} determine the information they need to know and their reasons to know it. This may result in the identification of an <span class="text-green">evaluation goal</span> [<a href="#Diem">1</a>,<a href="#Radhakrishna2007">2</a>,<a href="#Crawford1997">3</a>].</p>
+                        <p>Nevertheless, this definition process might not be straightforward, thus it involves exploratory research. This includes consulting experts, collecting data from people directly related to the problem itself; e.g. by performing a focus group, reviewing literature, among others [<a href="#Crawford1997">3</a>]. Then, an evaluation goal can be established.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-aqua"><b>2</b></i>
+                <div class="timeline-item">
             <span class="time">
                 <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#is_right_body" aria-expanded="true">
                     <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
                 </button>
             </span>
-            <h3 class="timeline-header" id="is_right">Is questionnaire the right approach?</h3>
-            <div class="timeline-body collapse in" id="is_right_body">
-                <p>Researchers determine whether questionnaire is the right approach to achieve evaluation goal \cite{Boynton2004:3}. Depending on the goal, other data collection methods may be more appropriate than questionnaires; \eg observation, video recording, interview, existing data analysis, among others. A multi-method approach may also be convenient \cite{Boynton2004:3,Krosnick2009}, in such a case, researchers should define a more specific goal for the questionnaire.</p>
-                <p>In case questionnaire is not appropriate to meet research goals, this process finishes since no questionnaire is to be selected or designed.</p>
-            </div>
-        </div>
-    </li>
-    <!-- END timeline item -->
-    <!-- timeline item -->
-    <li>
-        <i class="fa bg-yellow"><b>3</b></i>
-        <div class="timeline-item">
+                    <h3 class="timeline-header" id="is_right">Is questionnaire the right approach?</h3>
+                    <div class="timeline-body collapse in" id="is_right_body">
+                        <p>Researchers determine whether questionnaire is the right approach to achieve evaluation goal [<a href="#Boynton2004:3">4</a>]. Depending on the goal, other data collection methods may be more appropriate than questionnaires; e.g. observation, video recording, interview, existing data analysis, among others. A multi-method approach may also be convenient [<a href="#Boynton2004:3">4</a>,<a href="#Krosnick2009">5</a>], in such a case, researchers should define a more specific goal for the questionnaire.</p>
+                        <p>In case questionnaire is not appropriate to meet research goals, this process finishes since no questionnaire is to be selected or designed.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-yellow"><b>3</b></i>
+                <div class="timeline-item">
             <span class="time">
                 <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#existent_body" aria-expanded="true">
                     <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
                 </button>
             </span>
-            <h3 class="timeline-header" id="existent">Does an adequate, valid and reliable questionnaire exists?</h3>
-            <div class="timeline-body collapse in" id="existent_body">
-                <p>Researchers determine whether an existing questionnaire can be employed instead of designing a new one \cite{Boynton2004:3}. Since researchers have conducted an exploratory research at the first step, they might have an initial idea of how similar studies were carried out and what instruments were employed. Otherwise, researchers should conduct an additional exploration in order to identify existing questionnaires, which could be employed to achieve research objectives. If any questionnaire is available, researchers should identify whether it is reliable and valid. Note that {% include "wiki/term_mention.html" with term=term|get_definition:"standardised questionnaire" verbose="standardised questionnaires"%} are preferred over other alternatives \cite{Boynton2004:3}.</p>
-                <p>In case an appropriate, valid and reliable questionnaire is identified; this would be used and this process finishes. Otherwise, researchers should carry a design stage and a pre-testing stage out.</p>
-            </div>
-        </div>
-    </li>
-    <!-- END timeline item -->
-    <!-- timeline item -->
-    <li>
-        <i class="fa bg-blue"><b>4</b></i>
-        <div class="timeline-item">
+                    <h3 class="timeline-header" id="existent">Does an adequate, valid and reliable questionnaire exists?</h3>
+                    <div class="timeline-body collapse in" id="existent_body">
+                        <p>Researchers determine whether an existing questionnaire can be employed instead of designing a new one [<a href="#Boynton2004:3">4</a>]. Since researchers have conducted an exploratory research at the first step, they might have an initial idea of how similar studies were carried out and what instruments were employed. Otherwise, researchers should conduct an additional exploration in order to identify existing questionnaires, which could be employed to achieve research objectives. If any questionnaire is available, researchers should identify whether it is reliable and valid. Note that {% include "wiki/term_mention.html" with term=term|get_definition:"standardised questionnaire" verbose="standardised questionnaires"%} are preferred over other alternatives [<a href="#Boynton2004:3">4</a>].</p>
+                        <p>In case an appropriate, valid and reliable questionnaire is identified; this would be used and this process finishes. Otherwise, researchers should carry a design stage and a pre-testing stage out.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-blue"><b>4</b></i>
+                <div class="timeline-item">
             <span class="time">
                 <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#design_body" aria-expanded="true">
                     <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
                 </button>
             </span>
-            <h3 class="timeline-header" id="design">Design</h3>
-            <div class="timeline-body collapse in" id="design_body">
-                <p>Researchers make decisions related to questions, wording, format, layout, among others. The main output of this step is a version of the questionnaire along with its accompanying documents.</p>
-                <a target="_blank" href="{% url 'wiki:questionnaire_design' %}" class="btn btn-primary btn-xs flat">Read more <i class="fa fa-external-link"></i></a>
-            </div>
-        </div>
-    </li>
-    <!-- END timeline item -->
-    <!-- timeline item -->
-    <li>
-        <i class="fa bg-purple"><b>5</b></i>
-        <div class="timeline-item">
+                    <h3 class="timeline-header" id="design">Design</h3>
+                    <div class="timeline-body collapse in" id="design_body">
+                        <p>Researchers make decisions related to questions, wording, format, layout, among others. The main output of this step is a version of the questionnaire along with its accompanying documents.</p>
+                        <a target="_blank" href="{% url 'wiki:questionnaire_design' %}" class="btn btn-primary btn-xs flat">Read more <i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-purple"><b>5</b></i>
+                <div class="timeline-item">
             <span class="time">
                 <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#pre_testing_body" aria-expanded="true">
                     <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
                 </button>
             </span>
-            <h3 class="timeline-header" id="pre_testing">Pre-testing</h3>
-            <div class="timeline-body collapse in" id="pre_testing_body">
-                <p>Researchers test the questionnaire designed during last step. Pre-testing should be planned, and collected data should be processed, analysed and reported. Researchers should establish validity and reliability of the designed questionnaire.</p>
-                <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}" class="btn btn-primary btn-xs flat">Read more <i class="fa fa-external-link"></i></a>
-            </div>
-        </div>
-    </li>
-    <!-- END timeline item -->
-    <!-- timeline item -->
-    <li>
-        <i class="fa bg-maroon"><b>6</b></i>
-        <div class="timeline-item">
+                    <h3 class="timeline-header" id="pre_testing">Pre-testing</h3>
+                    <div class="timeline-body collapse in" id="pre_testing_body">
+                        <p>Researchers test the questionnaire designed during last step. Pre-testing should be planned, and collected data should be processed, analysed and reported. Researchers should establish validity and reliability of the designed questionnaire.</p>
+                        <a target="_blank" href="{% url 'wiki:questionnaire_pre_testing' %}" class="btn btn-primary btn-xs flat">Read more <i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-maroon"><b>6</b></i>
+                <div class="timeline-item">
             <span class="time">
                 <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#val_rel_check_body" aria-expanded="true">
                     <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
                 </button>
             </span>
-            <h3 class="timeline-header" id="val_rel_check">Validity and reliability check</h3>
-            <div class="timeline-body collapse in" id="val_rel_check_body">
-                <p>Researchers determine whether designed questionnaire is valid and reliable enough. If so, the process is finished successfully, otherwise researches should return to design step and iterate until desired reliability and validity is achieved.</p>
-            </div>
+                    <h3 class="timeline-header" id="val_rel_check">Validity and reliability check</h3>
+                    <div class="timeline-body collapse in" id="val_rel_check_body">
+                        <p>Researchers determine whether designed questionnaire is valid and reliable enough. If so, the process is finished successfully, otherwise researches should return to design step and iterate until desired reliability and validity is achieved.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <li>
+                <i class="fa fa-flag bg-green"></i>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>References</h3>
+            <p id="Diem">[1] K. G. Diem, “A Step-by-Step Guide to Developing Effective Questionnaires and Survey Procedures for Program Evaluation &amp; Research Program Leader in Educational Design.”</p>
+            <p id="Radhakrishna2007">[2] R. B. Radhakrishna, “Tips for Developing and Testing Questionnaires/Instruments.,” J. Ext., no. 1, 2007.</p>
+            <p id="Crawford1997">[3] I. M. Crawford, “4: Marketing Research and Information Systems (Marketing & Agribusiness Texts),” Food & Agriculture Org, 1997.</p>
+            <p id="Boynton2004:3">[4] P. M. Boynton and T. Greenhalgh, “Selecting, designing, and developing your questionnaire.,” BMJ, vol. 328, no. 7451, pp. 1312–5, May 2004.</p>
+            <p id="Krosnick2009">[5] J. A. Krosnick, S. Presser, J. D. Wright, P. V Marsden, and D. San, “Question and Questionnaire Design,” 2009.</p>
         </div>
-    </li>
-    <!-- END timeline item -->
-        <li>
-        <i class="fa fa-flag bg-green"></i>
-    </li>
-</ul>
+    </div>
 </div>
 {% endblock %}
 
