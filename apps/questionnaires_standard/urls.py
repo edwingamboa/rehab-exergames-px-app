@@ -9,7 +9,8 @@ from .views import (
     QuestionnaireList,
     QuestionnaireCreation,
     QuestionnaireUpdate,
-    QuestionnaireContinueCreation
+    QuestionnaireContinueCreation,
+    InitQuestionnaireCreation,
 )
 
 urlpatterns = [
@@ -20,6 +21,7 @@ urlpatterns = [
     url(r'^measures/update/(?P<pk>\d+)$', MeasureUpdate.as_view(), name='update_measures'),
     url(r'^questionnaire_dev/$', QuestionnaireList.as_view(), name='list'),
     url(r'^questionnaire_dev/(?P<pk>\d+)$', QuestionnaireDetail.as_view(), name='detail'),
+    url(r'^questionnaire_dev/init_new', InitQuestionnaireCreation.as_view(), name='init'),
     url(r'^questionnaire_dev/new', QuestionnaireCreation.as_view(), name='new'),
     url(r'^questionnaire_dev/update/(?P<pk>\d+)', QuestionnaireUpdate.as_view(), name='update'),
     url(r'^questionnaire_dev/continue/(?P<pk>\d+)', QuestionnaireContinueCreation.as_view(), name='continue'),

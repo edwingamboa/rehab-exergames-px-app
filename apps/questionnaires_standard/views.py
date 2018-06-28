@@ -19,6 +19,7 @@ from .forms import (
     MeasureCreationPopUpForm,
 )
 from apps.utilities.constants import Constants
+from django.views.generic import TemplateView
 
 
 # Create your views here.
@@ -74,6 +75,10 @@ class QuestionnaireList(ListView):
     
 class QuestionnaireDetail(DetailView):
     model = Questionnaire
+
+
+class InitQuestionnaireCreation(TemplateView):
+    template_name = 'questionnaires_standard/questionnaire_pre_form.html'
 
 
 class QuestionnaireCreation(CreateView):
