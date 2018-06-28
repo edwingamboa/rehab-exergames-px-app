@@ -6,34 +6,41 @@
 {% block card_description %}Resource Details{% endblock %}
 
 {% block card_content %}
-<p>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
-</p>
-<p>
-    Description:
-    <span class="text-muted"> {{ object.description }}</span>
-</p>
-<p>
-    Url:
-    <span class="text-muted">
-        {% if object.url %}
-            <a target="_blank" href="{{ object.url }}">{{ object.url }}</a>
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+            {{ object.description }}
         {% else %}
-            None
+            <span class="text-muted">None</span>
         {% endif %}
-    </span>
-</p>
-<p>
-    File:
-    <span class="text-muted">
-        {% if object.file %}
-        <a target="_blank" href="{{ object.file.url }}"> {{ object.file.name }}</a>
-        {% else %}
-            None
-        {% endif %}
-    </span>
-</p>
+    </dd>
+
+    <dt>Url</dt>
+    <dd>
+         <ul class="nav nav-pills nav-stacked">
+            {% if object.url %}
+            <li><a target="_blank" href="{{ object.url }}"> {{ object.url }}<span class="pull-right text-blue"><i class="fa fa-external-link"></i></span></a></li>
+            {% else %}
+            <span class="text-muted">None</span>
+            {% endif %}
+        </ul>
+    </dd>
+
+    <dt>File</dt>
+    <dd>
+         <ul class="nav nav-pills nav-stacked">
+            {% if object.file %}
+            <li><a target="_blank" href="{{ object.file.url }}"> {{ object.file.name }}<span class="pull-right text-blue"><i class="fa fa-external-link"></i></span></a></li>
+            {% else %}
+            <span class="text-muted">None</span>
+            {% endif %}
+        </ul>
+    </dd>
+</dl>
 {% endblock %}
 
 {% block update_url %} {% url 'resources:update' object.id %} {% endblock %}

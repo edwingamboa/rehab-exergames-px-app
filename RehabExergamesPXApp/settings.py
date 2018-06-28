@@ -38,14 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
-    'dashboard',
-    'rehab_exergames',
-    'interaction_devices',
-    'movements',
-    'pathologies',
-    'resources',
-    'px_evaluation',
-    'questionnaires_standard',
+    'apps.dashboard',
+    'apps.rehab_exergames',
+    'apps.interaction_devices',
+    'apps.movements',
+    'apps.pathologies',
+    'apps.resources',
+    'apps.px_evaluation',
+    'apps.questionnaires_standard',
+    'apps.wiki',
 ]
 
 MIDDLEWARE = [

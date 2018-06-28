@@ -6,32 +6,42 @@
 {% block card_description %}Method Details{% endblock %}
 
 {% block card_content %}
-<div>
-    Name:
-    <span class="text-muted"> {{ object.name }}</span>
-</div>
-<div>
-    Description:
-    {% if object.description %}
-    <span class="text-muted"> {{ object.description }}</span>
-    {% else %}
-    -
-    {% endif %}
-</div>
-<div>
-    Type:
-    <span class="text-muted"> {{ object.type }}</span>
-</div>
-<div>
-    Resources:
-    <ul>
-        {% for resource in object.resources.all %}
-        <li><span class="text-muted"><a href="{% url 'resources:detail' resource.id %}">{{ resource }}</a></span></li>
-        {% empty %}
-        <span class="text-muted">No associated resources</span>
-        {% endfor %}
-    </ul>
-</div>
+<dl>
+    <dt>Name</dt>
+    <dd>{{ object.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>
+        {% if object.description %}
+            {{ object.description }}
+        {% else %}
+            <span class="text-muted">None</span>
+        {% endif %}
+    </dd>
+
+    <dt>Type</dt>
+    <dd>
+         <ul class="nav nav-pills nav-stacked">
+            {% if object.type %}
+            <li><a target="_blank" href="{% url 'px_evaluation:detail_method_types' object.type.id %}"> {{ object.type }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+            {% else %}
+            <span class="text-muted">None</span>
+            {% endif %}
+        </ul>
+    </dd>
+
+    <dt>Resources</dt>
+    <dd>
+        <ul class="nav nav-pills nav-stacked">
+            {% for resource in object.resources.all %}
+            <li><a href="{% url 'resources:detail' resource.id %}">{{ resource }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
+            {% empty %}
+            <span class="text-muted">No associated resources</span>
+            {% endfor %}
+        </ul>
+    </dd>
+
+</dl>
 {% endblock %}
 
 {% block update_url %} {% url 'px_evaluation:update_methods' object.id %} {% endblock %}

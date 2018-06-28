@@ -41,7 +41,7 @@
                     <dd>{% if object.players_characterisation %}
                         <a target="_blank" href="{{ object.players_characterisation.url }}"> {{ object.players_characterisation.name }} <i class="fa fa-download"></i></a>
                         {% else %}
-                        None
+                        <span class="text-muted">None</span>
                         {% endif %}
                     </dd>
                     <dt> Rehabilitation constraints</dt>
@@ -50,7 +50,7 @@
                             {% for constraint in object.rehabilitation_constraints.all %}
                             <li><a href="{% url 'rehab_exergames:detail_constraint' constraint.id %}">{{ constraint }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                             {% empty %}
-                            No associated aspects
+                            <span class="text-muted">No associated aspects</span>
                             {% endfor %}
                         </ul>
                     </dd>
@@ -74,7 +74,7 @@
                     {% if object.evaluation_goal %}
                     {{ object.evaluation_goal }}
                     {% else %}
-                    None
+                    <span class="text-muted">None</span>
                     {% endif %}
                 </p>
             </div>
@@ -96,7 +96,7 @@
                     {% for aspect in object.evaluation_aspects.all %}
                     <li><a href="{% url 'px_evaluation:detail_aspects' aspect.id %}">{{ aspect }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                     {% empty %}
-                    No associated aspects
+                    <span class="text-muted">No associated aspects</span>
                     {% endfor %}
                 </ul>
             </div>
@@ -118,7 +118,7 @@
                     {% for method in object.evaluation_methods.all %}
                     <li><a href="{% url 'px_evaluation:detail_methods' method.id %}">{{ method }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                     {% empty %}
-                    No associated methods
+                    <span class="text-muted">No associated methods</span>
                     {% endfor %}
                 </ul>
             </div>
@@ -139,7 +139,7 @@
                     {% for instrument in object.evaluation_instruments.all %}
                     <li><a href="{% url 'px_evaluation:detail_instruments' instrument.id %}">{{ instrument }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                     {% empty %}
-                    No associated instruments
+                    <span class="text-muted">No associated instruments</span>
                     {% endfor %}
                 </ul>
             </div>
@@ -160,7 +160,7 @@
                     {% if object.evaluation_plan %}
                     <li><a target="_blank" href="{{ object.evaluation_plan.url }}"> {{ object.evaluation_plan.name }}<span class="pull-right text-blue"><i class="fa fa-download"></i></span></a></li>
                     {% else %}
-                    None
+                    <span class="text-muted">None</span>
                     {% endif %}
                 </ul>
             </div>
@@ -181,7 +181,7 @@
                     {% if object.evaluation_report %}
                     <li><a target="_blank" href="{{ object.evaluation_report.url }}"> {{ object.evaluation_report.name }}<span class="pull-right text-blue"><i class="fa fa-download"></i></span></a></li>
                     {% else %}
-                    None
+                    <span class="text-muted">None</span>
                     {% endif %}
                 </ul>
             </div>

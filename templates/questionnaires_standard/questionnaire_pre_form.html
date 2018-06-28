@@ -1,0 +1,23 @@
+{% extends "card_base.html" %}
+
+{% block current_breadcrumb_label %}New{% endblock current_breadcrumb_label %}
+
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_questionnaire.html" %}{% endblock pre-breadcrumbs %}
+
+{% block card_color %}box-danger{% endblock %}
+
+{% block card_title %}<i class="icon fa fa-ban"></i> Alert{% endblock %}
+
+{% block card_content %}
+Please before you continue, please be sure that:
+<ul>
+    <li>The questionnaire method is the right approach to meet your evaluation needs <a target="_blank" href="{% url 'wiki:questionnaire_process' %}#is_right"><i class="fa fa-info-circle"></i></a></li>
+    <li>There is no a standardised questionnaire that you could use<a target="_blank" href="{% url 'wiki:questionnaire_process' %}#existent"><i class="fa fa-info-circle"></i></a></li>
+</ul>
+{% endblock %}
+
+{% block card_footer %}
+<a href="{% url 'questionnaire:new' %}" class="btn btn-success">Continue</a>
+<a href="{% url 'questionnaire:list' %}" class="btn btn-danger">Cancel</a>
+{% endblock %}
+

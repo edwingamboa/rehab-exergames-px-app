@@ -8,3 +8,27 @@
   height: 70px !important;
   width: 70px !important;
 }
+
+.geDiagramContainer {
+  margin: 0 auto;
+}
+
+[aria-expanded="false"] .fa-chevron-down {
+    display: block;
+}
+
+[aria-expanded="false"] .fa-chevron-up {
+    display: none;
+}
+
+[aria-expanded="true"] .fa-chevron-down  {
+    display: none;
+}
+
+[aria-expanded="true"] .fa-chevron-up {
+    display: block;
+}
+
+.multi-line-p {
+        white-space: pre-wrap;
+}

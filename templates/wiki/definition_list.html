@@ -1,0 +1,37 @@
+{% extends "list_base.html" %}
+
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_definition.html" %}{% endblock pre-breadcrumbs %}
+
+{% block card_title %}Terms and Definitions{% endblock card_title %}
+{% block card_description %}Manage Terms and Definitions{% endblock card_description%}
+
+{% block table_head %}
+    <tr>
+        <th>Id</th>
+        <th>Term</th>
+        <th>Manage</th>
+    </tr>
+{% endblock table_head %}
+{% block table_body %}
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.term }}</td>
+            <td>
+                <div class="dropdown">
+                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                        Options
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'wiki:detail_definitions' object.id %}"><i class="fa fa-eye"></i>View</a></li>
+                        <li><a href="{% url 'wiki:update_definitions' object.id %}"><i class="fa fa-edit"></i>Update</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock table_body %}
+
+{% block new_url %} {% url 'wiki:new_definitions' %} {% endblock new_url %}
+{% block new_object_name %}Definition{% endblock new_object_name %}

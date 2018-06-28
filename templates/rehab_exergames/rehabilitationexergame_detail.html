@@ -52,7 +52,7 @@
                         {% for input_dev in object.input_interaction_devices.all %}
                         <li><a href="{% url 'interaction_device:detail_tech' input_dev.id %}">{{ input_dev.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                         {% empty %}
-                        No associated input devices
+                        <span class="text-muted">No associated input devices</span>
                         {% endfor %}
                     </ul>
                 </dd>
@@ -62,7 +62,7 @@
                         {% for output_dev in object.output_interaction_devices.all %}
                         <li><a href="{% url 'interaction_device:detail_tech' output_dev.id %}">{{ output_dev.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                         {% empty %}
-                        No associated output devices
+                        <span class="text-muted">No associated output devices</span>
                         {% endfor %}
                     </ul>
                 </dd>
@@ -72,7 +72,7 @@
                         {% for movement in object.associated_movements.all %}
                         <li><a href="{% url 'movements:detail' movement.id %}">{{ movement.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                         {% empty %}
-                        No associated movements
+                        <span class="text-muted">No associated movements</span>
                         {% endfor %}
                     </ul>
                 </dd>
@@ -82,7 +82,7 @@
                         {% for task in object.assisted_rehabilitation_tasks.all %}
                         <li><a href="{% url 'rehab_exergames:detail_task' task.id %}">{{ task.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                         {% empty %}
-                        No associated tasks
+                        <span class="text-muted">No associated tasks</span>
                         {% endfor %}
                     </ul>
                 </dd>
@@ -92,7 +92,7 @@
                         {% for pathology in object.associated_pathologies.all %}
                         <li><a href="{% url 'pathologies:detail' pathology.id %}">{{ pathology.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                         {% empty %}
-                        No associated pathologies
+                        <span class="text-muted">No associated pathologies</span>
                         {% endfor %}
                     </ul>
                 </dd>

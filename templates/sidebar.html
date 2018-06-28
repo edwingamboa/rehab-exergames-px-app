@@ -68,7 +68,7 @@
                             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="{% url 'questionnaire:new' %}"><i class="fa fa-plus-circle"></i>New Questionnaire</a></li>
+            <li><a href="{% url 'questionnaire:init' %}"><i class="fa fa-plus-circle"></i>New Questionnaire</a></li>
             <li><a href="{% url 'questionnaire:list' %}"><i class="fa fa-table"></i>List Questionnaires</a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-check-square-o"></i><span>Measures</span>
@@ -189,7 +189,41 @@
     </li>
     <li class="treeview">
         <a href="#"  >
-            <i class="fa fa-book"></i><span>Resources</span>
+            <i class="fa fa-book"></i><span>Wiki</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="treeview">
+                <a href="#"><i class="fa fa-sliders"></i><span>Questionnaire Development</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'wiki:questionnaire_process' %}"><i class="fa fa-book"></i>Development Process</a></li>
+                    <li><a href="{% url 'wiki:questionnaire_design' %}"><i class="fa fa-book"></i>Design Process</a></li>
+                    <li><a href="{% url 'wiki:questionnaire_pre_testing' %}"><i class="fa fa-book"></i>Pre-Testing Process</a></li>
+                    <li><a href="{% url 'wiki:questions_guide' %}"><i class="fa fa-book"></i>Questions Formulation</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-sliders"></i><span>Terms and Definitions</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'wiki:new_definitions' %}"><i class="fa fa-plus-circle"></i>New Definition</a></li>
+                    <li><a href="{% url 'wiki:list_definitions' %}"><i class="fa fa-table"></i>List Definitions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#"  >
+            <i class="fa fa-paperclip"></i><span>Resources</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

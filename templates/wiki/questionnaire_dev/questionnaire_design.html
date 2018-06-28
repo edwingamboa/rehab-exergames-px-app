@@ -1,0 +1,259 @@
+{% extends "card_base.html" %}
+{% load staticfiles %}
+{% load wiki_tags %}
+
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_questionnaire.html" %}{% endblock pre-breadcrumbs %}
+{% block current_breadcrumb_label %}Info{% endblock current_breadcrumb_label %}
+
+{% block card_color %}box-info{% endblock %}
+
+{% block card_title %}Questionnaire Design{% endblock %}
+
+{% block card_content %}
+<div class="container-fluid">
+    <p>Designing a {% include "wiki/term_mention.html" with term=term|get_definition:"questionnaire" %} is a respondents centred process that requires {% include "wiki/term_mention.html" with term=term|get_definition:"researcher" verbose="researchers"%} to determine <a target="_blank" href="{% url 'px_evaluation:list_aspects' %}">aspects</a> to be studied and define target respondents. Then, researchers shall produce questions that allow studying those aspects and that target respondents can understand and answer accurately. To achieve that, researchers shall take care of wording, format, number and order of questions. The image below shows an overview of the process and details are provided afterwards.</p>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36\&quot; version=\&quot;8.7.6\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;24f485bc-caf4-d655-cdcc-a1963fc82067\&quot; name=\&quot;Page-1\&quot;&gt;3Vtbc5s4FP41eQyjK5IeN+ltZ7o73W1ntnlUjGLTxcgLchz31++REQZM3LgNNnEelMJBQtL59J2b6QW9nj+8L/Ri9odNTHZBUPJwQd9cEEIoVfCPl6wrCfN3XjAt0qQS4UbwOf1ughAF6TJNTNnp6KzNXLroCic2z83EdWS6KOyq2+3OZt1ZF3pqeoLPE531pf+kiZtVUs5QI/9g0ukszMx5eDDXdd8gKGc6sauWiL69oNeFta66mj9cm8zrrlZLNe7dnqfbdRUmd4cMMAhzlNzFWPHbiRaXRIR1uXW9V5PA1sOtLdzMTm2us7eN9Kqwyzwx/o0I7mZunsElhkvzkLqvresb3yXi4e6TKdK5caYIA2HJxfpr+6bV39/uDvhmnFuHw6GXzoKoWeBHaxdh6mpLfh97tRREpV0WE7NHNTIcNF1MjdvTp8EQzr6xsNpiDWMKk2mX3nfn1+EQTrf9GqDgImB1IG5hcfc6W4ZZ3nhNzdPcbKZaAA3KDU3gz63ZQLxMUkCNxBns5uq2gKup26qrdQJKV9h/tweddDGGE7zw/eYPU8/16C6zq8lMFy5aFHZiStjk1WqWOvN5oTeqXUG37Sz3pnDm4cew9NUZBlwSXDMu2BElI0JxLLeterpqOIoRjgRRVCmhYs5wsDuzNltxhKTC26aOAJfqwTWU1ivQtbPFKRWPxQvVNEU9xQ5g0BojdtN6st+gNTbspv1sZIOmDjBociSDRnsEeW9yU2jnTdd/S1O61OblORsvLBiOeMzg5HOCpagpdGamjD1tyZ5BuNMygj5NiHgkPvCemn9PYGvpnZ9dJ0nq+aD9G3JjvCohuLaT5Rz6nDVLCEJdXmCpIiwQUdv2QokRPxKR3ZsMjmxjwPy6bZGk+fScMdpYskcU3kLsRZoymhg80fJWGCMMMbCRV2TLDshW+Ei27LFcZQIJfdezQ1ZeQL7s5869OQOemOKsaSIFO09T1s9WvqQua+Ol08K8Kmwg/DoLaOqK2KuwWfxpm4XpSEYLvwznsM1Af66khg8sqQ2DY/w0jmPllXhU1I5UCB0GtQPKAaORr18O6IUMwQehRWFK2LYO8XUVPGR6bZfunD3UIyU3FSnBCK9b/CsuKlYRkxjLuh3DRbEhKfdzJbiDCToO5fABFYeqLjQG6fo1B72Ag37vYXk3FHMS4HHpqXrE4E4pFnE46lwShRSLOzyiSkS4FenJHo0kj1h7OO7TSGCYgImmHQGOfkFhFFc2ElMOiA0JeyZTwtBPNs1dJzmAEyBQzAhSBFGOZecAMUoiShhDFMFRoXIH+2rF4Z078G8X+WsnQvROxF87zrDyfnoysfOFztebQlO7MDgMh+fLzKWX9Wv3MLmEW5j/o7nz8HnTN1SFELNICiJB8xwRzmgHHSJRhFtZGOl7SRJHmDHGwYsKgfEj9JbgR1uets4VB6W3PL6XRJGUz3SUA7FZHOD3nlue2sNmghjgrRRHiiJvrPts5ogJLDg8FnHcnaDa1VHYrM4pTDrwF80TGn9yJOPPCMQH4PQVxhRzqbrRQ6xUhKiKQ+M78fPxjD/pF37aX3wEVfn9lwubJ6/ud6Bz+X10e75H+KLqhcd09RH+Ea3VkVit6G42jU7GXNJj7lA8PM3HPwiRKI45haxJsDhW3YCLA+1oKxf6pbIEg1BFYNK0IxCTniDgGqoue+Ivg9gB4dlYZQnS/+Lkb3OfmlWT7iTflqXbpCJn7PGwjHlEKYoJ4kxRKruBB0MCaIaEqtuLdYD9MtKN6aeeoCnXVT5ELul3fbvp4Dmw8LZ4szB+dcHfgMQzoaxI4QfoLJ3mcJ1tUswrr/50orPfgtjZVhr6ZUOZSzZYiQmSCoEZZgiA4rsfc7GYRqiFFemDVVd32+gQdAQ4+mWkP+2rQwOpqK7WIUkZ7qKBcaSakrfEfRdFh0EDbptv+avQofkPEfTt/w==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+        </div>
+    </div>
+
+    <div class="margin">
+        <ul class="timeline">
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-green"><b>1</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#aspects_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="aspects">Determine aspects to be studied</h3>
+                    <div class="timeline-body collapse in" id="aspects_body">
+                        <p>Researchers shall define which {% include "wiki/term_mention.html" with term=term|get_definition:"PX" %} <a target="_blank" href="{% url 'px_evaluation:list_aspects' %}">aspects</a> should be studied in order to achieve the evaluation goal defined previously. Examples of PX aspects include: motivation, effectiveness, ease of use, attractiveness.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-aqua"><b>2</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#respondents_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="respondents">Determine target respondents</h3>
+                    <div class="timeline-body collapse in" id="respondents_body">
+                        <p>Researches shall decide what is the appropriate population to be asked. This step also includes identifying characteristics of the target respondents that should be considered along the design process, e.g., age, education level, familiarity with tests and questionnaires, cultural bias or language barrier [<a href="#Diem">1</a>,<a href="#Crawford1997">2</a>]. Also, researchers should not exclude disadvantage groups in order to avoid biases and avoid generalisation errors due to misunderstandings or ambiguity [<a href="#Boynton2004:2">3</a>].</p>
+                        <p>This step is important since generalisations will be made upon target respondents; i.e., target respondents represent the population to whom the results of the questionnaire would apply [<a href="#Crawford1997">2</a>,<a href="#Diem">1</a>]. Consequently, researchers may employ research techniques when they do not know target audience.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-yellow"><b>3</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#title_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="title">Title questionnaire</h3>
+                    <div class="timeline-body collapse in" id="title_body">
+                        <p>Researchers shall chose a title that informs respondents about evaluation goal [<a href="#Diem">1</a>]</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-blue"><b>4</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#generate_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="generate">Generate questions</h3>
+                    <div class="timeline-body collapse in" id="generate_body">
+                        <p>Researchers shall generate as many questions as possible for each aspect to be evaluated. At this stage, details such as wording is not important. The generated questions have to meet the evaluation goal, so that they can be employed to study aspects selected previously [<a href="#Crawford1997">2</a>,<a href="#Radhakrishna2007">4</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-purple"><b>5</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#filter_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="filter">Filter questions</h3>
+                    <div class="timeline-body collapse in" id="filter_body">
+                        <p>Researchers shall only include questions that can be used to achieve the evaluation goal, i.e., to evaluate each selected evaluation aspect. However, researchers may include a few redundant questions to gain respondents' involvement [<a href="#Crawford1997">2</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-maroon"><b>6</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#wording_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="wording">Develop question wording and format</h3>
+                    <div class="timeline-body collapse in" id="wording_body">
+                        <p>Researchers shall produce questions that can be understood by respondents; collect complete, unbiased and accurate answers and are easy to administer for {% include "wiki/term_mention.html" with term=term|get_definition:"interviewer" verbose="interviewers"%}. To aim that, researchers may include explanations and definitions for each question. Researchers shall produce brief questions to keep respondents interested [<a href="#Crawford1997">2</a>].</p>
+                        <p>A question can be {% include "wiki/term_mention.html" with term=term|get_definition:"open question" verbose="open"%}, {% include "wiki/term_mention.html" with term=term|get_definition:"closed question" verbose="closed"%} or closed with open response option [<a href="#Crawford1997">2</a>]. Researchers should select one consistent format for the whole questionnaire.</p>
+                        <p>With reference to closed questions, researchers should use scales that: have precise and clear answer categories, provide needed information and are appropriate for respondents and uniform [<a href="#Diem">1</a>,<a href="#Krosnick2009">5</a>]. Researches shall make sure that questions match the selected scale [<a href="#Diem">1</a>]. When researchers use a rating scale, they shall make scale progressive and select answer categories that represent respondents attitude meaningfully. Researchers shall not select a low or a high number of scale points. Five to seven point scales are recommended [<a href="#Krosnick2009">5</a>].</p>
+                        <p>Additional question formats include statements with tick box categories, visual analogue scales and symbols [<a href="#Boynton2004:3">6</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-navy"><b>7</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#order_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="order">Decide questions order</h3>
+                    <div class="timeline-body collapse in" id="order_body">
+                        <p>Researchers shall order questions logically to promote understating and motivation [<a href="#Diem">1</a>,<a href="#Krosnick2009">5</a>]. Researchers should:</p>
+                        <ol>
+                            <li>Put most important questions at the beginning [<a href="#Diem">1</a>]. Those questions may be connected to questionnaire propose and impose minimal burden [<a href="#Krosnick2009">5</a>].</li>
+                            <li>Avoid putting difficult questions at the beginning to avoid respondents to get demotivated [<a href="#Krosnick2009">5</a>].</li>
+                            <li>Avoid putting difficult questions not at the end to avoid wrong answers due to respondents fatigue [<a href="#Krosnick2009">5</a>].</li>
+                            <li>Avoid putting {% include "wiki/term_mention.html" with term=term|get_definition:"screening question" verbose="screening questions"%} at the beginning since respondents may answer inaccurately to avoid answering remaining questions [<a href="#Krosnick2009">5</a>].</li>
+                            <li>Put demographic and sensitive questions at the end to avoid threatening respondents. Also, researchers shall provide information about the reasons to collect such data [<a href="#Boynton2004:2">3</a>,<a href="#Krosnick2009">5</a>].</li>
+                            <li>Group related questions [<a href="#Krosnick2009">5</a>].</li>
+                            <li>Avoid questions to be weighted due to order. Researchers should analyse questions context when possible, otherwise they may randomise order [<a href="#Krosnick2009">5</a>].</li>
+                        </ol>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-teal"><b>8</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#presentation_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="presentation">Decide questionnaire presentation and layout</h3>
+                    <div class="timeline-body collapse in" id="presentation_body">
+                        <p>Researchers should create questionnaires that look professional since presentation has a significant effect on the quality and quantity of obtained data [<a href="#Diem">1</a>,<a href="#Crawford1997">2</a>]. To achieve that, researchers should use simple and clear formats, use booklets, use space and font adequately, use colour coding for different questionnaire versions and keep questionnaire as short as possible [<a href="#Crawford1997">2</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-orange"><b>9</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#add_docs_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="add_docs">Identify additional needed documents</h3>
+                    <div class="timeline-body collapse in" id="add_docs_body">
+                        <p>Researchers may include accompanying documents for clarity and/or motivation purposes. Additional documents include: a cover letter, accompanying guides for respondents or interviewer, an appreciation letter, a document describing steps to carry out after completing a questionnaire and a document providing details about the study, e.g., time and place [<a href="#Diem">1</a>,<a href="#Crawford1997">2</a>,<a href="#Boynton2004:2">3</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-red"><b>10</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#final_doc_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="final_doc">Questionnaire and accompanying documents</h3>
+                    <div class="timeline-body collapse in" id="final_doc_body">
+                        <p>Researchers should assemble questionnaire and accompanying documents into a single deliverable. Researchers should check and review the questionnaire, e.g., using checklists available <a target="_blank" href="http://www.bmj.com/content/328/7451/1312?panels_ajax_tab_tab=jnl_bmj_tab_related_art&panels_ajax_tab_trigger=related#c">online</a>.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-gray"><b>11</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#approval_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="approval">Approval</h3>
+                    <div class="timeline-body collapse in" id="approval_body">
+                        <p>Researchers shall determine if the questionnaire need to be approved before it can be administered. Approval source may be internal or external to researchers organisation [<a href="#Diem">1</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-black"><b>12</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#review_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="review">Review and adjustment</h3>
+                    <div class="timeline-body collapse in" id="review_body">
+                        <p>In case that approval was needed and questionnaire is not approved, researchers shall review and adjust questionnaire until it is approved.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <li>
+                <i class="fa fa-flag bg-green"></i>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>References</h3>
+            <p id="Diem">[1] K. G. Diem, “A Step-by-Step Guide to Developing Effective Questionnaires and Survey Procedures for Program Evaluation &amp; Research Program Leader in Educational Design.”</p>
+            <p id="Crawford1997">[2] I. M. Crawford, “4: Marketing Research and Information Systems (Marketing & Agribusiness Texts),” Food & Agriculture Org, 1997.</p>
+            <p id="Boynton2004:2">[3] P. M. Boynton, G. W. Wood, T. Greenhalgh, and Q. Clinic, “Reaching beyond the white middle classes,” BMJ, vol. 328, no. 7453, pp. 1433–1436, Jun. 2004.</p>
+            <p id="Radhakrishna2007">[4] R. B. Radhakrishna, “Tips for Developing and Testing Questionnaires/Instruments.,” J. Ext., no. 1, 2007.</p>
+            <p id="Krosnick2009">[5] J. A. Krosnick, S. Presser, J. D. Wright, P. V Marsden, and D. San, “Question and Questionnaire Design,” 2009.</p>
+            <p id="Boynton2004:3">[6] P. M. Boynton and T. Greenhalgh, “Selecting, designing, and developing your questionnaire.,” BMJ, vol. 328, no. 7451, pp. 1312–5, May 2004.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block update_url %}{% endblock %}
+{% block update_label %}{% endblock %}
+{% block list_url %} {% endblock %}
+
+{% block additional_footer_buttons %}
+
+{% endblock %}
+
+{% block specific-js %}
+<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+{% endblock %}

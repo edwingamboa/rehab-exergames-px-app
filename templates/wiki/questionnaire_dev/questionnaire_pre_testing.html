@@ -1,0 +1,154 @@
+{% extends "card_base.html" %}
+{% load staticfiles %}
+{% load wiki_tags %}
+
+{% block pre-breadcrumbs %}{% include "./pre_breadcrumbs_questionnaire.html" %}{% endblock pre-breadcrumbs %}
+{% block current_breadcrumb_label %}Info{% endblock current_breadcrumb_label %}
+
+{% block card_color %}box-info{% endblock %}
+
+{% block card_title %}Questionnaire Pre-Testing{% endblock %}
+
+{% block card_content %}
+<div class="container-fluid">
+    <p>Pre-testing or piloting process allows {% include "wiki/term_mention.html" with term=term|get_definition:"researcher" verbose="researchers"%} to know whether a questionnaire would achieve desired results [<a href="#Crawford1997">1</a>], identifying problems associated to it. Pre-testing a questionnaire allows evaluating questions wording, order and relevance. After pre-testing, researchers will know if a questionnaire is complete, understandable and does not causes discomfort to respondents [<a href="#Boynton2004">2</a>]. Pre-testing is also an opportunity to determine if interviewers are well trained to administer a questionnaire [<a href="#Crawford1997">1</a>].</p>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36\&quot; version=\&quot;8.7.6\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;74e2e168-ea6b-b213-b513-2b3c1d86103e\&quot; name=\&quot;Page-1\&quot;&gt;3VlNc5swEP01PpqRBAg4No7bHtqZTHNocpRhDTSAGCHHdn99RRAGDE5I4o+kXIxWK2l5+1g94Yk5SzffBMujnzyAZEJQsJmY1xNCMPE89VNatpVlih23soQiDrRXY7iN/4I2Im1dxQEUHUfJeSLjvGv0eZaBLzs2JgRfd92WPOmumrMQeoZbnyV96+84kFFltSlq7N8hDiO9MkG6I2W1rzYUEQv4umUy5xNzJjiX1V26mUFSglfDUo37eqB3F5eATI4ZYGG6QJgxtPRMFFjBlFQzPLJkpZ9VByq39cOHgq9y7QZCwmYIcrao3VE/Jrx7UkUR4ClIsVUum5oNGBHDroZphlBiGV77qnrXLfCJbdiouXQ4USsN2EYG6rswTYZwF0kDmLrRmB3AjzguILoIwHaQi+kUv4xfIQV/2PFGAXEVyVQtcI3VrSJEXvqlm7B8d4xlwtd+xIQ0JIg0zpjkQrmto1jCbc780netPJXtYEra0A8nvJ8LjTs2sEld6pqOQzDFFJkwxWYPfFwTvA23jU6Ar93D9yZhWVlLmGRP9EsSRb+YZ8fCPRfch6I4B+j1DFaf3udDGDsvUxgCVQ51kwsZ8ZBnLJk31itVI7IAyjVQF+g/IOVWV3S2klyZmhl+cJ5rv2rNcqFXwqoC5Svhw/MEkkyEIA/4OMPpEZAwGT92Azoq9vSYSMMmlnet+/vSRdXVqnUDIlYBg9ADFapie9dutPzL5v6ASycSj0ik/c5E6qE3PFahNu8ncg3sUMtBtusS03a6W5XaZIhnYe3hOd3pq2fSM+5RZRfi29jTf3FVzpZcpCXcAqYSChln4ectjMRDQ3v8Rcqk2wN7npUvB5mVu1AE/kO5YhaUrQRaW9RnBd8aFljbGuOutMLWBXPj9XLzRdWkbQGfPgnEw0MSVifBs/eScEkZ8b8oYT0D3TuRfCSs3T7hLyHZdhICj5QQp5IG3oA0oBQctnAJWxLbW3pT6yTSgFhO55zqdLUBxuYga+oFqohPIg7wUSlRa0s0SlueWyoO5voFqYgPfJR4LyEofWbXxN5g7xm0Yr0/H5kOOwrct3oOHjXG1olLHzXcEfzx3kmft2+09iky+dpDY5O8+3bfR8ukMyKT7rkyeaBMtXbxX5AreJ4WL1aJLI6loALur9InJM/4UcsZ+oJbq6n948M4NUVfr6ZUs/m8XlXS5k8Kc/4P&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+        </div>
+    </div>
+
+    <div class="margin">
+        <ul class="timeline">
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-green"><b>1</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#plan_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="plan">Plan pre-testing</h3>
+                    <div class="timeline-body collapse in" id="plan_body">
+                        <p>Pre-testing a questionnaire requires researchers to plan well in advance in order to collect high quality data. Planning a pre-testing involves deciding:</p>
+                        <dl>
+                            <dt class="lead">1. Target respondents participation</dt>
+                            <dd>
+                                <p>Researchers shall decide if respondents participation is needed or available. If participants are needed, they shall represent target respondents [<a href="#Krosnick2009">3</a>,<a href="#Boynton2004">2</a>] and pre-testing shall be conducted in similar conditions to a real questionnaire administration.</p>
+                                <p>Researchers shall use sampling techniques to select participants [<a href="#Boynton2004:3">4</a>,<a href="#Diem">5</a>,<a href="#Radhakrishna2007">6</a>], a set of techniques and their use can be found <a target="_blank" href="https://www.bmj.com/content/328/7451/1312?panels_ajax_tab_tab=jnl_bmj_tab_related_art&panels_ajax_tab_trigger=related#d">online</a>.</p>
+                                <p>With regard to the number of participants, researchers should prefer fewer answers with good quality, than high number of answers with inaccurate or incomplete responses [<a href="#Boynton2004">2</a>]. On the other hand, if respondents participation is not required, researchers shall invite experts to test and evaluate questionnaire.</p>
+                            </dd>
+
+                            <dt class="lead">2. Collection methods and procedures</dt>
+                            <dd>
+                                <p>When researchers decide not to include respondents, pre-testing should be conducted using methods such as expert review methods, statistical modelling or \ac{AI} techniques. On the other hand, if target respondents participation is required, pre-testing should be conducted in similar conditions to a real questionnaire administering [<a href="#Krosnick2009">3</a>]. In that case, researchers shall choose data collection method based on target respondents needs and preferences, which have been identified during design stage. Also, researchers shall consider available resources and the evaluation goal [<a href="#Boynton2004">2</a>]</p>
+                                <p>Data collection methods include personal interviews, focus groups, mail questionnaires, web based questionnaires, telephone interviews, post questionnaires, researchers administered [<a href="#Crawford1997">1</a>,<a href="#Diem">5</a>,<a href="#Boynton2004">2</a>]. Pros and cons of each method can be found <a target="_blank" href="https://www.bmj.com/content/328/7452/1372?panels_ajax_tab_tab=jnl_bmj_tab_related_art&panels_ajax_tab_trigger=related#3">online</a></p>
+                                <p>Researchers shall be aware of data protection laws, internal codes, e.g., from researchers' or respondent's organisations [<a href="#Boynton2004">2</a>].</p>
+                            </dd>
+                            <dt class="lead">3. {% include "wiki/term_mention.html" with term=term|get_definition:"Interviewer" verbose="Interviewers"%} training</dt>
+                            <dd>
+                                <p>People who conduct the pre-testing shall be trained or supervised. They should be prepared for answering and managing respondents' questions and unexpected reactions [<a href="#Boynton2004:2">7</a>].</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-aqua"><b>2</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#perform_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="perform">Perform pre-testing</h3>
+                    <div class="timeline-body collapse in" id="perform_body">
+                        <p>During pre-testing researchers should observe, record and/or take notes on important issues such as misunderstood, surprising or confusing questions, time required by respondents to complete questionnaire and respondents' reactions [<a href="#Boynton2004">2</a>]. Researchers shall assure privacy, anonymity and non-threatening surroundings. Additionally, when interviewers are helping respondents to fill in the questionnaires, they should avoid inflections on voices, facial expressions or gestures to avoid biases [<a href="#Boynton2004:2">7</a>].</p>
+                        <p>Finally, researchers should thank respondents for their participation [<a href="#Diem">5</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-yellow"><b>3</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#clean_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="clean">Enter, check and clean data</h3>
+                    <div class="timeline-body collapse in" id="clean_body">
+                        <p>Researchers shall enter, check and clean data to be analysed. They shall agree on and understand the tools to be used for this stage such as SPSS, Excel or  their own tools. This process should be carried out as soon as data is collected to avoid having to process a large amount of data  [<a href="#Boynton2004">2</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-blue"><b>4</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#analyse_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="analyse">Analyse data</h3>
+                    <div class="timeline-body collapse in" id="analyse_body">
+                        <p>Researches shall select an analysis method based on collected data [<a href="#Boynton2004">2</a>,<a href="#Diem">5</a>]. A set of analysis methods are listed <a target="_blank" href="https://www.bmj.com/content/328/7452/1372?panels_ajax_tab_tab=jnl_bmj_tab_related_art&panels_ajax_tab_trigger=related#4">online</a></p>
+                        <p>At this stage, researchers shall establish questionnaire reliability using measures such as Test-Retest or Internal Consistency Measures [<a href="#Radhakrishna2007">6</a>,<a href="#Diem">5</a>]. Finally, researchers should establish questionnaire validity using panel of experts and/or field test. Also, they should use readability tests like Fog Index or Flesch Reading Ease [<a href="#Radhakrishna2007">6</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa bg-purple"><b>5</b></i>
+                <div class="timeline-item">
+            <span class="time">
+                <button type="button" class="btn btn-box-tool" data-toggle="collapse" data-target="#report_body" aria-expanded="true">
+                    <i class="fa fa-chevron-up"></i><i class="fa fa-chevron-down"></i>
+                </button>
+            </span>
+                    <h3 class="timeline-header" id="report">Report results</h3>
+                    <div class="timeline-body collapse in" id="report_body">
+                        <p>Researchers shall filter relevant data to be reported [<a href="#Boynton2004">2</a>,<a href="#Diem">5</a>]. They should also decide how the information will be presented. A set of recommendations about how to present data is presented in [<a href="#Boynton2004">2</a>]. Researchers shall focus report on presenting and discussing main findings. Also, they shall report reliability and validity indicating how these measures were established [<a href="#Radhakrishna2007">6</a>].</p>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <li>
+                <i class="fa fa-flag bg-green"></i>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>References</h3>
+            <p id="Crawford1997">[1] I. M. Crawford, “4: Marketing Research and Information Systems (Marketing & Agribusiness Texts),” Food & Agriculture Org, 1997.</p>
+            <p id="Boynton2004">[2] P. M. Boynton, “Administering,  analysing,  and reporting your questionnaire,” BMJ, vol. 328, no. 7452, pp. 1372–1375, Jun. 2004.</p>
+            <p id="Krosnick2009">[3] J. A. Krosnick, S. Presser, J. D. Wright, P. V Marsden, and D. San, “Question and Questionnaire Design,” 2009.</p>
+            <p id="Boynton2004:3">[4] P. M. Boynton and T. Greenhalgh, “Selecting, designing, and developing your questionnaire.,” BMJ, vol. 328, no. 7451, pp. 1312–5, May 2004.</p>
+            <p id="Diem">[5] K. G. Diem, “A Step-by-Step Guide to Developing Effective Questionnaires and Survey Procedures for Program Evaluation &amp; Research Program Leader in Educational Design.”</p>
+            <p id="Radhakrishna2007">[6] R. B. Radhakrishna, “Tips for Developing and Testing Questionnaires/Instruments.,” J. Ext., no. 1, 2007.</p>
+            <p id="Boynton2004:2">[7] P. M. Boynton, G. W. Wood, T. Greenhalgh, and Q. Clinic, “Reaching beyond the white middle classes,” BMJ, vol. 328, no. 7453, pp. 1433–1436, Jun. 2004.</p>            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block update_url %}{% endblock %}
+{% block update_label %}{% endblock %}
+{% block list_url %} {% endblock %}
+
+{% block additional_footer_buttons %}
+
+{% endblock %}
+
+{% block specific-js %}
+<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+{% endblock %}

@@ -9,23 +9,26 @@
 <dl>
     <dt>Name</dt>
     <dd>{{ object.name }}</dd>
+
     <dt>Description</dt>
     <dd>
         {% if object.description %}
         {{ object.description }}
         {% else %}
-        -
+        <span class="text-muted">None</span>
         {% endif %}
     </dd>
+
     <dt>Type</dt>
     <dd>{{ object.get_type_display }}</dd>
+
     <dt>Resources</dt>
     <dd>
         <ul class="nav nav-pills nav-stacked">
             {% for resource in object.resources.all %}
             <li><a href="{% url 'resources:detail' resource.id %}">{{ resource.name }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
             {% empty %}
-            No associated resources
+            <span class="text-muted">No associated resources</span>
             {% endfor %}
         </ul>
     </dd>

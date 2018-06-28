@@ -31,7 +31,7 @@
                             {% for aspect in object.aspects.all %}
                             <li><a href="{% url 'px_evaluation:detail_aspects' aspect.id %}">{{ aspect }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                             {% empty %}
-                            No associated aspects
+                            <span class="text-muted">No associated aspects</span>
                             {% endfor %}
                         </ul>
                     </dd>
@@ -56,7 +56,13 @@
             <div class="timeline-body">
                 <dl>
                     <dt>Description</dt>
-                    <dd>{{ object.description }}</dd>
+                    <dd>
+                        {% if object.description %}
+                        {{ object.description }}
+                        {% else %}
+                        <span class="text-muted">None</span>
+                        {% endif %}
+                    </dd>
 
                     <dt>Questionnaire document</dt>
                     <dd>
@@ -64,7 +70,7 @@
                             {% if object.questionnaire_document %}
                             <li><a target="_blank" href="{% url 'resources:detail' object.questionnaire_document.id %}"> {{ object.questionnaire_document }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                             {% else %}
-                            None
+                            <span class="text-muted">None</span>
                             {% endif %}
                         </ul>
                     </dd>
@@ -108,7 +114,7 @@
                             {% if object.pre_testing_report %}
                             <li><a target="_blank" href="{% url 'resources:detail' object.pre_testing_report.id %}"> {{ object.pre_testing_report }}<span class="pull-right text-blue"><i class="fa fa-eye"></i></span></a></li>
                             {% else %}
-                            None
+                            <span class="text-muted">None</span>
                             {% endif %}
                         </ul>
                     </dd>

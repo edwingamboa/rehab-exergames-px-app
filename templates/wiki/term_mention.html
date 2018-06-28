@@ -1,0 +1,3 @@
+<a target="_blank" href="{% url 'wiki:detail_definitions' term.id %}" data-toggle="tooltip" title="{{ term.definition }}">
+    {% if verbose %}{{ verbose }}{% elif term.acronym%}{{ term.acronym }}{% else %}{{ term }}{% endif %}
+</a>
