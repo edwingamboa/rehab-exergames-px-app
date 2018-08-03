@@ -24,18 +24,47 @@ class RehabilitationExergameCreationPopUpForm(ModelForm):
         self.fields['output_interaction_devices'].queryset = InteractionDevice.objects.filter(
             Q(type=Constants.OUTPUT_DEVICE) | Q(type=Constants.IN_OUTPUT_DEVICE)
         )
+        self.fields['configurable'].label = 'Is configurable?'
+        self.fields['provide_performance_assessment'].label = 'Provides performance assessment?'
 
     class Meta(object):
         model = RehabilitationExergame
-        fields = '__all__'
+        fields = [
+            'name',
+            'description',
+            'image',
+            'thematic_content',
+            'input_interaction_devices',
+            'output_interaction_devices',
+            'associated_movements',
+            'rehabilitation_type',
+            'autonomy_degree',
+            'assisted_rehabilitation_tasks',
+            'associated_pathologies',
+            'configurable',
+            'provide_performance_assessment',
+        ]
         exclude = ['status']
 
 
 class RehabilitationExergameForm(RehabilitationExergameCreationPopUpForm):
     class Meta(object):
         model = RehabilitationExergame
-        fields = '__all__'
-        exclude = ['status']
+        fields = [
+            'name',
+            'description',
+            'image',
+            'thematic_content',
+            'input_interaction_devices',
+            'output_interaction_devices',
+            'associated_movements',
+            'rehabilitation_type',
+            'autonomy_degree',
+            'assisted_rehabilitation_tasks',
+            'associated_pathologies',
+            'configurable',
+            'provide_performance_assessment',
+        ]
         widgets = {
             'input_interaction_devices': RelatedFieldWidgetCanAddMultiple(
                 InteractionDevice,
