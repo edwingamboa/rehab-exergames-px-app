@@ -66,9 +66,9 @@
 
 {% block card_footer_buttons %}
 {% if  object.current_stage == 'report' %}
-<input type="submit" name="save" value="Finish" class="btn btn-success"/>
+<input type="submit" name="save" value="Finish" class="btn btn-primary"/>
 {% else %}
-<input type="submit" name="save_continue" value="Save and Continue" class="btn btn-success"/>
-<input type="submit" name="save" value="Save and Close" class="btn btn-info"/>
+<input type="submit" name="save_continue" value="Save and Continue" class="btn btn-primary"/>
+<input type="submit" name="save" value="Save and Close" class="btn btn-default"/>
 {% endif %}
 {% endblock %}

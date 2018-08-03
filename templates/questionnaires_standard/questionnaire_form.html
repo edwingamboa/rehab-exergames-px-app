@@ -62,10 +62,10 @@
 
 {% block card_footer_buttons %}
 {% if  object.status == 'in_pre_test' %}
-<input type="submit" name="save" value="Finish" class="btn btn-success"/>
+<input type="submit" name="save" value="Finish" class="btn btn-primary"/>
 {% else %}
-<input type="submit" name="save_continue" value="Save and Continue" class="btn btn-success"/>
-<input type="submit" name="save" value="Save and Close" class="btn btn-info"/>
+<input type="submit" name="save_continue" value="Save and Continue" class="btn btn-primary"/>
+<input type="submit" name="save" value="Save and Close" class="btn btn-deafult"/>
 {% endif %}
 {% endblock %}
 
