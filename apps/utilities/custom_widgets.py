@@ -1,6 +1,9 @@
 from django.core.urlresolvers import reverse
 from django.utils.safestring import mark_safe
-from django.forms import widgets
+from django_select2.forms import (
+    Select2Widget,
+    Select2MultipleWidget
+)
 
 
 def generate_new_button(related_url, name):
@@ -14,7 +17,7 @@ def generate_default_related_url(related_model):
     info = (rel_to._meta.app_label, rel_to._meta.object_name.lower())
     return 'admin:%s_%s_add' % info
 
-class RelatedFieldWidgetCanAdd(widgets.Select):
+class RelatedFieldWidgetCanAdd(Select2Widget):
     def __init__(self, related_model, related_url=None, *args, **kw):
 
         super(RelatedFieldWidgetCanAdd, self).__init__(*args, **kw)
@@ -31,7 +34,7 @@ class RelatedFieldWidgetCanAdd(widgets.Select):
         return mark_safe(''.join(output))
 
 
-class RelatedFieldWidgetCanAddMultiple(widgets.SelectMultiple):
+class RelatedFieldWidgetCanAddMultiple(Select2MultipleWidget):
     def __init__(self, related_model, related_url=None, *args, **kw):
 
         super(RelatedFieldWidgetCanAddMultiple, self).__init__(*args, **kw)

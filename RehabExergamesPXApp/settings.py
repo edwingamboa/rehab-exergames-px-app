@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'django_select2',
+    'django_addanother',
     'apps.dashboard',
     'apps.rehab_exergames',
     'apps.interaction_devices',
