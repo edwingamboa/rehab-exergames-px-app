@@ -3,3 +3,4 @@ psycopg2
 django-bootstrap3
 Pillow
 django_select2
+django_addanother
