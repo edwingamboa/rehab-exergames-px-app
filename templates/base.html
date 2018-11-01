@@ -19,11 +19,9 @@
     <link rel="stylesheet" href="{% static 'AdminLTE-2.4.3/bower_components/font-awesome/css/font-awesome.min.css' %}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{% static 'AdminLTE-2.4.3/bower_components/Ionicons/css/ionicons.min.css' %}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{% static 'AdminLTE-2.4.3/dist/css/AdminLTE.min.css' %}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{% static 'AdminLTE-2.4.3/dist/css/skins/skin-purple.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminLTE-2.4.3/dist/css/skins/skin-blue.css' %}">
     <!-- Notifications -->
     <link rel="stylesheet" href="{% static 'toastr/toastr.css' %}">
 
@@ -35,10 +33,11 @@
     {% block all-css %}
     <!-- Custom CSS -->
     {% endblock %}
-
     <!--=================== Page specific styles ===================-->
     {% block specific-css %}
     {% endblock %}
+    <!-- Theme style --><!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'AdminLTE-2.4.3/dist/css/AdminLTE.min.css' %}">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -60,7 +59,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="skin-blue sidebar-mini">
 {% block wrapper %}
 <div class="wrapper">
     <header class="main-header">

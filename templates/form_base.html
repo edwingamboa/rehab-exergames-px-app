@@ -1,6 +1,10 @@
 {% extends "card_base.html" %}
 {% load bootstrap3 %}
 
+{% block specific-css %}
+{{ form.media.css }}
+{% endblock %}
+
 {% block current_breadcrumb_label %}
     {% if object %}
         Update
@@ -28,12 +32,13 @@
 {% endblock card_content %}
 {% block card_footer %}
     {% block card_footer_buttons %}
-        <input type="submit" value="Save" class="btn btn-success"/>
+        <input type="submit" value="Save" class="btn btn-primary"/>
     {% endblock card_footer_buttons %}
 </form>
 {% endblock card_footer %}
 
 {% block specific-js %}
+{{ form.media.js }}
 <script>
     var currentInputId;
     function showAddPopup(triggeringElement) {

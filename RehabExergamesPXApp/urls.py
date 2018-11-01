@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^select2/', include('django_select2.urls')),
     url(r'^', include('apps.dashboard.urls', namespace='dashboard')),
     url(r'^interaction_device/', include('apps.interaction_devices.urls', namespace='interaction_device')),
     url(r'^movements/', include('apps.movements.urls', namespace='movements')),

@@ -140,7 +140,7 @@
 {% block update_label %}Refine{% endblock %}
 {% block list_url %} {% url 'questionnaire:list' %} {% endblock %}
 
-{% block additional_footer_buttons %}
+{% block previous_footer_buttons %}
     {% if object.status != 'finished' %}
         <a href="{% url 'questionnaire:continue' object.id %}" class="btn btn-primary">Continue Evaluation</a>
     {% endif %}
