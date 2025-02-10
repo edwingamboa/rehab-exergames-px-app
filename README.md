@@ -14,4 +14,4 @@ The application was developed using the Django framework. The development proces
 
 ## Navigation Diagram
 
-[navigationDiagram.pdf](https://github.com/user-attachments/files/18732181/navigationDiagram.pdf)
+![navigationDiagram](https://github.com/user-attachments/assets/a6e5ded6-922f-4cfe-b138-25abc55a2e98)
