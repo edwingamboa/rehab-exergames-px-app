@@ -1,10 +1,10 @@
-# Web application to manage Player Expereince (PX) evaluations
+# Web application to manage Player Experience (PX) evaluations
 
-The application contains ten modules that allow Creating, viewing, updating and listing PX evaluations for Physical REhabilitation Exergames. 
+The application contains modules that allow Creating, viewing, updating, and listing PX evaluations for Physical Rehabilitation Exergames. 
 
-The application was developed using the Django framework. The development process was conducted using agile practices including the use of a task-board, the creation of user stories, the use of GIT versioning and the management of issues. The development process was managed using the ZenHubapplication and the code versioning was managed using gitand GitHub. 
+The application was developed using the Django framework. Its development process was conducted using agile practices, including a task board, the creation of user stories, GIT versioning, and issue management. The ZenHub application managed the development process, and GitHub managed the code versioning. 
 
-## App Daschboard
+## App Dashboard
 ![dashboard](https://github.com/user-attachments/assets/fc9fa4b2-4159-4f55-972c-7fb3305c2250)
 
 ## Evaluation View
