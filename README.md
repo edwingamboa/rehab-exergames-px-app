@@ -2,7 +2,7 @@
 
 The application contains modules that allow Creating, viewing, updating, and listing PX evaluations for Physical Rehabilitation Exergames. 
 
-The application was developed using the Django framework. Its development process was conducted using agile practices, including a task board, the creation of user stories, GIT versioning, and issue management. The ZenHub application managed the development process, and GitHub managed the code versioning. 
+The application was developed using the Django framework. Its development process was conducted using agile practices, including a task board, creating user stories, GIT versioning, and issue management. The ZenHub application managed the development process, and GitHub managed the code versioning. 
 
 ## App Dashboard
 ![dashboard](https://github.com/user-attachments/assets/fc9fa4b2-4159-4f55-972c-7fb3305c2250)
